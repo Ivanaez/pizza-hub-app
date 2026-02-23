@@ -1,3 +1,11 @@
+   /* Global Styles */
+   .appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+   
+   
    /* Global Reset */
 *,
 *::before,
@@ -7,19 +15,29 @@
   box-sizing: border-box;
 }
 
-                                  /* Page Settings */
+
+          /* Page Settings */
 html {
   
   font-family: Arial, sans-serif;
 }
-
+              /* Background Image */
 body {
-  margin: 0;
-  min-height:100vh;
   background:
- 
-    url("./assets/images/backgrounds/background.jpg");
+  url("./assets/images/backgrounds/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+  
+/* Main Content Area */
+.appMain {
+  flex: 1;
+  
+}
+/* Ensure the main content area takes up remaining space */
+html,body,#root{
+height: 100%;
+
 }

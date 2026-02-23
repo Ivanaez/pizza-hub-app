@@ -1,16 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/layout/header/Header";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <>
-      <Header />
+    <Routes>
+                      {/* Pages WITH header/footer */}
+      <Route path="/" element={<Layout />}>
+       
+      </Route>
 
-      <Routes>
-        <Route path="/" element={<h1></h1>} />
-        
-      </Routes>
-    </>
+                     {/* Pages WITHOUT header/footer */}
+      <Route path="/login" element={<h1 style={{ color: "white" }}>Login</h1>} />
+    </Routes>
   );
 }
+
 export default App;
