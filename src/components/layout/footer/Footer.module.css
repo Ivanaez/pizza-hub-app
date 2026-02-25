@@ -3,10 +3,11 @@
   background-color: #ffffff;
   
 }
+
                          /* Footer container */
 .footerContainer {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1360px; /* limits the footer content width to 1360px */
   display: flex;
   flex-direction: column;
   gap: 18px;

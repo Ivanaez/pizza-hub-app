@@ -1,0 +1,19 @@
+.page{
+
+  width: 100%;
+  max-width: 1360px;    /* Limits the content width to a maximum of 1360px  */
+  margin : 0 auto;
+  padding: 1px 2px;
+  box-sizing: border-box;
+
+}
+
+      /* Media query for screens wider than 768px+ */
+@media (min-width: 768px)  {
+
+    .page{
+    padding: 10px 14px;
+  }
+
+
+}

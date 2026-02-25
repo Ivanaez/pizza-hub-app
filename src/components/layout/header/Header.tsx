@@ -35,8 +35,12 @@ const Header = () => {
 
 
   return (
+
+
                              // Main header container
     <header className={styles.mainHeader} >
+
+      <div className={styles.headerInner}>
 
                   {/* Menu toggle button (hamburger) */}
 <button
@@ -120,6 +124,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
   </Link>
 </div>
 
+      </div>
     </header>
   );
 };

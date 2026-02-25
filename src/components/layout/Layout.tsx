@@ -1,12 +1,15 @@
 import { Outlet } from "react-router-dom";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+
 
 
 // Main layout wrapper for all pages that use header and footer
 function Layout() {
   return (
+                    // This layout will be used for all pages that need header and footer
     <div className="appLayout">
+
        {/* Global Header */}
       <Header />
 
@@ -17,7 +20,9 @@ function Layout() {
       
       {/* Global Footer */}
       <Footer />
-    </div>
+
+      </div>
+    
   );
 }
 

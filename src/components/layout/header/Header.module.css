@@ -1,18 +1,28 @@
 
-
-
-
-/* Header */
+/*  full-width background */
 .mainHeader {
   
-  display : flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
+  width: 100%;
   background-color: #ffffff;
-  padding:0 16px 0 5px;
   position: relative;
   z-index:10;
+ }
+
+/* centered max-width layout */
+ .headerInner{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+
+  height: 56px;
+  padding: 0 16px 0 5px;
+
+  box-sizing: border-box;
  }
 
                            /* Menu toggle button (left side) */
