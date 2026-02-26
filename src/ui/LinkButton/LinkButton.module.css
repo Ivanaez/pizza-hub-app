@@ -3,3 +3,61 @@
 
   text-decoration: none;
 }
+               /*primary button (order now) -styles*/
+.primary{
+  padding: 8px 16px;
+
+  background: linear-gradient(45deg,
+   var(--color-primary-start),
+    var(--color-primary-end));
+
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-button);
+  font-weight: var(--button-weight);
+  font-size: var(--button-size);
+  box-shadow: var(--shadow-button);
+  transition: transform 0.25s ease, filter 0.25s ease;
+
+}
+                /*primary button (order now) - hover effect*/
+.primary:hover
+   {
+    
+    background: linear-gradient(45deg, 
+    var(--color-primary-hover-start),
+    var(--color-primary-hover-end));
+
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-button-hover);
+  }
+
+           /*secondary button (view menu) -styles*/
+.secondary{
+     padding: 8px 16px; 
+  
+  background: linear-gradient(45deg,
+   var(--color-secondary-start),
+    var(--color-secondary-end));
+
+  color: #ffffff;
+  border: none;
+  box-shadow: var(--shadow-button);
+  border-radius: var(--radius-button);
+  font-size: var(--button-size);
+  font-weight: var(--button-weight);
+  transition: transform 0.25s ease, filter 0.25s ease;
+
+}
+
+           /*hover effect for secondary button (view menu) */
+.secondary:hover{
+
+    background: linear-gradient(45deg, 
+        var(--color-secondary-hover-start),
+        var(--color-secondary-hover-end));
+
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-button-hover);
+
+}

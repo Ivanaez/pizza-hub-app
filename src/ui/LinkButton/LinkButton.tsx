@@ -5,14 +5,18 @@ import styles from "./LinkButton.module.css";
 type LinkButtonProps = {
   to: string;
   children: React.ReactNode;
-  
+  variant?: "primary" | "secondary";
 };
 
- function LinkButton({ to, children }: LinkButtonProps) {
+ function LinkButton({ to, children, variant = "primary" }: LinkButtonProps) {
+
   return (
-    <Link to={to} className={styles.linkButton}>
+
+    <Link to={to} className={`${styles.linkButton} ${styles[variant]}`}
+    >
       {children}
     </Link>
+    
   );
 }
 

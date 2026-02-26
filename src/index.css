@@ -1,3 +1,108 @@
+   /* Global CSS Variables */
+:root {
+
+
+     /*Primary*/
+  --color-primary-start: #E53935;
+  --color-primary-end:  #ca0404 ;
+  --color-primary-hover-start: #f93823;
+  --color-primary-hover-end:   #e53935;
+     /*secondary*/
+  --color-secondary-start: #43a047; 
+  --color-secondary-end:   #2e7d32; 
+  --color-secondary-hover-start: #388e3c;
+  --color-secondary-hover-end:   #1b5e20;
+
+
+
+  /*  Radius scale (Primitive tokens)  */
+  --radius-0: 0px;
+  --radius-050: 2px;
+  --radius-100: 4px;
+  --radius-150: 6px;
+  --radius-200: 8px;
+  --radius-300: 12px;
+  --radius-400: 16px;
+  --radius-500: 20px;
+  --radius-600: 24px;
+  --radius-700: 32px;
+  --radius-full: 9999px; /* pills / avatars */
+
+   /* ( Radius Semantic Layer ) */
+--radius-button: var(--radius-400);
+--radius-card: var(--radius-100);
+--radius-input: var(--radius-100);
+--radius-modal: var(--radius-100);
+
+
+
+
+  /*  Font Weight - Scale  */
+  --font-weight-300: 300;
+--font-weight-400: 400;
+--font-weight-500: 500;
+--font-weight-600: 600;
+--font-weight-700: 700;
+--font-weight-800: 800;
+--font-weight-900: 900;
+
+/* Font Weight Text-Roles */
+ --heading-weight: var(--font-weight-100);
+  --subheading-weight: var(--font-weight-100);
+  --body-weight: var(--font-weight-100);
+  --muted-weight: var(--font-weight-100);
+  --label-weight: var(--font-weight-100);
+  --button-weight: var(--font-weight-900);
+ ---caption-weight: var(--font-weight-100);
+
+
+
+/* Shadow Scale (Primitive tokens) */
+--shadow-100: 0 1px 2px rgba(0,0,0,0.05);
+--shadow-200: 0 2px 4px rgba(0,0,0,0.08);
+--shadow-300: 0 4px 12px rgba(0,0,0,0.12);
+--shadow-400: 0 8px 24px rgba(0,0,0,0.16);
+--shadow-500: 0 16px 40px rgba(0,0,0,0.20);
+
+/* Shadow Semantic Layer */
+--shadow-card: var(--shadow-100);
+--shadow-button: var(--shadow-300);
+--shadow-button-hover: var(--shadow-400);
+--shadow-modal: var(--shadow-100);
+
+
+
+
+  /* Font Size - Scale */
+ --font-size-100: 12px;
+--font-size-200: 14px;
+--font-size-300: 16px;
+--font-size-400: 18px;
+--font-size-500: 20px;
+--font-size-600: 24px;
+--font-size-700: 32px;
+--font-size-800: 40px;
+
+/*Font Size - Text Roles */
+
+ --heading-size: var(--font-size-100);
+ --subheading-size: var(--font-size-100);
+ --body-size: var(--font-size-100);
+ --muted-size: var(--font-size-100);
+ --label-size: var(--font-size-100);
+ --button-size: var(--font-size-200);
+ --caption-size: var(--font-size-100);
+
+
+
+
+}
+
+
+
+   
+   
+   
    /* Global Styles */
    .appLayout {
   display: flex;

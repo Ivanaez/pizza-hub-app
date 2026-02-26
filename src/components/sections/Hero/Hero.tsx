@@ -21,8 +21,8 @@ function Hero() {
 
       {/* Hero action buttons */}
      <div className={styles.bannerButtons}>
-      <LinkButton to="/menu">View Menu</LinkButton>
-     <LinkButton to="/order">Order Now</LinkButton>
+      <LinkButton to="/menu" variant="secondary">View Menu</LinkButton>
+     <LinkButton to="/order" variant="primary">Order Now</LinkButton>
 
      </div>
 
