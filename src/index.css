@@ -1,8 +1,18 @@
    /* Global CSS Variables */
 :root {
 
+/*   Color Scale */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  /*Button text colors*/
+  --button-text-color: var(--color-white); 
 
-     /*Primary*/
+  /*neutral /UI */
+  --border-soft: lab(95.49% 0.01 -0.01 / 0.182);
+
+
+
+     /*primary*/
   --color-primary-start: #E53935;
   --color-primary-end:  #ca0404 ;
   --color-primary-hover-start: #f93823;
@@ -15,7 +25,30 @@
 
 
 
-  /*  Radius scale (Primitive tokens)  */
+/* Gap scale *******************************************/
+--gap-100: 8px;
+--gap-200: 12px;
+--gap-300: 16px;
+--gap-400: 20px;
+
+/* Gap semantic */
+--gap-text: var(--gap-200);
+--gap-buttons: var(--gap-100);
+--gap-section: var(--gap-100);
+
+
+
+/* Border Width Scale ******************************************/
+--border-width-100: 1px;
+--border-width-200: 2px;
+
+/* Border semantic width */
+--border-width-100: var(--border-width-100);
+--border-width-200: var(--border-width-200);
+
+
+
+  /*  Radius scale   ******************************************************/
   --radius-0: 0px;
   --radius-050: 2px;
   --radius-100: 4px;
@@ -30,6 +63,7 @@
 
    /* ( Radius Semantic Layer ) */
 --radius-button: var(--radius-400);
+--radius-banner-image: var(--radius-500);
 --radius-card: var(--radius-100);
 --radius-input: var(--radius-100);
 --radius-modal: var(--radius-100);
@@ -37,7 +71,7 @@
 
 
 
-  /*  Font Weight - Scale  */
+  /*  Font Weight - Scale  ***************************************************/
   --font-weight-300: 300;
 --font-weight-400: 400;
 --font-weight-500: 500;
@@ -47,17 +81,17 @@
 --font-weight-900: 900;
 
 /* Font Weight Text-Roles */
- --heading-weight: var(--font-weight-100);
-  --subheading-weight: var(--font-weight-100);
-  --body-weight: var(--font-weight-100);
-  --muted-weight: var(--font-weight-100);
-  --label-weight: var(--font-weight-100);
+ --heading-weight: var(--font-weight-300);
+  --subheading-weight: var(--font-weight-300);
+  --body-weight: var(--font-weight-300);
+  --muted-weight: var(--font-weight-300);
+  --label-weight: var(--font-weight-300);
   --button-weight: var(--font-weight-900);
- ---caption-weight: var(--font-weight-100);
+ ---caption-weight: var(--font-weight-300);
 
 
 
-/* Shadow Scale (Primitive tokens) */
+/* Shadow Scale (Primitive tokens) **************************************************/
 --shadow-100: 0 1px 2px rgba(0,0,0,0.05);
 --shadow-200: 0 2px 4px rgba(0,0,0,0.08);
 --shadow-300: 0 4px 12px rgba(0,0,0,0.12);
@@ -65,7 +99,7 @@
 --shadow-500: 0 16px 40px rgba(0,0,0,0.20);
 
 /* Shadow Semantic Layer */
---shadow-card: var(--shadow-100);
+--shadow-card: var(--shadow-500);
 --shadow-button: var(--shadow-300);
 --shadow-button-hover: var(--shadow-400);
 --shadow-modal: var(--shadow-100);
@@ -73,7 +107,7 @@
 
 
 
-  /* Font Size - Scale */
+  /* Font Size - Scale ****************************************************************/
  --font-size-100: 12px;
 --font-size-200: 14px;
 --font-size-300: 16px;
@@ -94,6 +128,22 @@
  --caption-size: var(--font-size-100);
 
 
+
+/* Spacing Scale *************************************************************************/
+--space-050: 4px;
+--space-100: 8px;
+--space-150: 12px;
+--space-200: 16px;
+--space-300: 24px;
+--space-400: 32px;
+--space-500: 40px;
+--space-600: 48px;
+--space-700: 64px;
+
+
+/* Button Padding */
+--padding-button-y: var(--space-100);
+--padding-button-x: var(--space-200);
 
 
 }

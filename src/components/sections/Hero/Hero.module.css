@@ -15,9 +15,9 @@
   object-fit: cover;
   object-position: center;
 
-  border-radius: 20px;
-  border: 2px solid lab(95.49% 0.01 -0.01 / 0.182);
-  box-shadow: 0 10px 20px rgba(198, 197, 197, 0.5);
+  border-radius: var(--radius-banner-image);
+  border: var(--border-width-200) solid var(--border-soft);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
  }
         /* Banner-Text */
@@ -26,9 +26,9 @@
   display: flex;
   position: absolute;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--gap-text);
   inset: 20px;
-  color: #fff;
+  color: var(--color-white);
   }
 
                 /* Hero buttons container */
@@ -50,9 +50,9 @@
     display: flex;
     align-items: stretch;
     height: clamp(260px, 28vw, 300px);
-    border: 1px solid rgba(36, 36, 36, 0.12);
-    box-shadow: 0 8px 16px rgba(198, 197, 197, 0.5);
-    border-radius: 15px;
+    border: none;
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-400);
     overflow: hidden; 
     background: linear-gradient(#ffffff, #eaeaea);
 

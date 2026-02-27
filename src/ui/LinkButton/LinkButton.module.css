@@ -5,13 +5,13 @@
 }
                /*primary button (order now) -styles*/
 .primary{
-  padding: 8px 16px;
+  padding:var(--space-100) var(--space-200) ;
 
   background: linear-gradient(45deg,
    var(--color-primary-start),
     var(--color-primary-end));
 
-  color: #fff;
+  color: var(--button-text-color);
   border: none;
   border-radius: var(--radius-button);
   font-weight: var(--button-weight);
@@ -34,13 +34,13 @@
 
            /*secondary button (view menu) -styles*/
 .secondary{
-     padding: 8px 16px; 
+   padding:var(--space-100) var(--space-200) ; 
   
   background: linear-gradient(45deg,
    var(--color-secondary-start),
     var(--color-secondary-end));
 
-  color: #ffffff;
+  color: var(--button-text-color);
   border: none;
   box-shadow: var(--shadow-button);
   border-radius: var(--radius-button);
