@@ -26,8 +26,8 @@
   display: flex;
   position: absolute;
   flex-direction: column;
-  gap: var(--gap-text);
-  inset: 20px;
+  gap: var(--font-size-100);
+  inset: var(--font-size-500);
   color: var(--color-white);
   }
 
@@ -35,7 +35,7 @@
   .bannerButtons {
     margin-top: auto;
     display: flex;
-    gap: 17px;
+    gap: var(--font-size-300);
     flex-wrap: wrap;
 
   }
@@ -51,7 +51,7 @@
     align-items: stretch;
     height: clamp(260px, 28vw, 300px);
     border: none;
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-500);
     border-radius: var(--radius-400);
     overflow: hidden; 
     background: linear-gradient(#ffffff, #eaeaea);
@@ -66,10 +66,10 @@
     position: relative;     
     inset: auto;            
     flex: 0 0 40%;
-    padding: 32px;
+    padding: var(--space-400);
     justify-content: center;
-    gap: 14px;
-   color: #2b2b2b;
+    gap: var(--space-300);
+    color: var(--text-primary);
     order: 1;               
       
   }
@@ -80,7 +80,7 @@
     width: 100%;
     height: 100%;
     order: 2;           
-    border-radius: 0;
+    border-radius: var(--radius-0);
     border: 0;
     box-shadow: none
 
@@ -108,5 +108,24 @@
     pointer-events: none;  
 
   }
+
+/* .....................................1024px+...........................................................*/
+
+@media (min-width: 1024px)  {
+  
+/* Button spacing for 1024px+ */
+.bannerButtons {
+   
+    gap: var(--font-size-700);
+    
+
+  }
+
+}
+
+
+
+
+
 
 }

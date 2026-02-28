@@ -5,7 +5,7 @@
 }
                /*primary button (order now) -styles*/
 .primary{
-  padding:var(--space-100) var(--space-200) ;
+  padding:var(--space-100) var(--space-150) ;
 
   background: linear-gradient(45deg,
    var(--color-primary-start),
@@ -34,7 +34,7 @@
 
            /*secondary button (view menu) -styles*/
 .secondary{
-   padding:var(--space-100) var(--space-200) ; 
+   padding:var(--space-100) var(--space-150) ; 
   
   background: linear-gradient(45deg,
    var(--color-secondary-start),
@@ -59,5 +59,14 @@
 
   transform: translateY(-1px);
   box-shadow: var(--shadow-button-hover);
+
+}
+
+@media (min-width:1024px){
+
+.linkButton{
+padding:var(--space-100) var(--space-300);
+
+}
 
 }

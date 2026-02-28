@@ -16,7 +16,7 @@
   justify-content: space-between;
 
   width: 100%;
-  max-width: 1360px;
+  max-width: var(--layout-container-max); /* limits the footer content width to 1360px */
   margin: 0 auto;
 
   height: 56px;

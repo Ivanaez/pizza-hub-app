@@ -1,50 +1,46 @@
    /* Global CSS Variables */
 :root {
 
+  
 /*   Color Scale */
   --color-white: #ffffff;
   --color-black: #000000;
+
   /*Button text colors*/
   --button-text-color: var(--color-white); 
 
-  /*neutral /UI */
-  --border-soft: lab(95.49% 0.01 -0.01 / 0.182);
+/* Maximum width for main layout container */
+  --layout-container-max: 1360px;
 
+  /*neutral /UI */
+  --border-soft: lab(95.49% 0.01 -0.01 / 0.182); /* subtle UI borders */
+  --divider-color: rgba(0, 0, 0, 0.1); /* section divider lines */
+  --link-color: #1a73e8; /* content links */
+
+  /* Text colors */
+--text-primary: #2b2b2b;
+--text-secondary: #3b3b3b;
+--text-muted: #9a9a9a;
 
 
      /*primary*/
   --color-primary-start: #E53935;
   --color-primary-end:  #ca0404 ;
-  --color-primary-hover-start: #f93823;
-  --color-primary-hover-end:   #e53935;
-     /*secondary*/
-  --color-secondary-start: #43a047; 
-  --color-secondary-end:   #2e7d32; 
   --color-secondary-hover-start: #388e3c;
   --color-secondary-hover-end:   #1b5e20;
 
+    /*secondary*/
+  --color-primary-hover-start: #f93823;
+  --color-primary-hover-end:   #e53935;
+  --color-secondary-start: #43a047; 
+  --color-secondary-end:   #2e7d32; 
 
-
-/* Gap scale *******************************************/
---gap-100: 8px;
---gap-200: 12px;
---gap-300: 16px;
---gap-400: 20px;
-
-/* Gap semantic */
---gap-text: var(--gap-200);
---gap-buttons: var(--gap-100);
---gap-section: var(--gap-100);
-
-
+ 
 
 /* Border Width Scale ******************************************/
 --border-width-100: 1px;
 --border-width-200: 2px;
 
-/* Border semantic width */
---border-width-100: var(--border-width-100);
---border-width-200: var(--border-width-200);
 
 
 
@@ -83,9 +79,9 @@
 /* Font Weight Text-Roles */
  --heading-weight: var(--font-weight-300);
   --subheading-weight: var(--font-weight-300);
-  --body-weight: var(--font-weight-300);
+  --body-weight: var(--font-weight-500);
   --muted-weight: var(--font-weight-300);
-  --label-weight: var(--font-weight-300);
+  --label-weight: var(--font-weight-600);
   --button-weight: var(--font-weight-900);
  ---caption-weight: var(--font-weight-300);
 
@@ -105,6 +101,19 @@
 --shadow-modal: var(--shadow-100);
 
 
+ /* Letter spacing scale ******************************************************/
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-label: 0.02em;
+  --letter-spacing-caption: 0.04em;
+
+  /* Letter spacing roles */
+  --heading-letter-spacing: var(--letter-spacing-tight);
+  --body-letter-spacing: var(--letter-spacing-normal);
+  --label-letter-spacing: var(--letter-spacing-label);
+  --caption-letter-spacing: var(--letter-spacing-caption);
+
+
 
 
   /* Font Size - Scale ****************************************************************/
@@ -121,7 +130,7 @@
 
  --heading-size: var(--font-size-100);
  --subheading-size: var(--font-size-100);
- --body-size: var(--font-size-100);
+ --body-size: var(--font-size-300);
  --muted-size: var(--font-size-100);
  --label-size: var(--font-size-100);
  --button-size: var(--font-size-200);
@@ -141,18 +150,10 @@
 --space-700: 64px;
 
 
-/* Button Padding */
---padding-button-y: var(--space-100);
---padding-button-x: var(--space-200);
 
 
 }
 
-
-
-   
-   
-   
    /* Global Styles */
    .appLayout {
   display: flex;
