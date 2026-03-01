@@ -3,9 +3,10 @@
 .mainHeader {
   
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   position: relative;
   z-index:10;
+ 
  }
 
 /* centered max-width layout */
@@ -14,24 +15,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   max-width: var(--layout-container-max); /* limits the footer content width to 1360px */
   margin: 0 auto;
-
-  height: 56px;
-  padding: 0 16px 0 5px;
-
+  height: var(--space-650); /* 56px */
+  padding: 0 var(--space-200) 0 calc(var(--space-050) + 1px); /* 16px horizontal padding with 1px added  */
   box-sizing: border-box;
  }
 
                            /* Menu toggle button (left side) */
 .buttonToggle {
-  font-size: 35px;
+  
+  font-size: var(--font-size-700);
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+  color: var(--text-primary);
+  
+ 
+  
   
 }
         /* Navigation Menu (sliding from left) */
@@ -40,8 +42,8 @@
   inset: 0 auto 0 0;
   width: 70vw;
   max-width: 360px;
-  background-color: white;
-  border-right: 1px solid #adadad;
+  background-color: var(--color-white);
+  border-right: var(--border-width-200) solid var(--divider-color);
   transform: translateX(-110%);
   transition: transform 0.500s ease;
 }
@@ -52,38 +54,38 @@
                         /* Close menu button */
 .menuClose {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: var(--space-150); left: var(--space-150);
   background: none;
   border: none;
-  font-size: 22px;
+  font-size: var(--font-size-500);
   cursor: pointer;
-  color: #333;
+  color: var(--text-primary);
 }
                           /* Menu links default */
 .menu a,
 .menu a:visited {
-  color: #000;
+  color: var(--text-primary);
   text-decoration: none;
+  font-weight:var(--label-weight);
 
  }
                             /* Menu icons */
  .menu a i {
-  margin-right: 10px;   
-  font-size: 18px;      
-  width: 22px;          
+  margin-right: var(--space-150);   
+  font-size: var(--font-size-400);      
+  width: var(--font-size-500);          
   text-align: center;
 }
                           /* Menu list container */
 .menu ul {
   list-style: none;
-   margin-top: 60px;
+   margin-top: var(--space-700); /* 64px */
 }
                          /* Menu list items */
 .menu li {
- padding: 15px 15px;
+ padding: var(--space-200) var(--space-200); /* 16px vertical and horizontal padding */
   cursor: pointer;
-   border-bottom: 1px solid #e0e0e0;
+   border-bottom: var(--border-width-100) solid var(--divider-color);
 }
                               /* Logo (center) */
 
@@ -97,7 +99,7 @@
 }                  
                              /* Logo image size */
 .logo {
-  height: 42px;        
+  height: var(--logo-height); /* 42px */     
   width: auto;
 
 }
@@ -107,20 +109,20 @@
 .headerTools {
   margin-left: auto;
   display: flex;
-  gap: 7px;
+  gap: var(--space-100); /* 8px gap between icons */
   align-items: center;
 
 }
                               /* Header icon buttons */
 .iconBtn {
   text-decoration: none;   
-  color: #000;             
-  font-size: 20px;
+  color: var(--text-primary);             
+  font-size: var(--font-size-500);
 
 }
                             /* User icon color */
 .userBtn  {
- color: #d80000;
+ color: var(--color-primary-start);
 }
                                /* User text hidden */
 .userText {
@@ -145,7 +147,7 @@
   }
                                /* Menu icons - 768px */
    .menu a i {
-  font-size: 22px;      
+  font-size: var(--font-size-600);      
   width: 25px;          
   
 }
@@ -156,7 +158,7 @@
 }
                          /* Menu list items - 768px */
 .menu li {
- padding: 20px 20px;
+  padding: var(--space-300) var(--space-200); /* 24px vertical and 16px horizontal padding */
  
    
 }
@@ -166,6 +168,8 @@
 
 
 @media (min-width: 1024px) {
+
+ 
 
                          /* Menu toggle button (left side)- desktop */
   .buttonToggle {
@@ -184,7 +188,7 @@
   .logoLink {
     position: static;
     transform: none;
-    margin-left: 16px;
+    
     
   }
   .logo {
@@ -215,15 +219,15 @@
 
   .menu a {
     text-decoration: none;
-    color: #000;
-    font-weight: 700;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-700);
     
   }
 
   .menu ul {
     margin-top: 0px;
     display: flex;
-    gap: 50px;
+    gap: var(--space-650); /* 56px gap between menu items */
     justify-content: center;
   }
   .menu li:hover {
@@ -233,18 +237,18 @@
  
                             /* Header tools (icons right side) - desktop */
   .headerTools{
-    gap: 20px;  
+    gap: var(--space-400);  
   }
   .iconBtn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-100); /* 8px gap between icon and text */
 }
   .userText {
-    font-size: 16px;
+    font-size: var(--body-size);
     display: inline-block;
-    font-weight: 600;
-    color:black;
+    font-weight: var(--label-weight);
+    color: var(--text-primary);
   }
   .userText:hover {
     opacity: 0.6;

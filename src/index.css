@@ -16,6 +16,7 @@
   --border-soft: lab(95.49% 0.01 -0.01 / 0.182); /* subtle UI borders */
   --divider-color: rgba(0, 0, 0, 0.1); /* section divider lines */
   --link-color: #1a73e8; /* content links */
+  --logo-height: 42px; /* logo height for header */
 
   /* Text colors */
 --text-primary: #2b2b2b;
@@ -147,6 +148,7 @@
 --space-400: 32px;
 --space-500: 40px;
 --space-600: 48px;
+--space-650: 56px;
 --space-700: 64px;
 
 
