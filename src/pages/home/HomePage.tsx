@@ -1,6 +1,6 @@
 import styles from './HomePage.module.css';
 import Hero from '../../components/sections/Hero/Hero';
-
+import { PizzaList } from "../../components/pizza/PizzaList/PizzaList";
 function HomePage() {
   return (
     
@@ -8,7 +8,7 @@ function HomePage() {
     <main className={styles.page}>
      
       <Hero />
-
+      <PizzaList />
     </main>
   );
 }

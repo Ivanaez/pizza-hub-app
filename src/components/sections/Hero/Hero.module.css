@@ -26,10 +26,18 @@
   display: flex;
   position: absolute;
   flex-direction: column;
-  gap: var(--font-size-100);
-  inset: var(--font-size-500);
+
+  gap: var(--space-200);
+  font-size: var(--hero-size);
+  inset: var(--space-300);
   color: var(--color-white);
+  letter-spacing: var(--heading-letter-spacing);
+  
   }
+    /*Hero title text shadow*/
+  .bannerText h1{
+  text-shadow: var(--shadow-text-h1);
+}
 
                 /* Hero buttons container */
   .bannerButtons {
@@ -117,7 +125,7 @@
 .bannerButtons {
    
     gap: var(--font-size-700);
-    
+    color:var(--button-text-primary);
 
   }
 

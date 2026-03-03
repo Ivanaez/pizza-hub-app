@@ -7,16 +7,23 @@
   --color-black: #000000;
 
   /*Button text colors*/
-  --button-text-color: var(--color-white); 
+  --button-text-primary: var(--color-white);
+  --button-text-secondary: #444;
 
 /* Maximum width for main layout container */
   --layout-container-max: 1360px;
 
+  /* Card width tokens */
+--card-width-desktop: 320px;
+--card-width-mobile: 300px;
+
   /*neutral /UI */
   --border-soft: lab(95.49% 0.01 -0.01 / 0.182); /* subtle UI borders */
+  
   --divider-color: rgba(0, 0, 0, 0.1); /* section divider lines */
   --link-color: #1a73e8; /* content links */
   --logo-height: 42px; /* logo height for header */
+  --surface-card-bg: linear-gradient(#f6f6f6, #f3f3f3); /* card backgrounds */
 
   /* Text colors */
 --text-primary: #2b2b2b;
@@ -37,10 +44,23 @@
   --color-secondary-end:   #2e7d32; 
 
  
+/* Border color scale (primitive) **************************************/
+--border-color-100: rgba(0,0,0,0.06);
+--border-color-200: rgba(0,0,0,0.10);
+--border-color-300: rgba(0,0,0,0.16);
+
+/* Border semantic layer */
+--border-light: var(--border-color-100);
+--border-medium: var(--border-color-200);
+--border-strong: var(--border-color-300);
+
+
 
 /* Border Width Scale ******************************************/
 --border-width-100: 1px;
 --border-width-200: 2px;
+--border-width-300: 3px;
+--border-width-400: 4px;
 
 
 
@@ -61,7 +81,7 @@
    /* ( Radius Semantic Layer ) */
 --radius-button: var(--radius-400);
 --radius-banner-image: var(--radius-500);
---radius-card: var(--radius-100);
+--radius-card: var(--radius-300);
 --radius-input: var(--radius-100);
 --radius-modal: var(--radius-100);
 
@@ -78,12 +98,13 @@
 --font-weight-900: 900;
 
 /* Font Weight Text-Roles */
- --heading-weight: var(--font-weight-300);
+
+ --heading-weight: var(--font-weight-600);
   --subheading-weight: var(--font-weight-300);
   --body-weight: var(--font-weight-500);
   --muted-weight: var(--font-weight-300);
   --label-weight: var(--font-weight-600);
-  --button-weight: var(--font-weight-900);
+  --button-weight: var(--font-weight-700);
  ---caption-weight: var(--font-weight-300);
 
 
@@ -100,6 +121,10 @@
 --shadow-button: var(--shadow-300);
 --shadow-button-hover: var(--shadow-400);
 --shadow-modal: var(--shadow-100);
+ /* Text shadows (semantic) */
+  --shadow-text-h1: 0 2px 8px rgba(0,0,0,0.35);
+  --shadow-text-h2: 0 2px 6px rgba(0,0,0,0.30);
+
 
 
  /* Letter spacing scale ******************************************************/
@@ -128,8 +153,8 @@
 --font-size-800: 40px;
 
 /*Font Size - Text Roles */
-
- --heading-size: var(--font-size-100);
+ --hero-size: var(--font-size-300);
+ --heading-size: var(--font-size-600);
  --subheading-size: var(--font-size-100);
  --body-size: var(--font-size-300);
  --muted-size: var(--font-size-100);

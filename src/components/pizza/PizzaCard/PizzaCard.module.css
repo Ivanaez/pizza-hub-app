@@ -1,0 +1,97 @@
+ /* Pizza card */
+.pizzaCard {
+  flex: 0 0 var(--card-width-mobile);
+  aspect-ratio: 3 / 2;
+  scroll-snap-align: start;
+ background: var(--surface-card-bg);
+ 
+  border: var(--border-width-400) solid var(--border-medium);
+  border-radius: var(--radius-card);
+}
+
+/* Pizza image */
+.pizzaImg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+  /* Pizza divider */
+.pizzaDivider{
+height: var(--border-width-100);
+background: var(--divider-color);
+margin: var(--space-100) var(--space-400);
+}
+
+  /* Pizza content */
+  .pizzaContent{
+   display:flex;
+   justify-content:space-between;
+   padding: var(--space-150);
+   gap: var(--space-150);
+   
+}            
+
+
+                            /* Pizza P */
+  .pizzaContent p{
+    margin-top:var(--space-400);
+  
+  }
+
+    /* Pizza actions container */
+  .pizzaActions{
+   display:flex;
+   gap:var(--space-200);
+   margin-top:var(--space-050);
+  }
+
+  .pizzaActions .btn{
+padding:var(--space-100) var(--space-300);
+margin:0px 0px var(--space-200) var(--space-100);
+font-size:var(--button-size);
+font-weight:var(--button-weight);
+border-radius:var(--radius-button);
+border:none;
+outline:none;
+cursor:pointer;
+text-decoration:none;
+
+}
+                             /* Select button */
+.pizzaActions .btnSelect{
+background: #1f3a5f;
+color:var(--button-text-primary);
+
+}
+                        /* Actions button */
+.pizzaActions .btnDetails{
+ 
+  background:transparent;
+  color:var(--button-text-secondary);
+  border:var(--border-width-100) solid var(--border-color-300);
+
+}
+                          /* Select button hover */
+.pizzaActions .btnSelect:hover{
+background:#163e73; 
+
+}
+                          /* Details button hover */
+.pizzaActions .btnDetails:hover{
+background:#f2f2f2;
+color:#222;
+
+}
+
+
+
+
+    /* Desktop breakpoints 1024px ****************************************/           
+ @media (min-width: 1024px) {
+  .pizzaCard {
+    flex-basis: var(--card-width-desktop);
+  }
+}
+    

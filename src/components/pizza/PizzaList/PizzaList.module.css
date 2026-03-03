@@ -1,0 +1,76 @@
+  /* Popular wrapper container */
+ .popularWrapper {
+  width:100%;
+  margin: var(--space-100) 0 var(--space-700) 0;
+  padding: var(--space-100) 0 var(--space-200) var(--space-200);
+  
+  
+}           
+                          /* Popular text-h2,p */                 
+ .popularText{
+  text-align: center;
+  margin-bottom: var(--space-200);
+  
+ }
+ /* Popular section subtitle */
+ .popularText h2 {
+  font-size: var(--heading-size);
+  color:var(--text-primary);
+  letter-spacing: var(--heading-letter-spacing);
+  font-weight: var(--heading-weight);
+  text-shadow: var(--shadow-text-h2);
+}
+/* Popular section description */
+.popularText p {
+  font-size: var(--body-size);
+    color:var(--text-secondary);
+    letter-spacing: var(--body-letter-spacing);
+    font-weight: var(--subheading-weight);
+}
+
+
+
+
+     /* Popular slider container */
+     .popularSlider {
+  position: relative;
+  background : black;
+}      
+
+
+
+/* Popular cards wrapper:  horizontal scroll */
+.popularCards {
+  display: flex;
+  gap: clamp(15px, 2vw, 40px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; 
+  
+  
+   /* hide scrollbar */
+   scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE / Edge old */
+ 
+}
+
+  
+
+
+
+
+
+
+  /* 1024px desktop view typography *****************************************************************************/
+
+@media (min-width: 1024px) {
+
+  .popularText h2 {
+    font-size: var(--font-size-700);
+  }
+
+  /* Popular section description text */
+  .popularText p {
+    font-size: var(--font-size-400);
+  }
+
+}
