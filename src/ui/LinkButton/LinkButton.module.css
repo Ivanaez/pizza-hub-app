@@ -1,18 +1,18 @@
  /* Banner buttons links */
 .linkButton  {
-
+  outline:none;
+  cursor:pointer;
+  border: none;
   text-decoration: none;
 }
-               /*primary button (order now) -styles*/
+               /*primary button -styles*/
 .primary{
-  padding:var(--space-100) var(--space-150) ;
-
+ 
   background: linear-gradient(45deg,
    var(--color-primary-start),
     var(--color-primary-end));
 
-  color: var(--button-text-color);
-  border: none;
+  color: var(--button-text-primary);
   border-radius: var(--radius-button);
   font-weight: var(--button-weight);
   font-size: var(--button-size);
@@ -20,7 +20,7 @@
   transition: transform 0.25s ease, filter 0.25s ease;
 
 }
-                /*primary button (order now) - hover effect*/
+                /*primary button - hover effect*/
 .primary:hover
    {
     
@@ -32,16 +32,14 @@
     box-shadow: var(--shadow-button-hover);
   }
 
-           /*secondary button (view menu) -styles*/
+           /*secondary button -styles*/
 .secondary{
-   padding:var(--space-100) var(--space-150) ; 
   
   background: linear-gradient(45deg,
    var(--color-secondary-start),
     var(--color-secondary-end));
 
-  color: var(--button-text-color);
-  border: none;
+  color: var(--button-text-primary);
   box-shadow: var(--shadow-button);
   border-radius: var(--radius-button);
   font-size: var(--button-size);
@@ -50,7 +48,7 @@
 
 }
 
-           /*hover effect for secondary button (view menu) */
+           /*hover effect for secondary button  */
 .secondary:hover{
 
     background: linear-gradient(45deg, 
@@ -62,11 +60,4 @@
 
 }
 
-@media (min-width:1024px){
 
-.linkButton{
-padding:var(--space-100) var(--space-300);
-
-}
-
-}

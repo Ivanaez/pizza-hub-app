@@ -2,14 +2,12 @@ import styles from "./PizzaList.module.css";
 import { PizzaCard } from "../PizzaCard/PizzaCard";
 import prosciuttoImg from "../../../assets/images/pizzas/prosciutto.webp"
 import ChickenSupremeImg from "../../../assets/images/pizzas/Chicken-Supreme.webp";
-import diavolaImg from "../../../assets/images/pizzas/Diavola.webp";
-import hamCheeseImg from "../../../assets/images/pizzas/Ham-Cheese.webp";
 import hamMushroomsImg from "../../../assets/images/pizzas/Ham-Mushrooms.webp";
 import hawaiianImg from "../../../assets/images/pizzas/Hawaiian.webp";
 import pepperoniImg from "../../../assets/images/pizzas/Pepperoni.webp";
 import quattroFormaggiImg from "../../../assets/images/pizzas/Quattro-Formaggi.webp";
-import tonnoImg from "../../../assets/images/pizzas/Tonno.webp";
-import veggieDelightImg from "../../../assets/images/pizzas/Veggie-Delight.webp";
+
+
 
 
 
@@ -40,16 +38,16 @@ export function PizzaList() {
         {/* slider left control */}
     <div className={styles.popularSlider}>
 
-  <button className={`${styles.scrollBtn} ${styles.left}`}></button>
+  <button className={`${styles.scrollBtn} ${styles.left}`}> ‹ </button>
 
     {/*Popular pizzas cards wrapper (horizontal scroll container) */}
   <div className={styles.popularCards}>
     
   <PizzaCard
-    title="Pepperoni Classic"
-    priceFrom={9.9}
+    title="Prosciutto"
+    priceFrom={11.30}
     imageSrc={prosciuttoImg}
-    imageAlt="Pepperoni Pizza"
+    imageAlt="Prosciutto Pizza"
     orderHref="/order"
     detailsHref="/details"
   />
@@ -64,7 +62,7 @@ export function PizzaList() {
 
 <PizzaCard
   title="Hawaiian"
-  priceFrom={8.6}
+  priceFrom={10.6}
   imageSrc={hawaiianImg}
   imageAlt="Hawaiian Pizza"
   orderHref="/order"
@@ -73,21 +71,14 @@ export function PizzaList() {
 
 <PizzaCard
   title="Ham & Mushrooms"
-  priceFrom={9.2}
+  priceFrom={9.70}
   imageSrc={hamMushroomsImg}
   imageAlt="Ham & Mushrooms Pizza"
   orderHref="/order"
   detailsHref="/details"
 />
 
-<PizzaCard
-  title="Ham & Cheese"
-  priceFrom={8.9}
-  imageSrc={hamCheeseImg}
-  imageAlt="Ham & Cheese Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
+
 
 <PizzaCard
   title="Chicken Supreme"
@@ -98,38 +89,12 @@ export function PizzaList() {
   detailsHref="/details"
 />
 
-<PizzaCard
-  title="Diavola"
-  priceFrom={9.9}
-  imageSrc={diavolaImg}
-  imageAlt="Diavola Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
 
 <PizzaCard
-  title="Tonno"
-  priceFrom={9.9}
-  imageSrc={tonnoImg}
-  imageAlt="Tonno Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-<PizzaCard
-  title="Veggie Delight"
-  priceFrom={9.9}
-  imageSrc={veggieDelightImg}
-  imageAlt="Veggie Delight Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-<PizzaCard
-  title="Prosciutto"
-  priceFrom={9.9}
-  imageSrc={prosciuttoImg}
-  imageAlt="Prosciutto Pizza"
+  title="Pepperoni"
+  priceFrom={8.9}
+  imageSrc={pepperoniImg}
+  imageAlt="Pepperoni Pizza"
   orderHref="/order"
   detailsHref="/details"
 />
@@ -137,7 +102,7 @@ export function PizzaList() {
 
   </div>
          {/* slider right control */}
-  <button className={`${styles.scrollBtn} ${styles.right}`}></button>
+  <button className={`${styles.scrollBtn} ${styles.right}`}> › </button>
 </div>
 
 

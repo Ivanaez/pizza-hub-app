@@ -3,6 +3,7 @@ import styles from "./Hero.module.css";
 import bannerImg from "../../../assets/images/banners/banner.webp";
 import LinkButton from "../../../ui/LinkButton/LinkButton"; 
 
+
                    
 function Hero() {
   return (
@@ -21,9 +22,11 @@ function Hero() {
 
       {/* Hero action buttons */}
      <div className={styles.bannerButtons}>
+
       <LinkButton to="/menu" variant="secondary">View Menu</LinkButton>
      <LinkButton to="/order" variant="primary">Order Now</LinkButton>
 
+       
      </div>
 
       </div>

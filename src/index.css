@@ -117,7 +117,8 @@
 --shadow-500: 0 16px 40px rgba(0,0,0,0.20);
 
 /* Shadow Semantic Layer */
---shadow-card: var(--shadow-500);
+--shadow-hero: var(--shadow-500);
+--shadow-card: var(--shadow-100);
 --shadow-button: var(--shadow-300);
 --shadow-button-hover: var(--shadow-400);
 --shadow-modal: var(--shadow-100);
@@ -221,6 +222,6 @@ body {
 }
 /* Ensure the main content area takes up remaining space */
 html,body,#root{
-height: 100%;
+min-height: 100%;
 
 }

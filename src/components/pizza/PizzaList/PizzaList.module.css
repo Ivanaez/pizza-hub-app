@@ -34,9 +34,12 @@
      /* Popular slider container */
      .popularSlider {
   position: relative;
-  background : black;
+  
 }      
-
+/* Scroll buttons hidden by default */
+  .scrollBtn {
+  display: none;
+}
 
 
 /* Popular cards wrapper:  horizontal scroll */
@@ -45,12 +48,9 @@
   gap: clamp(15px, 2vw, 40px);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; 
-  
-  
-   /* hide scrollbar */
    scrollbar-width: none;          /* Firefox */
   -ms-overflow-style: none;       /* IE / Edge old */
- 
+   
 }
 
   
@@ -72,5 +72,35 @@
   .popularText p {
     font-size: var(--font-size-400);
   }
+
+     /* Scroll buttons - 1024px*/
+.scrollBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  top: 40%;
+  z-index: 5;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  font-size: var(--font-size-500);
+}
+                          /* scroll btn-left */
+.scrollBtn.left {
+  left: 8px;
+}
+                          /* scroll btn-right */
+.scrollBtn.right {
+  right: 8px;
+}
+
+
+
 
 }

@@ -1,5 +1,8 @@
 import styles from "./PizzaCard.module.css";
+import linkButton from "../../../ui/LinkButton/LinkButton.module.css";
+import { Link } from "react-router-dom";
 
+/* Props for the PizzaCard component */
 type Props = {
   title: string;
   priceFrom: number;
@@ -9,6 +12,7 @@ type Props = {
   detailsHref: string;
 
 }
+/* Function component for the PizzaCard */
 export function PizzaCard({
   title,priceFrom,imageSrc,imageAlt,orderHref,detailsHref
 }: Props) {
@@ -33,12 +37,15 @@ export function PizzaCard({
 
        {/* pizza action buttons container */}
       <div className={styles.pizzaActions}>
-        <a href={orderHref} className={`${styles.btn} ${styles.btnSelect}`}>
+
+                      {/* Link Button Order */}
+        <Link to={orderHref} className={`${styles.btn}  ${linkButton.linkButton}  ${linkButton.primary} `}>
           Select
-        </a>
-        <a href={detailsHref} className={`${styles.btn} ${styles.btnDetails}`}>
+        </Link>
+                       {/* Link Button Details */}
+        <Link to={detailsHref} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
           Details
-        </a>
+        </Link>
       </div>
     </article>
   );
