@@ -1,5 +1,7 @@
 import styles from "./PizzaList.module.css";
 import { PizzaCard } from "../PizzaCard/PizzaCard";
+import {useRef} from "react";
+
 import prosciuttoImg from "../../../assets/images/pizzas/prosciutto.webp"
 import ChickenSupremeImg from "../../../assets/images/pizzas/Chicken-Supreme.webp";
 import hamMushroomsImg from "../../../assets/images/pizzas/Ham-Mushrooms.webp";
@@ -12,8 +14,36 @@ import quattroFormaggiImg from "../../../assets/images/pizzas/Quattro-Formaggi.w
 
 
 
-
+// Popular pizzas slider component with horizontal scroll and left/right controls
 export function PizzaList() {
+
+// Reference to cards container for button scroll control
+const popularCardsRef = useRef<HTMLDivElement | null>(null);
+
+// Horizontal scroll step size
+const scrollAmount = 320;
+
+  // Scroll cards to the left
+  const scrollLeft = () => {
+    popularCardsRef.current?.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
+  };
+
+  // Scroll cards to the right
+  const scrollRight = () => {
+    popularCardsRef.current?.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  };
+
+  
+
+
+
+
   return (
     // popular-wrapper container
     <section className={styles.popularWrapper}>
@@ -38,10 +68,13 @@ export function PizzaList() {
         {/* slider left control */}
     <div className={styles.popularSlider}>
 
-  <button className={`${styles.scrollBtn} ${styles.left}`}> ‹ </button>
+  <button className={`${styles.scrollBtn} ${styles.left}`} onClick={scrollLeft}>
+  
+     ‹ 
+     </button>
 
     {/*Popular pizzas cards wrapper (horizontal scroll container) */}
-  <div className={styles.popularCards}>
+  <div ref={popularCardsRef} className={styles.popularCards}>
     
   <PizzaCard
     title="Prosciutto"
@@ -102,7 +135,10 @@ export function PizzaList() {
 
   </div>
          {/* slider right control */}
-  <button className={`${styles.scrollBtn} ${styles.right}`}> › </button>
+  <button className={`${styles.scrollBtn} ${styles.right}`}
+    onClick={scrollRight}
+    >
+     › </button>
 </div>
 
 
