@@ -16,6 +16,8 @@
   height: auto;
   object-fit: cover;
   display: block;
+
+  -webkit-user-drag: none; /*prevent image drag*/
 }
 
   /* Pizza divider */
@@ -53,6 +55,8 @@ margin: var(--space-100) var(--space-400);
    padding:var(--space-100) var(--space-300);
    margin:0px 0px var(--space-200) var(--space-100);
 
+
+   -webkit-user-drag:none;  /* prevent button drag */
    }
                              
 
@@ -62,5 +66,19 @@ margin: var(--space-100) var(--space-400);
   .pizzaCard {
     flex-basis: var(--card-width-desktop);
   }
+
+ /* Pizza card Image-1024px */
+.pizzaImg {
+     transition: transform 200ms ease, filter 200ms ease;
+  
+  }
+
+  /* Pizza image hover effect - 1024px*/
+  .pizzaImg:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.18));
+                        
+}
+
 }
     
