@@ -73,6 +73,14 @@
     font-size: var(--font-size-400);
   }
 
+
+   /* disable text selection while dragging */
+  .popularCards.dragging,
+  .popularCards.dragging * {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
      /* Scroll buttons - 1024px*/
 .scrollBtn {
   display: flex;
