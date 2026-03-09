@@ -82,7 +82,7 @@
 --radius-button: var(--radius-400);
 --radius-banner-image: var(--radius-500);
 --radius-card: var(--radius-300);
---radius-input: var(--radius-100);
+--radius-input: var(--radius-300);
 --radius-modal: var(--radius-100);
 
 
@@ -122,6 +122,9 @@
 --shadow-button: var(--shadow-300);
 --shadow-button-hover: var(--shadow-400);
 --shadow-modal: var(--shadow-100);
+--shadow-input: var(--shadow-200);
+--shadow-input-focus: var(--shadow-400);
+
  /* Text shadows (semantic) */
   --shadow-text-h1: 0 2px 8px rgba(0,0,0,0.35);
   --shadow-text-h2: 0 2px 6px rgba(0,0,0,0.30);

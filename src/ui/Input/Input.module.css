@@ -1,0 +1,22 @@
+.input {
+
+   /* Base input control */
+  width: 100%;
+
+  height: clamp(44px, 10vw, 45px);
+  padding-left: var(--space-600);
+  padding-right: var(--space-150);
+
+  border: var(--border-width-200) solid var(--border-medium);
+  border-radius: var(--radius-input);
+
+  font-size: clamp(16px, 2.5vw, 18px);
+  box-shadow: var(--shadow-input);
+}
+/* Input focus state */
+
+.input:focus {
+  border-color: var(--color-primary-start);
+  outline: none;
+  box-shadow: var(--shadow-input-focus);
+}
