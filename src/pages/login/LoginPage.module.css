@@ -1,0 +1,168 @@
+  /* Auth card reset (styles applied in ≥768px breakpoint) */
+.authCard {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+ 
+}
+                       /* Login container */
+.login {
+  text-align: center;
+  margin: var(--space-200) var(--space-150);
+  
+}
+                          /* Logo image */
+.logo {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+}
+                       /* Text wrapper container */
+.loginText {
+  max-width: 320px;
+  margin: 0 auto;
+  
+}
+                           /* text-h1 */
+.loginText h1 {
+  margin:var(--space-100) 0;
+
+  color: var(--text-primary);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  text-shadow: var(--shadow-text-h1);
+  letter-spacing: var(--heading-letter-spacing);
+}
+                         /* text-p */
+.loginText p {
+  margin-top:0px;
+
+  font-size: var(--font-size-subtitle);
+  color:var(--text-secondary) ;
+  font-weight: var(--subheading-weight);
+  text-shadow: var(--shadow-text-h2);
+  
+}
+
+ 
+   
+/* Visually hidden (accessibility) */
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* login container */
+.login-container {
+  width: min(90vw, 420px);
+  margin: 24px auto 0;
+  
+}
+                        
+ /* Email wrapper */
+.email {
+width: 100%;
+position: relative;
+max-width: 420px;
+margin:var(--space-150) auto;
+}
+                        /* Password wrapper */
+.password {
+  width: 100%;
+  position:relative;
+  max-width: 420px;
+  margin:var(--space-150) auto;
+}
+
+                     
+/* Input icon base */
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color:var(--text-secondary);
+  font-size: var(--font-size-400);
+}
+                       /* Input icon left */
+.left {
+  left: var(--space-200);
+  
+}
+
+    /* Input icon right */
+.right {
+  right:  var(--space-200);
+  cursor: pointer;
+  background:none;
+  border:none;
+  outline: none;
+  display:none; /* eye icon right-hiden (default)  */
+}
+                     
+
+
+                     /* Forgot password link */
+.forgotPassword{
+  display: inline-block;
+  margin-top: var(--space-200)  ;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  text-shadow: var( --shadow-text-h2);
+
+ 
+}
+                      /* Forgot password hover */
+             
+.forgotPassword:hover{
+  opacity: 0.7;
+  text-decoration: none;
+}
+   
+
+
+/* .......................................Desktop & tablet layout (≥ 768px).................................. */
+
+@media (min-width: 768px) {
+
+    /* Auth card layout for screens 768px and larger */
+  .authCard {
+    width: 100%;
+    max-width: 460px;
+     max-height: 100%; 
+    
+    margin:var(--font-size-100) 0;
+    margin-inline:auto ;
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    
+    box-shadow: var(--shadow-card);
+
+
+  }
+}
+
+
+/* .......................................Desktop+(≥ 1024px).................................. */
+
+@media (min-width: 1024px) {
+
+/* Email wrapper 1024px */
+.email {
+
+margin-bottom: 16px;
+
+}
+
+
+}
