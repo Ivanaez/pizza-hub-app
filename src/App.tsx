@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/Home/HomePage";
+import LoginPage from "./pages/Login/LoginPage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       </Route>
 
                      {/* Pages WITHOUT header/footer */}
-      <Route path="/login" element={<h1 style={{ color: "white" }}>Login</h1>} />
+      <Route path="/login" element={<LoginPage />} />
+
     </Routes>
   );
 }
