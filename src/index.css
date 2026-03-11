@@ -19,7 +19,6 @@
 
   /*neutral /UI */
   --border-soft: lab(95.49% 0.01 -0.01 / 0.182); /* subtle UI borders */
-  
   --divider-color: rgba(0, 0, 0, 0.1); /* section divider lines */
   --link-color: #1a73e8; /* content links */
   --logo-height: 42px; /* logo height for header */
@@ -159,7 +158,7 @@
 /*Font Size - Text Roles */
  --hero-size: var(--font-size-300);
  --heading-size: var(--font-size-600);
- --subheading-size: var(--font-size-100);
+ --subheading-size: var(--font-size-300);
  --body-size: var(--font-size-300);
  --muted-size: var(--font-size-100);
  --label-size: var(--font-size-100);
