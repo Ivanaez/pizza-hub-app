@@ -1,6 +1,8 @@
 import styles from "./LoginPage.module.css";
 import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
+import Button from "../../ui/Button/Button";
+import LinkButton from "../../ui/LinkButton/LinkButton";
 
 const LoginPage = () => {
 
@@ -89,9 +91,42 @@ const LoginPage = () => {
   Forgot password?
 </a>
 
-
-
+<div className={styles.loginButton}>
+<Button 
+   type="submit" 
+   variant="primary" 
+   className={styles.loginPageButton} >
+    Login
+</Button>
+</div>
 </form>
+
+{/* Secondary section */}
+<div className={styles.secondary}>
+
+  {/* New here text */}
+  <p className={styles.newHere}>
+    <span>New here?</span>
+  </p>
+
+<div className={styles.accountButtonBox}>
+  <LinkButton
+    to="/create-account"
+    variant="secondary"
+    className={styles.createAccount}
+  >
+    Create Account
+  </LinkButton>
+</div>
+
+
+
+
+</div>
+
+
+
+
 
 
     </main>

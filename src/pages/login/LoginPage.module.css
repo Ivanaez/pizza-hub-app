@@ -40,7 +40,7 @@
 .loginText p {
   margin-top:0px;
 
-  font-size: var(--font-size-subtitle);
+  font-size: var(--subheading-size);
   color:var(--text-secondary) ;
   font-weight: var(--subheading-weight);
   text-shadow: var(--shadow-text-h2);
@@ -128,7 +128,55 @@ margin:var(--space-150) auto;
   opacity: 0.7;
   text-decoration: none;
 }
-   
+
+/* Login button wrapper */
+.loginButton {
+  
+   margin-top: var(--space-200);
+}
+/* Login page button size override */
+.loginPageButton{
+ width: min(90vw, 420px);
+ height: clamp(44px, 10vw, 45px);
+
+}
+  /* Secondary section - (New here) text */
+.newHere {
+  display:flex;
+ align-items: center;
+ justify-content: center;
+
+  font-size:var(--subheading-size);
+  margin-top: var(--space-300);
+  text-align: center;
+  font-weight: var(--subheading-weight);
+  color: var(--text-primary);
+  gap: var(--space-100);
+}
+
+               /*  (New here) text -before,after */
+.newHere::before,
+.newHere::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color:var(--divider-color);
+  max-width:clamp(60px, 30vw, 150px) ;
+  
+}
+
+/* Create account button container */
+.accountButtonBox{
+ margin: var(--space-200);
+
+}
+
+/* Create account button styles */
+.createAccount{
+width: min(75vw, 320px);        
+height: clamp(36px, 8vw, 38px); 
+
+}
 
 
 /* .......................................Desktop & tablet layout (≥ 768px).................................. */
