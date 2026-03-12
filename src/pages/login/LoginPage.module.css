@@ -150,7 +150,7 @@ margin:var(--space-150) auto;
   margin-top: var(--space-300);
   text-align: center;
   font-weight: var(--subheading-weight);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   gap: var(--space-100);
 }
 
@@ -165,17 +165,62 @@ margin:var(--space-150) auto;
   
 }
 
-/* Create account button container */
+/*  Account buttons container */
 .accountButtonBox{
  margin: var(--space-200);
 
 }
 
-/* Create account button styles */
+/* Create account button size */
 .createAccount{
 width: min(75vw, 320px);        
 height: clamp(36px, 8vw, 38px); 
 
+}
+
+ /* text-OR  */
+.orDivider span {
+  font-size: clamp(18px, 3.5vw, 20px);
+  font-weight: var(--subheading-weight);
+  color:var(--text-secondary);
+  
+}
+
+                 /* OR-text divider  */
+.orDivider {
+  width: min(70vw, 320px);   
+  margin: var(--space-300);
+
+  margin-inline:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-100);
+  
+}
+                
+               /* OR-text divider befor,after */
+.orDivider::before,
+.orDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--divider-color);
+}
+/* Guest button size */
+.guestButton{
+width: min(75vw, 320px);        
+height: clamp(36px, 8vw, 38px); 
+
+
+}
+  /* security-text */
+.securityText{
+margin-top: var(--space-700);
+color: var(--text-muted);
+font-weight: var(---caption-weight);
+font-size: var(--caption-size);
+letter-spacing: var(--caption-letter-spacing);
 }
 
 

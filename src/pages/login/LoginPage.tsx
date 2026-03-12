@@ -119,6 +119,26 @@ const LoginPage = () => {
   </LinkButton>
 </div>
 
+{/* Divider between account creation and guest access */}
+<div className={styles.orDivider}>
+  <span>Or</span>
+</div>
+
+{/* Continue without creating an account */}
+<div className={styles.accountButtonBox}>
+  <LinkButton
+    to="/guest"
+    variant="secondary"
+    className={styles.guestButton}
+  >
+    Continue as Guest
+  </LinkButton>
+</div>
+
+{/* Security and privacy info */}
+<p className={styles.securityText}>
+  We never share your data · <span>Secure login</span>
+</p>
 
 
 
