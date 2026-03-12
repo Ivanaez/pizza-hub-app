@@ -3,8 +3,23 @@ import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import LinkButton from "../../ui/LinkButton/LinkButton";
+import { useState } from "react";
 
 const LoginPage = () => {
+
+/* Password state */
+const [passwordValue, setPasswordValue] = useState("");
+/* Password input state */
+const isLoginDisabled =
+  passwordValue.length > 0 && passwordValue.length < 8;
+/* show password eye icon */
+const showPasswordToggle = passwordValue.length > 0;
+
+/* password visibility state **************************/
+const [showPassword, setShowPassword] = useState(false);
+
+
+
 
   return (
                 /* Auth card wrapper (styled in desktop breakpoint) */
@@ -67,20 +82,25 @@ const LoginPage = () => {
 
        {/* password input field */}
     <Input
-      type="password"
+      type={showPassword ? "text" : "password"}
       name="password"
       placeholder="Password"
       id="password"
       autoComplete="current-password"
+      onChange={(e) => setPasswordValue(e.target.value)}
     />
                  {/* eye span icon */}
+       {showPasswordToggle && (            /* conditional eye icon */  
     <button
       type="button"
       className={`${styles.inputIcon} ${styles.right}`}
       aria-label="Show password"
+      onClick={() => setShowPassword(!showPassword)} /* toggle password visibility */
     >
       <i className="fa-regular fa-eye-slash"></i>
     </button>
+)}
+
   </div>
   
 {/* Password validation error message */}
@@ -91,11 +111,15 @@ const LoginPage = () => {
   Forgot password?
 </a>
 
+{/* Button login */}
 <div className={styles.loginButton}>
 <Button 
    type="submit" 
    variant="primary" 
-   className={styles.loginPageButton} >
+   className={styles.loginPageButton} 
+    disabled={isLoginDisabled}
+   >
+   
     Login
 </Button>
 </div>
@@ -109,6 +133,7 @@ const LoginPage = () => {
     <span>New here?</span>
   </p>
 
+{/* Link button - Create account */}
 <div className={styles.accountButtonBox}>
   <LinkButton
     to="/create-account"
@@ -124,7 +149,7 @@ const LoginPage = () => {
   <span>Or</span>
 </div>
 
-{/* Continue without creating an account */}
+{/* Link button - Guest */}
 <div className={styles.accountButtonBox}>
   <LinkButton
     to="/guest"

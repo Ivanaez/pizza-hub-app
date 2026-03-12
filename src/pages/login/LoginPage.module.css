@@ -106,7 +106,7 @@ margin:var(--space-150) auto;
   background:none;
   border:none;
   outline: none;
-  display:none; /* eye icon right-hiden (default)  */
+   
 }
                      
 
@@ -140,6 +140,14 @@ margin:var(--space-150) auto;
  height: clamp(44px, 10vw, 45px);
 
 }
+
+/* Login button disabled state */
+.loginPageButton:disabled{
+opacity: 0.55;
+cursor:not-allowed;
+filter:grayscale(20%)
+}
+
   /* Secondary section - (New here) text */
 .newHere {
   display:flex;
