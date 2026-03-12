@@ -6,6 +6,7 @@ type ButtonProps = {
   variant?: "primary" | "secondary";
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
   children: React.ReactNode;
 };
 
@@ -15,6 +16,7 @@ export default function Button({
   variant = "primary",
   onClick,
   className,
+  disabled,
   children}: ButtonProps) {
 
 /* Combine base and variant styles */
@@ -30,6 +32,7 @@ export default function Button({
       type={type}
       className={buttonClassName}
       onClick={onClick}
+       disabled={disabled}
     >
       {children}
     </button>

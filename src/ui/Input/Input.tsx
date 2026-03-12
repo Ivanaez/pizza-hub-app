@@ -1,4 +1,5 @@
 import styles from "./Input.module.css";
+import type { ChangeEventHandler } from "react";
 
 /* Props for reusable input component */
 type InputProps = {
@@ -7,10 +8,11 @@ type InputProps = {
   name?: string;
   id?: string;
 autoComplete?: string;
+onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text", placeholder, name,id,autoComplete }: InputProps) => {
+const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
@@ -21,6 +23,7 @@ const Input = ({ type = "text", placeholder, name,id,autoComplete }: InputProps)
       name={name}
       id={id}
       autoComplete={autoComplete}
+      onChange = {onChange}
     />
   );
 };
