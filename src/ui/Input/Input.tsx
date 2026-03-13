@@ -8,11 +8,12 @@ type InputProps = {
   name?: string;
   id?: string;
 autoComplete?: string;
+required?: boolean;
 onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange }: InputProps) => {
+const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
@@ -24,6 +25,7 @@ const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange }: In
       id={id}
       autoComplete={autoComplete}
       onChange = {onChange}
+      required={required}
     />
   );
 };

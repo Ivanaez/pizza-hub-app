@@ -4,6 +4,8 @@ import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import LinkButton from "../../ui/LinkButton/LinkButton";
 import { useState } from "react";
+import type { FormEvent } from "react";
+
 
 const LoginPage = () => {
 
@@ -18,6 +20,32 @@ const showPasswordToggle = passwordValue.length > 0;
 /* password visibility state **************************/
 const [showPassword, setShowPassword] = useState(false);
 
+// password error visibility state
+const [showPasswordError, setShowPasswordError] = useState(false);
+
+// password validation logic
+const validatePassword = (password: string) => {
+  const hasLowercase = /[a-z]/.test(password);
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasLength = password.length >= 8 && password.length <= 15;
+
+  return hasLowercase && hasUppercase && hasNumber && hasLength;
+};
+// login form submit handler
+const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const isPasswordValid = validatePassword(passwordValue);
+
+  if (!isPasswordValid) {
+    setShowPasswordError(true);
+    return;
+  }
+
+  setShowPasswordError(false);
+  console.log("Login success");// login success message
+};
 
 
 
@@ -49,7 +77,7 @@ const [showPassword, setShowPassword] = useState(false);
       </header>
 
 {/* Login form container */}
-<form className={styles.loginContainer} action="/login" method="post">
+<form className={styles.loginContainer} onSubmit={handleLogin}>
                           {/* Email input */}
   <div className={styles.email}>
                         {/* email label (hidden) */}
@@ -67,6 +95,7 @@ const [showPassword, setShowPassword] = useState(false);
       placeholder="Email"
       id="email"
       autoComplete="email"
+      required /* required field */
     />
   </div>
                  {/* Password input */}
@@ -87,7 +116,9 @@ const [showPassword, setShowPassword] = useState(false);
       placeholder="Password"
       id="password"
       autoComplete="current-password"
-      onChange={(e) => setPasswordValue(e.target.value)}
+      onChange={(e) => {setPasswordValue(e.target.value);
+       setShowPasswordError(false);
+      }}
     />
                  {/* eye span icon */}
        {showPasswordToggle && (            /* conditional eye icon */  
@@ -97,14 +128,30 @@ const [showPassword, setShowPassword] = useState(false);
       aria-label="Show password"
       onClick={() => setShowPassword(!showPassword)} /* toggle password visibility */
     >
-      <i className="fa-regular fa-eye-slash"></i>
+      {/* Toggle password visibility icon */}
+      <i className={`fa-regular ${showPassword ? "fa-eye" : "fa-eye-slash"}`}></i>
     </button>
 )}
 
   </div>
   
 {/* Password validation error message */}
-<p className={`${styles.error} ${styles.passwordError} ${styles.hidden}`}></p>
+<div
+  className={`${styles.passwordError} 
+    ${!showPasswordError ? styles.passwordHidden : ""}`}
+
+>
+
+  <p  className={styles.passwordTitle}>
+    Password must contain:</p>
+
+  <ul className={styles.passwordRules} >
+    <li>✓ One uppercase letter</li>
+    <li>✓ One lowercase letter</li>
+    <li>✓ One number</li>
+    <li>✓ 8–15 characters</li>
+  </ul>
+</div>
 
 {/* Forgot password link */}
 <a className={styles.forgotPassword} href="/forgot-password/">

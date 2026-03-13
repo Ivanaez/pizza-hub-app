@@ -108,7 +108,31 @@ margin:var(--space-150) auto;
   outline: none;
    
 }
-                     
+
+  /* Hide password message */       
+.passwordHidden{
+  display:none ;
+}
+/* Password error container */
+.passwordError{
+text-align: center;
+ margin-top: var(--space-200);
+
+}
+
+/* Password error message title */
+.passwordTitle{
+color:var(--color-primary-start);
+letter-spacing: var(--letter-spacing-tight);
+font-weight:var(--heading-weight);
+
+}
+/* Password rules list */
+.passwordRules {
+  list-style:none;
+  
+}
+
 
 
                      /* Forgot password link */
