@@ -1,4 +1,7 @@
 # PizzaHub App
+
+![PizzaHub preview](pizzahub-preview.png)
+
 PizzaHub is a modern web application built with React and TypeScript.
 The project focuses on building a scalable, well-structured application with clean architecture and reusable components.
 
