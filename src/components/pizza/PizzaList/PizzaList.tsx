@@ -2,7 +2,7 @@ import styles from "./PizzaList.module.css";
 import { PizzaCard } from "../PizzaCard/PizzaCard";
 import {useRef} from "react";
 
-import prosciuttoImg from "../../../assets/images/pizzas/prosciutto.webp"
+import prosciuttoImg from "../../../assets/images/pizzas/Prosciutto.webp"
 import ChickenSupremeImg from "../../../assets/images/pizzas/Chicken-Supreme.webp";
 import hamMushroomsImg from "../../../assets/images/pizzas/Ham-Mushrooms.webp";
 import hawaiianImg from "../../../assets/images/pizzas/Hawaiian.webp";
