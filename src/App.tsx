@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
+import CreateAccountPage from "./pages/createAccount/CreateAccountPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
 
                      {/* Pages WITHOUT header/footer */}
       <Route path="/login" element={<LoginPage />} />
-
+      <Route path="/create-account" element={<CreateAccountPage />} />
     </Routes>
   );
 }
