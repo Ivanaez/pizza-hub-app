@@ -9,11 +9,15 @@ type InputProps = {
   id?: string;
 autoComplete?: string;
 required?: boolean;
+value?: string;
 onChange?: ChangeEventHandler<HTMLInputElement>;
+onFocus?: React.FocusEventHandler<HTMLInputElement>;
+onBlur?: React.FocusEventHandler<HTMLInputElement>;
+
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required }: InputProps) => {
+const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required,onFocus, onBlur,value }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
@@ -26,6 +30,9 @@ const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,requi
       autoComplete={autoComplete}
       onChange = {onChange}
       required={required}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      value={value}
     />
   );
 };
