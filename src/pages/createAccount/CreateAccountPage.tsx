@@ -3,10 +3,32 @@ import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+
 
 function CreateAccountPage() {
+
+// password state value
+const [password, setPassword] = useState("");
+// password hint state
+const [showPasswordText, setShowPasswordText] = useState(false);
+
+
+
+// password validation rules
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasLength = password.length >= 8 && password.length <= 15;
+
+  // password is valid if all conditions are met
+  const isPasswordValid =
+  hasUppercase && hasLowercase && hasNumber && hasLength;
+
   return (
-// Main page container wrapper
+      
+    /* Desktop auth card */
     <div className={styles.authCard}>
       {/* Main create account layout */}
       <main className={styles.createAccount}>
@@ -39,6 +61,7 @@ function CreateAccountPage() {
       id="name"
       name="name"
       placeholder="Full Name"
+
     />
   </div>
 
@@ -54,6 +77,7 @@ function CreateAccountPage() {
 
     <Input
       type="email"
+      autoComplete="email"
       id="email"
       name="email"
       placeholder="Email"
@@ -73,11 +97,68 @@ function CreateAccountPage() {
 
     <Input
       type="password"
+      autoComplete="new-password"
       id="password"
       name="password"
       placeholder="Password"
+
+      // show hint on focus
+      onFocus={() => setShowPasswordText(true)}
+      // hide hint on blur
+      onBlur={() => setShowPasswordText(false)}
+
+      // controlled input value
+      value={password}
+      // update state on typing
+      onChange={(e) => setPassword(e.target.value)}
     />
+
   </div>
+
+   {/*show password hint text */}
+   {showPasswordText && password && !isPasswordValid &&( 
+  <div className={styles.passwordError}>
+    <p className={styles.passwordTitle}>
+      Password must contain:
+    </p>
+
+    {/* password rules status list*/}
+    <ul className={styles.passwordRules}>
+
+     {/* check uppercase letter */}
+     <li>
+  <span className={hasUppercase ? styles.valid : styles.invalid}>
+    {hasUppercase ? "✓" : "✗"}
+  </span>
+  One uppercase letter
+</li>
+{/* check lowercase letter */}
+      <li>
+  <span className={hasLowercase ? styles.valid : styles.invalid}>
+    {hasLowercase ? "✓" : "✗"}
+  </span>
+  One lowercase letter
+</li>
+
+{/* check number included */}
+<li>
+  <span className={hasNumber ? styles.valid : styles.invalid}>
+    {hasNumber ? "✓" : "✗"}
+  </span>
+  One number
+</li>
+
+{/* check password length */}
+<li>
+  <span className={hasLength ? styles.valid : styles.invalid}>
+    {hasLength ? "✓" : "✗"}
+  </span>
+  8–15 characters
+</li>
+      
+    </ul>
+  </div>
+)}
 
   {/* Confirm password */}
   <div className={styles.inputGroup}>
@@ -118,16 +199,18 @@ function CreateAccountPage() {
 <p className={styles.loginText}>
   Already have an account? <Link to="/login">Login</Link>
 </p>
+</form>
 
 {/* Security info footer text */}
-</form>
     <p className={styles.securityText}>
   We never share your data • <span> Secure registration </span>
 </p>
 
       </main>
     </div>
+   
   );
 }
+
 
 export default CreateAccountPage;
