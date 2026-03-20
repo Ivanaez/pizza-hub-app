@@ -9,6 +9,9 @@ import type { FormEvent } from "react";
 
 const LoginPage = () => {
 
+  
+
+
 /* Password state */
 const [passwordValue, setPasswordValue] = useState("");
 /* Password input state */

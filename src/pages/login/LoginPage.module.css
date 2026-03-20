@@ -3,12 +3,15 @@
   background: transparent;
   padding: 0;
   margin: 0;
- 
+   
 }
+
                        /* Login container */
 .login {
+
   text-align: center;
-  margin: var(--space-200) var(--space-150);
+  margin: var(--space-050) var(--space-150);
+  
   
 }
                           /* Logo image */
@@ -131,6 +134,7 @@ font-weight:var(--heading-weight);
 /* Password rules list */
 .passwordRules {
   list-style:none;
+  gap:var(--space-100);
   
 }
 
@@ -249,7 +253,7 @@ height: clamp(36px, 8vw, 38px);
 }
   /* security-text */
 .securityText{
-margin-top: var(--space-700);
+ margin-top: var(--space-700);
 color: var(--text-muted);
 font-weight: var(---caption-weight);
 font-size: var(--caption-size);
@@ -286,7 +290,7 @@ letter-spacing: var(--caption-letter-spacing);
 /* Email wrapper 1024px */
 .email {
 
-margin-bottom: 16px;
+margin-bottom: var(--space-200);
 
 }
 
