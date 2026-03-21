@@ -95,12 +95,12 @@ margin:var(--space-150) auto;
   transform: translateY(-50%);
   color:var(--text-secondary);
   font-size: var(--font-size-400);
-  pointer-events: none;
+  
 }
                        /* Input icon left */
 .left {
   left: var(--space-200);
-  
+  pointer-events: none;
 }
 
     /* Input icon right */
