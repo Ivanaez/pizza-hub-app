@@ -71,6 +71,7 @@
 }
 
 
+
 /* Input icon base */
 .inputIcon {
   position: absolute;
@@ -78,32 +79,45 @@
   transform: translateY(-50%);
   color: var(--text-secondary);
   font-size: var(--font-size-400);
-  pointer-events: none;
+ 
 }
+  
  /* Input icon left */
 .left {
   left: var(--space-200);
+  pointer-events: none;
 }
-
+/* Input icon right */
+.right {
+  right: var(--space-200);
+   background:none;
+  border:none;
+  cursor: pointer;
+  outline: none;
+}
+/* password error message */
 .passwordError{
 margin:var(--space-050);
 
 }
+/* password section title */
 .passwordTitle{
 color:var(--text-primary);
 letter-spacing: var(--letter-spacing-tight);
 font-weight:var(--heading-weight);
 
 }
+/* password rules list */
 .passwordRules{
 list-style:none;
 
 }
+/* valid rule state */
 .valid {
   
   color: var(--color-secondary-hover-end);
 }
-
+/* invalid rule state */
 .invalid {
   color:var(--color-primary-end);
 }
