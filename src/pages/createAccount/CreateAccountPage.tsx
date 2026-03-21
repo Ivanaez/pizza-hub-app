@@ -13,6 +13,10 @@ function CreateAccountPage() {
 const [password, setPassword] = useState("");
 // password hint state
 const [showPasswordText, setShowPasswordText] = useState(false);
+// toggle button - password visibility
+const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+// toggle button - confirm password visibility
+const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
 
 
@@ -96,7 +100,7 @@ const [showPasswordText, setShowPasswordText] = useState(false);
       </span>
 
     <Input
-      type="password"
+      type={isPasswordVisible ? "text" : "password"}    // toggle input visibility
       autoComplete="new-password"
       id="password"
       name="password"
@@ -112,6 +116,19 @@ const [showPasswordText, setShowPasswordText] = useState(false);
       // update state on typing
       onChange={(e) => setPassword(e.target.value)}
     />
+         {/*button show / hide password */} 
+     <button
+     type="button"
+     className={`${styles.inputIcon} ${styles.right}`}
+     onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+     aria-label="Show password"
+       >
+        {/* eye / eye-slash icon*/}
+      <i
+      className={`fa-regular ${isPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
+      
+       ></i>
+     </button>
 
   </div>
 
@@ -171,11 +188,28 @@ const [showPasswordText, setShowPasswordText] = useState(false);
       </span>
 
     <Input
-      type="password"
+      type={isConfirmPasswordVisible ? "text" : "password"}// toggle input visibility
       id="confirmPassword"
       name="confirmPassword"
       placeholder="Confirm Password"
     />
+      {/*button show / hide password */} 
+      <button
+     type="button"
+     className={`${styles.inputIcon} ${styles.right}`}
+     onClick={() =>
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible) /* toggle visibility state */
+  }
+     aria-label="Show confirm password"
+       >
+          {/* eye / eye-slash icon*/}
+      <i
+        className={`fa-regular ${isConfirmPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
+          ></i>
+
+     </button>
+     
+
   </div>
 
   {/* Checkbox */}
