@@ -8,16 +8,27 @@ import { useState } from "react";
 
 
 function CreateAccountPage() {
+// name state input value
+const [nameValue, setNameValue] = useState("");
+
+// email state input value
+const [emailValue, setEmailValue] = useState("");
+
 
 // password state value
 const [password, setPassword] = useState("");
 // password hint state
 const [showPasswordText, setShowPasswordText] = useState(false);
+// Confirm-password state value
+const [isPasswordTouched, setIsPasswordTouched] = useState(false);
+
+
+
+const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 // toggle button - password visibility
 const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 // toggle button - confirm password visibility
 const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
-
 
 
 // password validation rules
@@ -30,6 +41,8 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
   const isPasswordValid =
   hasUppercase && hasLowercase && hasNumber && hasLength;
 
+  // password error state
+  const isPasswordError = isPasswordTouched && !isPasswordValid;
   return (
       
     /* Desktop auth card */
@@ -47,15 +60,17 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
           <h1>Create your account</h1>
           
         </header>
-        {/* Full name input field */}
+        {/*  name input field */}
     <form className={styles.form}>
 
-  {/* Full name */}
+  {/*  name */}
   <div className={styles.inputGroup}>
-    <label className={styles.visuallyHidden} htmlFor="name">
-      Full Name
-    </label>
 
+    {nameValue.length > 0 && (
+    <label className={styles.floatingLabel} htmlFor="name">
+       Name*
+    </label>
+     )}
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
     <i className="fa-regular fa-user"></i>
   </span>
@@ -64,36 +79,52 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       type="text"
       id="name"
       name="name"
-      placeholder="Full Name"
+      placeholder="Name"
+
+      value={nameValue} // controlled input value
+      onChange={(e) => setNameValue(e.target.value)}// update state on typing
 
     />
   </div>
 
   {/* Email */}
   <div className={styles.inputGroup}>
-    <label className={styles.visuallyHidden} htmlFor="email">
-      Email
+    {emailValue.length > 0 && (
+    <label className={styles.floatingLabel} htmlFor="email">
+      Email*
     </label>
-
+     )}
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
       <i className="fa-regular fa-envelope"></i>
      </span>
 
     <Input
       type="email"
-      autoComplete="email"
+      autoComplete="off"
       id="email"
       name="email"
       placeholder="Email"
+
+      value={emailValue}// controlled input value
+      onChange={(e) => setEmailValue(e.target.value)}// update state on typing
+
+
     />
   </div>
 
   {/* Password */}
-  <div className={styles.inputGroup}>
-    <label className={styles.visuallyHidden} htmlFor="password">
-      Password
+<div
+  className={`
+  ${styles.inputGroup}
+  ${isPasswordError ? styles.inputGroupError : ""}
+ 
+`}
+>
+    {password.length > 0 && (
+    <label className={styles.floatingLabel} htmlFor="password">
+      Password*
     </label>
-
+    )}
        <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
      <i className="fa-solid fa-lock"></i>
      
@@ -101,6 +132,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
     <Input
       type={isPasswordVisible ? "text" : "password"}    // toggle input visibility
+      
       autoComplete="new-password"
       id="password"
       name="password"
@@ -109,28 +141,40 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       // show hint on focus
       onFocus={() => setShowPasswordText(true)}
       // hide hint on blur
-      onBlur={() => setShowPasswordText(false)}
+      onBlur={() => { setShowPasswordText(false); 
+                     setIsPasswordTouched(true); }}
 
-      // controlled input value
-      value={password}
-      // update state on typing
-      onChange={(e) => setPassword(e.target.value)}
+
+      
+       value={password}// controlled input value
+
+      onChange={(e) => setPassword(e.target.value)}// update state on typing
     />
          {/*button show / hide password */} 
+         {password.length > 0 && (
      <button
      type="button"
      className={`${styles.inputIcon} ${styles.right}`}
      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+     onMouseDown={(e) => e.preventDefault()}
      aria-label="Show password"
        >
         {/* eye / eye-slash icon*/}
       <i
       className={`fa-regular ${isPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
-      
+
        ></i>
      </button>
+     )}
 
   </div>
+
+{/* password error message*/}
+{isPasswordTouched && !isPasswordValid && (
+  <p className={styles.passwordErrorText}>
+    Please enter a valid password
+  </p>
+)}
 
    {/*show password hint text */}
    {showPasswordText && password && !isPasswordValid &&( 
@@ -145,14 +189,14 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
      {/* check uppercase letter */}
      <li>
   <span className={hasUppercase ? styles.valid : styles.invalid}>
-    {hasUppercase ? "✓" : "✗"}
+    {hasUppercase ? "✓" : ""}
   </span>
   One uppercase letter
 </li>
 {/* check lowercase letter */}
       <li>
   <span className={hasLowercase ? styles.valid : styles.invalid}>
-    {hasLowercase ? "✓" : "✗"}
+    {hasLowercase ? "✓" : ""}
   </span>
   One lowercase letter
 </li>
@@ -160,7 +204,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 {/* check number included */}
 <li>
   <span className={hasNumber ? styles.valid : styles.invalid}>
-    {hasNumber ? "✓" : "✗"}
+    {hasNumber ? "✓" : ""}
   </span>
   One number
 </li>
@@ -168,7 +212,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 {/* check password length */}
 <li>
   <span className={hasLength ? styles.valid : styles.invalid}>
-    {hasLength ? "✓" : "✗"}
+    {hasLength ? "✓" : ""}
   </span>
   8–15 characters
 </li>
@@ -179,10 +223,12 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   {/* Confirm password */}
   <div className={styles.inputGroup}>
-    <label className={styles.visuallyHidden} htmlFor="confirmPassword">
-      Confirm Password
-    </label>
 
+    {confirmPasswordValue.length > 0 && (
+    <label className={styles.floatingLabel} htmlFor="confirmPassword">
+      Confirm Password*
+    </label>
+   )}
      <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
      <i className="fa-solid fa-lock"></i>
       </span>
@@ -192,8 +238,13 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       id="confirmPassword"
       name="confirmPassword"
       placeholder="Confirm Password"
+
+      value={confirmPasswordValue}// controlled input value
+    
+      onChange={(e) => setConfirmPasswordValue(e.target.value)}// update state on typing
     />
       {/*button show / hide password */} 
+        {confirmPasswordValue.length > 0 && (
       <button
      type="button"
      className={`${styles.inputIcon} ${styles.right}`}
@@ -206,8 +257,9 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       <i
         className={`fa-regular ${isConfirmPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
           ></i>
-
+       
      </button>
+      )}
      
 
   </div>
