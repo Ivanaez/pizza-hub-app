@@ -209,6 +209,7 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     Continue as Guest
   </LinkButton>
 </div>
+</div>
 
 {/* Security and privacy info */}
 <p className={styles.securityText}>
@@ -217,7 +218,7 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 
 
 
-</div>
+
 
 
 

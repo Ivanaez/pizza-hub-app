@@ -1,18 +1,10 @@
-  /* Auth card reset (styles applied in ≥768px breakpoint) */
-.authCard {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-   
-}
 
-                       /* Login container */
+  /* Login container */
 .login {
 
   text-align: center;
-  margin: var(--space-050) var(--space-150);
-  
-  
+  padding: var(--space-050) var(--space-150);
+  margin:0;
 }
                           /* Logo image */
 .logo {
@@ -253,7 +245,7 @@ height: clamp(36px, 8vw, 38px);
 }
   /* security-text */
 .securityText{
- margin-top: var(--space-700);
+   margin-top:var(--space-700);
 color: var(--text-muted);
 font-weight: var(---caption-weight);
 font-size: var(--caption-size);
@@ -269,18 +261,33 @@ letter-spacing: var(--caption-letter-spacing);
   .authCard {
     width: 100%;
     max-width: 460px;
-     max-height: 100%; 
+    min-height: 100vh; 
     
-    margin:var(--font-size-100) 0;
+    padding-top:var(--space-050);
     margin-inline:auto ;
-    background: var(--color-white);
-    border-radius: var(--radius-card);
+    background-color: transperant;
     
-    box-shadow: var(--shadow-card);
-
 
   }
+/* Login container */
+  .login{
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  }
+
+/* security-text */
+.securityText{
+margin-top:auto;
+padding-bottom:var(--space-050);
+
 }
+
+  
+}
+
+
+
 
 
 /* .......................................Desktop+(≥ 1024px).................................. */
