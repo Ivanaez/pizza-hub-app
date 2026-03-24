@@ -22,6 +22,8 @@ const [showPasswordText, setShowPasswordText] = useState(false);
 // Confirm-password state value
 const [isPasswordTouched, setIsPasswordTouched] = useState(false);
 
+const [hasPasswordTyped, setHasPasswordTyped] = useState(false);
+
 
 
 const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
@@ -41,8 +43,8 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
   const isPasswordValid =
   hasUppercase && hasLowercase && hasNumber && hasLength;
 
-  // password error state
-  const isPasswordError = isPasswordTouched && !isPasswordValid;
+  const isPasswordError =
+  isPasswordTouched && hasPasswordTyped && !isPasswordValid;
   return (
       
     /* Desktop auth card */
@@ -132,23 +134,21 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
     <Input
       type={isPasswordVisible ? "text" : "password"}    // toggle input visibility
-      
       autoComplete="new-password"
       id="password"
       name="password"
       placeholder="Password"
-
       // show hint on focus
       onFocus={() => setShowPasswordText(true)}
       // hide hint on blur
       onBlur={() => { setShowPasswordText(false); 
                      setIsPasswordTouched(true); }}
-
-
-      
        value={password}// controlled input value
 
-      onChange={(e) => setPassword(e.target.value)}// update state on typing
+      onChange={(e) => {
+      setPassword(e.target.value);
+      if (e.target.value.length > 0) setHasPasswordTyped(true);
+      }}
     />
          {/*button show / hide password */} 
          {password.length > 0 && (
@@ -179,8 +179,9 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
    {/*show password hint text */}
    {showPasswordText && password && !isPasswordValid &&( 
   <div className={styles.passwordError}>
+
     <p className={styles.passwordTitle}>
-      Password must contain:
+      Password must contain
     </p>
 
     {/* password rules status list*/}
