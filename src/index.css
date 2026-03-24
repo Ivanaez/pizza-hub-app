@@ -121,7 +121,7 @@
 --shadow-button: var(--shadow-300);
 --shadow-button-hover: var(--shadow-400);
 --shadow-modal: var(--shadow-100);
---shadow-input: var(--shadow-200);
+--shadow-input: var(--shadow-100);
 --shadow-input-focus: var(--shadow-400);
 
  /* Text shadows (semantic) */
@@ -209,11 +209,7 @@ html {
 }
               /* Background Image */
 body {
-  background:
-  url("./assets/images/backgrounds/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(#ffffff, #eaeaea);
 }
 
   
