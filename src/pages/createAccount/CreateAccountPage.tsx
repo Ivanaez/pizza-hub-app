@@ -11,6 +11,9 @@ function CreateAccountPage() {
 // name state input value
 const [nameValue, setNameValue] = useState("");
 
+// name error message
+const [nameError, setNameError] = useState("");
+
 // email state input value
 const [emailValue, setEmailValue] = useState("");
 
@@ -84,9 +87,31 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       placeholder="Name"
 
       value={nameValue} // controlled input value
-      onChange={(e) => setNameValue(e.target.value)}// update state on typing
 
-    />
+      onChange={(e) => {
+        const value = e.target.value;// raw input
+        const noNumbersValue = value.replace(/[0-9]/g, "");// remove numbers
+         const onlyLatinValue = noNumbersValue.replace(/[^a-zA-Z\s-']/g, "");// allow only latin + space + - '
+
+
+         // max length validation
+      if (onlyLatinValue.length > 70) {
+      setNameError("Max 70 characters");// set error
+      } else {
+      setNameError("");// clear error
+      setNameValue(onlyLatinValue);// update input
+      }
+      
+      }}
+
+     />
+
+     {/*render error only if exists  */}
+    {nameError && (
+  <div className="nameError"> {nameError} </div>
+     )}
+
+    
   </div>
 
   {/* Email */}
