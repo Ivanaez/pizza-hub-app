@@ -99,8 +99,10 @@ border-color:var(--color-primary-start);
   outline: none;
   font-size: var(--font-size-500);
 }
+
+
 /* password error message */
-.passwordErrorText{
+.errorText{
 color:var(--color-primary-end);
 display: block;
  margin: var(--space-050) 0 var(--space-150) 0;
