@@ -10,12 +10,15 @@ import { useState } from "react";
 function CreateAccountPage() {
 // name state input value
 const [nameValue, setNameValue] = useState("");
-
 // name error message
 const [nameError, setNameError] = useState("");
 
 // email state input value
 const [emailValue, setEmailValue] = useState("");
+// email error message
+const [emailError, setEmailError] = useState("");
+// email regex
+const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 
 // password state value
@@ -24,16 +27,25 @@ const [password, setPassword] = useState("");
 const [showPasswordText, setShowPasswordText] = useState(false);
 // Confirm-password state value
 const [isPasswordTouched, setIsPasswordTouched] = useState(false);
-
+// user started typing password
 const [hasPasswordTyped, setHasPasswordTyped] = useState(false);
 
 
-
+// confirm password state value
 const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 // toggle button - password visibility
 const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 // toggle button - confirm password visibility
 const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+// confirm password error message
+const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
+
+// terms checkbox state
+const [isChecked, setIsChecked] = useState(false);
+// terms error message
+const [termsError, setTermsError] = useState("");
+
 
 
 // password validation rules
@@ -48,6 +60,88 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   const isPasswordError =
   isPasswordTouched && hasPasswordTyped && !isPasswordValid;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  
+  let hasError = false;
+  // (name) validation
+// trim input spaces
+ const trimmedName = nameValue.trim();
+
+// empty name check
+  if (trimmedName === "") {
+    setNameError("Name is required");
+    hasError = true;
+    
+  }
+// max length check
+  else if (trimmedName.length > 70) {
+    setNameError("Max 70 characters");
+    hasError = true;
+  }
+// valid name
+else {
+  setNameError("");
+}
+ 
+ // (email) validation
+const trimmedEmail = emailValue.trim();
+// empty email check
+if (trimmedEmail === "") {
+  setEmailError("Email is required");
+  hasError = true;
+}
+// invalid email format
+else if (!emailRegex.test(trimmedEmail)) {
+  setEmailError("Please enter a valid email");
+  hasError = true;
+}
+// valid email
+else {
+  setEmailError("");
+}
+
+// (password) validation
+if (password.trim() === "") {
+  hasError = true;
+  setIsPasswordTouched(true); // force show error
+
+  // invalid password rules
+} else if (!isPasswordValid) {
+  hasError = true;
+  setIsPasswordTouched(true);
+}
+
+
+// (confirm password) validation
+if (confirmPasswordValue.trim() === "") {
+  setConfirmPasswordError("Please confirm your password");
+  hasError = true;
+// passwords do not match
+} else if (confirmPasswordValue !== password) {
+  setConfirmPasswordError("Passwords do not match");
+  hasError = true;
+
+// passwords match
+} else {
+  setConfirmPasswordError("");
+}
+
+// terms must be accepted
+if (!isChecked) {
+  setTermsError("You must accept the terms");
+  hasError = true;
+} else {
+  setTermsError("");
+}
+
+// stop submit on error
+if (hasError) return;
+// form is valid
+console.log("Form validation successful");
+};
+
   return (
       
     /* Desktop auth card */
@@ -66,7 +160,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
           
         </header>
         {/*  name input field */}
-    <form className={styles.form}>
+    <form className={styles.form}  onSubmit={handleSubmit} noValidate>
 
   {/*  name */}
   <div className={styles.inputGroup}>
@@ -93,51 +187,54 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
         const noNumbersValue = value.replace(/[0-9]/g, "");// remove numbers
          const onlyLatinValue = noNumbersValue.replace(/[^a-zA-Z\s-']/g, "");// allow only latin + space + - '
 
-
-         // max length validation
-      if (onlyLatinValue.length > 70) {
-      setNameError("Max 70 characters");// set error
-      } else {
-      setNameError("");// clear error
       setNameValue(onlyLatinValue);// update input
-      }
-      
       }}
 
      />
+    </div>
 
-     {/*render error only if exists  */}
+  {/*render error only if exists  */}
     {nameError && (
-  <div className="nameError"> {nameError} </div>
-     )}
-
-    
-  </div>
+  <div className={styles.errorText}> {nameError} </div>
+     )} 
 
   {/* Email */}
   <div className={styles.inputGroup}>
+   {/*show label if typed */}
     {emailValue.length > 0 && (
     <label className={styles.floatingLabel} htmlFor="email">
       Email*
     </label>
      )}
+
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
       <i className="fa-regular fa-envelope"></i>
      </span>
 
     <Input
       type="email"
-      autoComplete="off"
+      autoComplete="email"
       id="email"
       name="email"
       placeholder="Email"
+      maxLength={254}
 
       value={emailValue}// controlled input value
-      onChange={(e) => setEmailValue(e.target.value)}// update state on typing
 
+      onChange={(e) => {
+    const value = e.target.value; // raw input
+    setEmailValue(value); // update input while typing
 
+      }}
     />
+    
   </div>
+  {/* render email error message only if exists */}
+{emailError && (
+  <div className={styles.errorText}>{emailError}</div>
+)}
+
+
 
   {/* Password */}
 <div
@@ -196,7 +293,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
 {/* password error message*/}
 {isPasswordTouched && !isPasswordValid && (
-  <p className={styles.passwordErrorText}>
+  <p className={styles.errorText}>
     Please enter a valid password
   </p>
 )}
@@ -264,6 +361,7 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
       id="confirmPassword"
       name="confirmPassword"
       placeholder="Confirm Password"
+      autoComplete="new-password"
 
       value={confirmPasswordValue}// controlled input value
     
@@ -290,15 +388,33 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   </div>
 
+  {confirmPasswordError && (
+  <div className={styles.errorText}>
+    {confirmPasswordError}
+  </div>
+    )}
+
   {/* Checkbox */}
   <label className={styles.checkbox}>
-    <input type="checkbox" />
+
+    {/* terms acceptance checkbox */}
+    <input type="checkbox" 
+    checked={isChecked}// checkbox state
+    onChange={(e) => setIsChecked(e.target.checked)}// update state on change
+    
+    />
     <span>
   I agree to the{" "}
   <Link to="/terms">Terms & Conditions</Link>
 </span>
   </label>
 
+ {/* terms validation error text*/}
+{termsError && (
+  <div className={styles.errorText}>
+    {termsError}
+  </div>
+)}
   {/* Button */}
   <Button 
     type="submit" 
@@ -307,10 +423,12 @@ const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
     Create Account
   </Button>
 
+
 {/* Login redirect link text */}
 <p className={styles.loginText}>
   Already have an account? <Link to="/login">Login</Link>
 </p>
+
 </form>
 
 {/* Security info footer text */}
