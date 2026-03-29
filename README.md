@@ -32,7 +32,7 @@ npm run dev
 PizzaHub is a modern web application built with React and TypeScript.
 The project focuses on building a scalable, well-structured application with clean architecture and reusable components.
 
-The current implementation includes core pages such as Home and Login, organized through a modular component-based structure.
+The current implementation includes core pages such as Home and authentication flows, organized through a modular component-based structure.
 
 The application is designed with:
 
