@@ -12,6 +12,9 @@ function CreateAccountPage() {
 const [nameValue, setNameValue] = useState("");
 // name error message
 const [nameError, setNameError] = useState("");
+// check valid name input
+const isNameValid = nameValue.trim().length > 0 && nameValue.trim().length <= 70;
+
 
 // email state input value
 const [emailValue, setEmailValue] = useState("");
@@ -19,6 +22,10 @@ const [emailValue, setEmailValue] = useState("");
 const [emailError, setEmailError] = useState("");
 // email regex
 const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+// validate email format
+const isEmailValid = emailRegex.test(emailValue.trim());
+
+
 
 
 // password state value
@@ -31,6 +38,7 @@ const [isPasswordTouched, setIsPasswordTouched] = useState(false);
 const [hasPasswordTyped, setHasPasswordTyped] = useState(false);
 
 
+
 // confirm password state value
 const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 // toggle button - password visibility
@@ -39,6 +47,9 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 // confirm password error message
 const [confirmPasswordError, setConfirmPasswordError] = useState("");
+// check passwords match
+const isConfirmPasswordValid =
+  confirmPasswordValue === password && confirmPasswordValue.length > 0;
 
 
 // terms checkbox state
@@ -191,6 +202,14 @@ console.log("Form validation successful");
       }}
 
      />
+     {/* show valid name check */}
+{isNameValid && (
+  <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
+    ✓
+  </span>
+)}
+
+
     </div>
 
   {/*render error only if exists  */}
@@ -228,6 +247,15 @@ console.log("Form validation successful");
       }}
     />
     
+   {isEmailValid && emailValue.length > 0 && ( // show email valid check
+  <span
+    className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
+    aria-hidden="true"
+  >
+    ✓
+  </span>
+   )}
+
   </div>
   {/* render email error message only if exists */}
 {emailError && (
@@ -272,6 +300,16 @@ console.log("Form validation successful");
       if (e.target.value.length > 0) setHasPasswordTyped(true);
       }}
     />
+{/* show valid password check */}
+{isPasswordValid && password.length > 0 && (
+  <span
+    className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
+    aria-hidden="true"
+  >
+    ✓
+  </span>
+)}
+
          {/*button show / hide password */} 
          {password.length > 0 && (
      <button
@@ -367,6 +405,16 @@ console.log("Form validation successful");
     
       onChange={(e) => setConfirmPasswordValue(e.target.value)}// update state on typing
     />
+{/* show confirm password check */}
+{isConfirmPasswordValid && (
+  <span
+    className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
+    aria-hidden="true"
+  >
+    ✓
+  </span>
+)}
+
       {/*button show / hide password */} 
         {confirmPasswordValue.length > 0 && (
       <button

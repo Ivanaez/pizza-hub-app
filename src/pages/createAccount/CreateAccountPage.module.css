@@ -84,7 +84,19 @@ border-color:var(--color-primary-start);
   font-size: var(--font-size-400);
  
 }
+  /*  check icon color  */
+.validIcon {
+  color: var(--color-secondary-end);
+  cursor: default;
+  pointer-events: none;
   
+}
+/* check icon offset from eye */
+.validPosition {
+  right: calc(var(--space-200) + 30px);
+}
+
+
  /* Input icon left */
 .left {
   left: var(--space-200);
