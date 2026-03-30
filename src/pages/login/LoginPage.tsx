@@ -9,22 +9,29 @@ import type { FormEvent } from "react";
 
 const LoginPage = () => {
 
-  
-
 
 /* Password state */
 const [passwordValue, setPasswordValue] = useState("");
-/* Password input state */
-const isLoginDisabled =
-  passwordValue.length > 0 && passwordValue.length < 8;
 /* show password eye icon */
 const showPasswordToggle = passwordValue.length > 0;
-
 /* password visibility state **************************/
 const [showPassword, setShowPassword] = useState(false);
-
 // password error visibility state
 const [showPasswordError, setShowPasswordError] = useState(false);
+
+
+
+
+/* Email state */
+const [emailValue, setEmailValue] = useState("");
+// email regex
+const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+// email error message
+const [emailError, setEmailError] = useState(""); 
+// check email format
+const isEmailValid = emailRegex.test(emailValue.trim());
+
+
 
 // password validation logic
 const validatePassword = (password: string) => {
@@ -35,19 +42,45 @@ const validatePassword = (password: string) => {
 
   return hasLowercase && hasUppercase && hasNumber && hasLength;
 };
+
+const isPasswordValid = validatePassword(passwordValue); // check password format
 // login form submit handler
 const handleLogin = (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const isPasswordValid = validatePassword(passwordValue);
+  let hasError = false; // track errors
+  const trimmedEmail = emailValue.trim(); // clean input
+  
 
-  if (!isPasswordValid) {
-    setShowPasswordError(true);
-    return;
-  }
+  
 
-  setShowPasswordError(false);
+  // email validation.......
+  if (trimmedEmail === "") {
+  setEmailError("Email is required"); // empty email
+  hasError = true;
+}
+else if (!emailRegex.test(trimmedEmail)) {
+  setEmailError("Invalid email format"); // invalid format
+  hasError = true;
+}
+else{
+setEmailError(""); // clear error
+}
+
+// password validation............
+
+  if (passwordValue.trim() === "") {
+  setShowPasswordError(true); // empty password
+  hasError = true;
+} else if (!isPasswordValid) {
+  setShowPasswordError(true); // invalid rules
+  hasError = true;
+} else {
+  setShowPasswordError(false); // clear error
+}
+   if (hasError) return;// stop if has error
   console.log("Login success");// login success message
+
 };
 
 
@@ -80,13 +113,15 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
       </header>
 
 {/* Login form container */}
-<form className={styles.loginContainer} onSubmit={handleLogin}>
+<form className={styles.loginContainer} onSubmit={handleLogin} noValidate>
                           {/* Email input */}
   <div className={styles.email}>
-                        {/* email label (hidden) */}
-    <label className={styles.visuallyHidden} htmlFor="email">
+                        {/* email label-floating */}
+          {emailValue.length > 0 && (   // show label if typing           
+    <label className={styles.floatingLabel} htmlFor="email">
       Email
     </label>
+    )}
                            {/* email span icon */}      
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
       <i className="fa-regular fa-envelope"></i>
@@ -98,15 +133,37 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
       placeholder="Email"
       id="email"
       autoComplete="email"
-      required /* required field */
+      
+
+      onChange={(e) => {
+  const value = e.target.value; // raw input value
+  setEmailValue(value); // update input state
+
+      }}
     />
+    {/* show valid email check */}
+    {isEmailValid && emailValue.length > 0 && (
+  <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
+    ✓
+  </span>
+   )}
+
   </div>
+  {/* show email error message */}
+{emailError && (
+  <div className={styles.errorText}>
+    {emailError} {/* show email error */}
+  </div>
+)}
+
                  {/* Password input */}
   <div className={styles.password}>
-                               {/* password label (hidden) */}
-    <label className={styles.visuallyHidden} htmlFor="password">
+                               {/* password label-floating */}
+      {passwordValue.length > 0 && (    // show label if typing     
+    <label className={styles.floatingLabel} htmlFor="password">
       Password
     </label>
+    )}
                           {/* lock span icon */}
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
       <i className="fa-solid fa-lock"></i>
@@ -119,10 +176,17 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
       placeholder="Password"
       id="password"
       autoComplete="current-password"
-      onChange={(e) => {setPasswordValue(e.target.value);
-       setShowPasswordError(false);
+
+      onChange={(e) => {setPasswordValue(e.target.value); // update input state
+       setShowPasswordError(false);// reset error state
       }}
     />
+    {/*  show valid password check  */}
+    {  isPasswordValid && passwordValue.length > 0 && (
+  <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
+    ✓
+  </span>
+)}
                  {/* eye span icon */}
        {showPasswordToggle && (            /* conditional eye icon */  
     <button
@@ -149,7 +213,7 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     Password must contain:</p>
 
   <ul className={styles.passwordRules} >
-    <li>✓ One uppercase letter</li>
+    <li>✓One uppercase letter</li>
     <li>✓ One lowercase letter</li>
     <li>✓ One number</li>
     <li>✓ 8–15 characters</li>
@@ -167,7 +231,7 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
    type="submit" 
    variant="primary" 
    className={styles.loginPageButton} 
-    disabled={isLoginDisabled}
+    
    >
    
     Login
@@ -216,16 +280,7 @@ const handleLogin = (e: FormEvent<HTMLFormElement>) => {
   We never share your data · <span>Secure login</span>
 </p>
 
-
-
-
-
-
-
-
-
-
-    </main>
+</main>
 
     </div>
   );
