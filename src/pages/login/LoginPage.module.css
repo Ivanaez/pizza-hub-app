@@ -44,24 +44,25 @@
 
  
    
-/* Visually hidden (accessibility) */
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+/* Floating label */
+.floatingLabel{
+   position: absolute;
+  background: var(--color-white);
+  top: calc(var(--space-100) * -1);
+  left: var(--space-500);
+  padding: 0 6px;
+  
+  font-size: var(--font-weight-800);
+  line-height: 1;
+  color: var(--text-secondary);
+  z-index: 1;
 }
 
 /* login container */
 .login-container {
   width: min(90vw, 420px);
   margin: 24px auto 0;
-  
+  gap: var(--space-150); /* spacing between blocks */
 }
                         
  /* Email wrapper */
@@ -69,14 +70,25 @@
 width: 100%;
 position: relative;
 max-width: 420px;
-margin:var(--space-150) auto;
+margin: var(--space-400) auto 0;
 }
+
+/* password error message */
+.errorText{
+color:var(--color-primary-end);
+display: block;
+margin: var(--space-050) 0 var(--space-150) 0;
+ text-align:left;
+
+}
+
                         /* Password wrapper */
 .password {
   width: 100%;
   position:relative;
   max-width: 420px;
-  margin:var(--space-150) auto;
+  margin: var(--space-300) auto 0;
+  
 }
 
                      
@@ -89,6 +101,18 @@ margin:var(--space-150) auto;
   font-size: var(--font-size-400);
   
 }
+/*  check icon color  */
+.validIcon {
+  color: var(--color-secondary-end);
+  cursor: default;
+  pointer-events: none;
+}
+/* check icon offset from eye */
+.validPosition {
+  right: calc(var(--space-200) + 30px);
+}
+
+
                        /* Input icon left */
 .left {
   left: var(--space-200);
@@ -111,8 +135,8 @@ margin:var(--space-150) auto;
 }
 /* Password error container */
 .passwordError{
-text-align: center;
- margin-top: var(--space-200);
+margin:var(--space-050);
+ text-align:left;
 
 }
 
@@ -290,16 +314,7 @@ padding-bottom:var(--space-050);
 
 
 
-/* .......................................Desktop+(≥ 1024px).................................. */
-
-@media (min-width: 1024px) {
-
-/* Email wrapper 1024px */
-.email {
-
-margin-bottom: var(--space-200);
-
-}
 
 
-}
+
+
