@@ -10,6 +10,7 @@ type InputProps = {
 autoComplete?: string;
 required?: boolean;
 value?: string;
+disabled?: boolean;
  maxLength?: number;
 onChange?: ChangeEventHandler<HTMLInputElement>;
 onFocus?: React.FocusEventHandler<HTMLInputElement>;
@@ -18,7 +19,7 @@ onBlur?: React.FocusEventHandler<HTMLInputElement>;
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required,onFocus,onBlur,value,maxLength }: InputProps) => {
+const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required,disabled,onFocus,onBlur,value,maxLength }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
@@ -35,6 +36,7 @@ const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,requi
       onBlur={onBlur}
       value={value}
       maxLength={maxLength}
+      disabled={disabled}
     />
   );
 };

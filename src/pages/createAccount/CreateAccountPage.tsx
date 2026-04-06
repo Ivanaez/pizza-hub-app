@@ -220,7 +220,7 @@ setSignUpSuccess("Check your email to confirm your account");
       id="name"
       name="name"
       placeholder="Name"
-     
+     disabled={!!signUpSuccess} // disable input on successful signup
       value={nameValue} // controlled input value
 
       onChange={(e) => {
@@ -266,6 +266,7 @@ setSignUpSuccess("Check your email to confirm your account");
       id="email"
       name="email"
       placeholder="Email"
+        disabled={!!signUpSuccess} // disable input on successful signup
       maxLength={254}
 
       value={emailValue}// controlled input value
@@ -316,8 +317,10 @@ setSignUpSuccess("Check your email to confirm your account");
       type={isPasswordVisible ? "text" : "password"}    // toggle input visibility
       autoComplete="new-password"
       id="password"
+      disabled={!!signUpSuccess} // disable input on successful signup
       name="password"
       placeholder="Password"
+     
       // show hint on focus
       onFocus={() => setShowPasswordText(true)}
       // hide hint on blur
@@ -347,6 +350,7 @@ setSignUpSuccess("Check your email to confirm your account");
      className={`${styles.inputIcon} ${styles.right}`}
      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
      onMouseDown={(e) => e.preventDefault()}
+      disabled={!!signUpSuccess} // disable input on successful signup
      aria-label="Show password"
        >
         {/* eye / eye-slash icon*/}
@@ -430,6 +434,7 @@ setSignUpSuccess("Check your email to confirm your account");
       name="confirmPassword"
       placeholder="Confirm Password"
       autoComplete="new-password"
+      disabled={!!signUpSuccess} // disable input on successful signup
 
       value={confirmPasswordValue}// controlled input value
     
@@ -449,6 +454,7 @@ setSignUpSuccess("Check your email to confirm your account");
         {confirmPasswordValue.length > 0 && (
       <button
      type="button"
+      disabled={!!signUpSuccess} // disable input on successful signup
      className={`${styles.inputIcon} ${styles.right}`}
      onClick={() =>
     setIsConfirmPasswordVisible(!isConfirmPasswordVisible) /* toggle visibility state */
@@ -479,7 +485,7 @@ setSignUpSuccess("Check your email to confirm your account");
     <input type="checkbox" 
     checked={isChecked}// checkbox state
     onChange={(e) => setIsChecked(e.target.checked)}// update state on change
-    
+     disabled={!!signUpSuccess} // disable input on successful signup
     />
     <span>
   I agree to the{" "}
@@ -510,6 +516,7 @@ setSignUpSuccess("Check your email to confirm your account");
   {/* Button */}
   <Button 
     type="submit" 
+   disabled={!!signUpSuccess} // disable input on successful signup
     variant="primary"
     className={styles.submitButton}>
     Create Account
