@@ -2,8 +2,9 @@ import styles from "./CreateAccountPage.module.css";
 import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { supabase } from "../../lib/supabase";
 
 
 
@@ -59,6 +60,14 @@ const [termsError, setTermsError] = useState("");
 
 
 
+// backend error state..........
+const [signUpError, setSignUpError] = useState("");
+// backend success state
+const [signUpSuccess, setSignUpSuccess] = useState("");
+
+
+
+
 // password validation rules
   const hasUppercase = /[A-Z]/.test(password);
   const hasLowercase = /[a-z]/.test(password);
@@ -72,11 +81,11 @@ const [termsError, setTermsError] = useState("");
   const isPasswordError =
   isPasswordTouched && hasPasswordTyped && !isPasswordValid;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   
+
   let hasError = false;
-  // (name) validation
 // trim input spaces
  const trimmedName = nameValue.trim();
 
@@ -149,8 +158,29 @@ if (!isChecked) {
 
 // stop submit on error
 if (hasError) return;
-// form is valid
-console.log("Form validation successful");
+
+// clear previous backend messages
+setSignUpError("");
+setSignUpSuccess("");
+
+// send signup request to Supabase (backend)
+const { error } = await supabase.auth.signUp({
+  email: emailValue,
+  password: password,
+ options: {
+    emailRedirectTo: "http://localhost:5174/login",// redirect after email confirmation
+  },
+});
+// if backend returns error -> show it
+if (error) {
+  setSignUpError(error.message);// display backend error message
+  return;
+}
+// success -> tell user to confirm email
+setSignUpSuccess("Check your email to confirm your account");
+
+
+
 };
 
   return (
@@ -190,12 +220,12 @@ console.log("Form validation successful");
       id="name"
       name="name"
       placeholder="Name"
-
+     
       value={nameValue} // controlled input value
 
       onChange={(e) => {
         const value = e.target.value;// raw input
-        const noNumbersValue = value.replace(/[0-9]/g, "");// remove numbers
+        const noNumbersValue = value.replace(/[0-9]/g, "");// remove numbersw
          const onlyLatinValue = noNumbersValue.replace(/[^a-zA-Z\s-']/g, "");// allow only latin + space + - '
 
       setNameValue(onlyLatinValue);// update input
@@ -463,6 +493,20 @@ console.log("Form validation successful");
     {termsError}
   </div>
 )}
+
+{/* backend error message */}
+{signUpError && (
+  <div className={styles.signUpError}>
+    {signUpError}
+  </div>
+)}
+{/* backend success message */}
+{signUpSuccess && (
+  <div className={styles.signUpSuccess}>
+    {signUpSuccess}
+  </div>
+)}
+
   {/* Button */}
   <Button 
     type="submit" 
@@ -470,6 +514,7 @@ console.log("Form validation successful");
     className={styles.submitButton}>
     Create Account
   </Button>
+
 
 
 {/* Login redirect link text */}

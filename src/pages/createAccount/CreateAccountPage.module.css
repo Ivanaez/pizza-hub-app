@@ -189,6 +189,19 @@ list-style:none;
   height: clamp(44px, 10vw, 45px);
   margin: var(--space-300) 0;
 }
+/* backend message: error  */
+.signUpError{
+  margin: var(--space-100) 0; /* 8px top/bottom */
+  color:var(--color-primary-end);
+
+}
+/* backend message: success */
+.signUpSuccess {
+ margin: var(--space-100) 0; /* 8px top/bottom */
+  color: var(--color-secondary-hover-end);
+
+}
+
 /* Login text layout */
 .loginText {
   margin-top: var(--space-200);
