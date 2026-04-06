@@ -42,8 +42,6 @@
   
 }
 
- 
-   
 /* Floating label */
 .floatingLabel{
    position: absolute;
@@ -128,6 +126,7 @@ margin: var(--space-050) 0 var(--space-150) 0;
   outline: none;
    
 }
+
 
   /* Hide password message */       
 .passwordHidden{
@@ -222,6 +221,12 @@ filter:grayscale(20%)
 .accountButtonBox{
  margin: var(--space-200);
 
+}
+/* backend auth error message */
+.errorTextLogin{
+
+color:var(--color-primary-end);
+margin: var(--space-050) ;
 }
 
 /* Create account button size */

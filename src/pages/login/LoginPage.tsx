@@ -5,12 +5,14 @@ import Button from "../../ui/Button/Button";
 import LinkButton from "../../ui/LinkButton/LinkButton";
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { supabase } from "../../lib/supabase";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
 
-
-/* Password state */
+  
+/* Password state *****************/
 const [passwordValue, setPasswordValue] = useState("");
 /* show password eye icon */
 const showPasswordToggle = passwordValue.length > 0;
@@ -20,9 +22,7 @@ const [showPassword, setShowPassword] = useState(false);
 const [showPasswordError, setShowPasswordError] = useState(false);
 
 
-
-
-/* Email state */
+/* Email state ***************/
 const [emailValue, setEmailValue] = useState("");
 // email regex
 const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -30,6 +30,13 @@ const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const [emailError, setEmailError] = useState(""); 
 // check email format
 const isEmailValid = emailRegex.test(emailValue.trim());
+
+
+
+// backend login error.............
+const [loginError, setLoginError] = useState("");
+// navigation hook
+const navigate = useNavigate();
 
 
 
@@ -42,17 +49,18 @@ const validatePassword = (password: string) => {
 
   return hasLowercase && hasUppercase && hasNumber && hasLength;
 };
-
 const isPasswordValid = validatePassword(passwordValue); // check password format
-// login form submit handler
-const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+
+
+
+// login form submit handler..................................
+const handleLogin = async(e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+
 
   let hasError = false; // track errors
   const trimmedEmail = emailValue.trim(); // clean input
-  
 
-  
 
   // email validation.......
   if (trimmedEmail === "") {
@@ -79,7 +87,22 @@ setEmailError(""); // clear error
   setShowPasswordError(false); // clear error
 }
    if (hasError) return;// stop if has error
-  console.log("Login success");// login success message
+ 
+// clear backend error
+setLoginError("");
+
+// send login request to backend (Supabase auth)
+const { data,error } = await supabase.auth.signInWithPassword({
+  email: trimmedEmail,
+  password: passwordValue,
+});
+// check backend response
+if (error) {
+  setLoginError("Invalid email or password");// login failed
+} else {
+  console.log(data.user);// debug user
+  navigate("/");// go to home
+}
 
 };
 
@@ -114,6 +137,8 @@ setEmailError(""); // clear error
 
 {/* Login form container */}
 <form className={styles.loginContainer} onSubmit={handleLogin} noValidate>
+
+
                           {/* Email input */}
   <div className={styles.email}>
                         {/* email label-floating */}
@@ -213,12 +238,19 @@ setEmailError(""); // clear error
     Password must contain:</p>
 
   <ul className={styles.passwordRules} >
-    <li>✓One uppercase letter</li>
-    <li>✓ One lowercase letter</li>
-    <li>✓ One number</li>
-    <li>✓ 8–15 characters</li>
+    <li> One uppercase letter</li>
+    <li> One lowercase letter</li>
+    <li> One number</li>
+    <li> 8–15 characters</li>
   </ul>
 </div>
+
+{/* backend error message */}
+   {loginError && (
+  <div className={styles.errorTextLogin}>
+    {loginError}
+  </div>
+  )}
 
 {/* Forgot password link */}
 <a className={styles.forgotPassword} href="/forgot-password/">
