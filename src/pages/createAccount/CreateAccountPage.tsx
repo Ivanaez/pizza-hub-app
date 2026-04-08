@@ -2,7 +2,7 @@ import styles from "./CreateAccountPage.module.css";
 import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../../lib/supabase";
 
@@ -222,6 +222,7 @@ setSignUpSuccess("Check your email to confirm your account");
       placeholder="Name"
      disabled={!!signUpSuccess} // disable input on successful signup
       value={nameValue} // controlled input value
+       className={styles.inputSuccess}// adds space for check icon
 
       onChange={(e) => {
         const value = e.target.value;// raw input
@@ -266,6 +267,7 @@ setSignUpSuccess("Check your email to confirm your account");
       id="email"
       name="email"
       placeholder="Email"
+        className={styles.inputSuccess}// adds space for check icon
         disabled={!!signUpSuccess} // disable input on successful signup
       maxLength={254}
 
@@ -320,6 +322,7 @@ setSignUpSuccess("Check your email to confirm your account");
       disabled={!!signUpSuccess} // disable input on successful signup
       name="password"
       placeholder="Password"
+      className={styles.inputSuccess}// adds space for check icon
      
       // show hint on focus
       onFocus={() => setShowPasswordText(true)}
@@ -435,7 +438,7 @@ setSignUpSuccess("Check your email to confirm your account");
       placeholder="Confirm Password"
       autoComplete="new-password"
       disabled={!!signUpSuccess} // disable input on successful signup
-
+      className={styles.inputSuccess}// adds space for check icon
       value={confirmPasswordValue}// controlled input value
     
       onChange={(e) => setConfirmPasswordValue(e.target.value)}// update state on typing

@@ -59,7 +59,11 @@
   width: 100%;
   position: relative;
 }
+/* Input modifier: adds right padding for success icon */
+.inputSuccess{
+padding-right: var(--space-700) !important;
 
+}
 /* Input spacing */
 .inputGroup + .inputGroup {
   margin-top: var(--space-300);
