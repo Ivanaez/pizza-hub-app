@@ -1,14 +1,87 @@
 import styles from "./Header.module.css";
 import logo from "../../../assets/images/logos/Logo.PNG";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState,useRef,useEffect } from "react";
+import { supabase } from "../../../lib/supabase";
+
+
+
 
 // Main header component
 const Header = () => {
                // Menu open/close state
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // Reference to navigation DOM element
+
+// User authentication state (logged in / logged out)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+// React Router hook for programmatic navigation (redirect user via code)
+     const navigate = useNavigate();
+
+// Reference to navigation DOM element
     const menuRef = useRef<HTMLElement | null>(null);
+
+
+
+    // handle login / logout click
+    const handleAuthClick = async () => {
+       if (isLoggedIn) {
+    await supabase.auth.signOut(); // logout user
+    navigate("/login"); // redirect login
+  } else {
+    navigate("/login"); // go login
+  }
+   };
+
+
+
+// user icon click
+const handleUserIconClick = (e: React.MouseEvent) => {
+  if (isLoggedIn) {
+    e.preventDefault(); // stop navigation
+    return; // do nothing
+  }
+};
+
+
+
+// Listen for authentication state (on mount)
+useEffect(() => {
+  // Function to get current session from Supabase
+  const checkSession = async () => {
+    // Call Supabase API to get current session
+    const { data, error } = await supabase.auth.getSession();
+
+    // If there is an error -> log it and mark user as logged out
+    if (error) {
+      console.error(error);
+      setIsLoggedIn(false);
+      return;
+    }
+
+    // If session exists -> user is logged in (true), otherwise false
+    setIsLoggedIn(!!data.session);
+  };
+
+  // Run once when component mounts
+  checkSession();
+
+  // Subscribe to auth changes (login / logout events)
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    // Update state whenever auth state changes
+    setIsLoggedIn(!!session);
+  });
+
+  // Cleanup: unsubscribe when component unmounts
+  return () => {
+    subscription.unsubscribe();
+  };
+}, []);
+
+
+    
 
     // Detect click outside menu to close it
     useEffect(() => {
@@ -32,6 +105,11 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
+
+
+
+
+
 
 
   return (
@@ -107,15 +185,30 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
         <i className="fa-solid fa-phone"></i> Contact
       </Link>
     </li>
+<li>
+  <Link 
+     to="/login" onClick={handleAuthClick}// handle login/logout logic
+     >
+    <i className="fa-solid fa-user"></i> 
+    {isLoggedIn ? "Logout" : "Login"}  {/* show "Logout" if logged in, otherwise "Login"*/}
+  </Link>
+</li>
+
   </ul>
+
 </nav>
                          {/*  User & Cart box */}
 <div className={styles.headerTools}>
 
   {/* User Icon */}
-  <Link to="/login" className={`${styles.iconBtn} ${styles.userBtn}`}>
+  <Link to="/login" onClick={handleUserIconClick}// prevent navigation if logged in
+  className={`${styles.iconBtn} ${styles.userBtn}`}>
     <i className="fa-solid fa-user"></i>
-    <span className={styles.userText}>Login</span>
+
+    <span className={styles.userText} onClick={handleAuthClick}>{/*} handle login/logout logic*/}
+   {isLoggedIn ? "Logout" : "Login"} {/* show "Logout" if logged in, otherwise "Login" */}
+    </span>
+
   </Link>
 
   {/* Cart Icon */}

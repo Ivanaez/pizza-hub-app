@@ -71,7 +71,7 @@
  }
                             /* Menu icons */
  .menu a i {
-  margin-right: var(--space-150);   
+  margin-right: var(--space-150); 
   font-size: var(--font-size-400);      
   width: var(--font-size-500);          
   text-align: center;
@@ -255,7 +255,9 @@
   }
                              /* Hide menu items 4 and 5 on - desktop */
   .menu li:nth-child(5),
-  .menu li:nth-child(6) {
+  .menu li:nth-child(6),
+  .menu li:nth-child(7)
+  {
     display: none;
   }
 
