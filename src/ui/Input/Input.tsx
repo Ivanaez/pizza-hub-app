@@ -12,6 +12,7 @@ required?: boolean;
 value?: string;
 disabled?: boolean;
  maxLength?: number;
+ className?: string;
 onChange?: ChangeEventHandler<HTMLInputElement>;
 onFocus?: React.FocusEventHandler<HTMLInputElement>;
 onBlur?: React.FocusEventHandler<HTMLInputElement>;
@@ -19,12 +20,12 @@ onBlur?: React.FocusEventHandler<HTMLInputElement>;
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text", placeholder, name,id,autoComplete,onChange,required,disabled,onFocus,onBlur,value,maxLength }: InputProps) => {
+const Input = ({ type = "text",className, placeholder, name,id,autoComplete,onChange,required,disabled,onFocus,onBlur,value,maxLength }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
     <input
-      className={styles.input}
+      className={`${styles.input} ${className || ""}`} // apply styles and allow custom class
       type={type}
       placeholder={placeholder}
       name={name}
