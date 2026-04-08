@@ -62,7 +62,11 @@
   margin: 24px auto 0;
   gap: var(--space-150); /* spacing between blocks */
 }
-                        
+  /* Input modifier: adds right padding for success icon */
+.inputSuccess{
+padding-right: var(--space-700) !important;
+
+}               
  /* Email wrapper */
 .email {
 width: 100%;

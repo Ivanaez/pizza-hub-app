@@ -158,7 +158,7 @@ if (error) {
       placeholder="Email"
       id="email"
       autoComplete="email"
-      
+       className={styles.inputSuccess}// adds space for check icon
 
       onChange={(e) => {
   const value = e.target.value; // raw input value
@@ -201,7 +201,8 @@ if (error) {
       placeholder="Password"
       id="password"
       autoComplete="current-password"
-
+      className={styles.inputSuccess}// adds space for check icon
+      
       onChange={(e) => {setPasswordValue(e.target.value); // update input state
        setShowPasswordError(false);// reset error state
       }}
