@@ -223,3 +223,9 @@ html,body,#root{
 min-height: 100%;
 
 }
+
+/* remove native password reveal button added by Microsoft browsers */
+input[type="password"]::-ms-reveal
+ {
+  display: none ;
+}
