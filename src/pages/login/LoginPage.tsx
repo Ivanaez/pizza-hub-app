@@ -7,6 +7,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { supabase } from "../../lib/supabase";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const LoginPage = () => {
@@ -254,9 +255,9 @@ if (error) {
   )}
 
 {/* Forgot password link */}
-<a className={styles.forgotPassword} href="/forgot-password/">
+<Link className={styles.forgotPassword} to="/forgot-password">
   Forgot password?
-</a>
+</Link>
 
 {/* Button login */}
 <div className={styles.loginButton}>
@@ -299,7 +300,7 @@ if (error) {
 {/* Link button - Guest */}
 <div className={styles.accountButtonBox}>
   <LinkButton
-    to="/guest"
+    to="/"
     variant="secondary"
     className={styles.guestButton}
   >
