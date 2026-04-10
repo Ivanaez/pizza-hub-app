@@ -3,6 +3,8 @@ import Layout from "./components/layout/Layout";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import CreateAccountPage from "./pages/createAccount/CreateAccountPage";
+import ForgotPasswordPage from "./pages/forgotPassword/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
                      {/* Pages WITHOUT header/footer */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/create-account" element={<CreateAccountPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
     </Routes>
   );
 }
