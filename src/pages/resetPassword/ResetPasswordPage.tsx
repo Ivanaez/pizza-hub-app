@@ -1,5 +1,5 @@
 import styles from "./ResetPasswordPage.module.css";
-import logo from "../../assets/images/logos/logo.png";
+import logo from "../../assets/images/logos/Logo.PNG";
 import { Link } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
