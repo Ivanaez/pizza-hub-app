@@ -1,5 +1,5 @@
 import styles from "./ForgotPasswordPage.module.css";
-import logo from "../../assets/images/logos/logo.png";
+import logo from "../../assets/images/logos/Logo.PNG";
 import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import { Link } from "react-router-dom";
