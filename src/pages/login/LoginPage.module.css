@@ -24,21 +24,19 @@
                            /* text-h1 */
 .loginText h1 {
   margin:var(--space-100) 0;
-
   color: var(--text-primary);
   font-size: var(--heading-size);
   font-weight: var(--heading-weight);
-  text-shadow: var(--shadow-text-h1);
   letter-spacing: var(--heading-letter-spacing);
 }
                          /* text-p */
 .loginText p {
   margin-top:0px;
-
   font-size: var(--subheading-size);
   color:var(--text-secondary) ;
   font-weight: var(--subheading-weight);
-  text-shadow: var(--shadow-text-h2);
+  letter-spacing: var(--body-letter-spacing);
+  
   
 }
 
@@ -99,7 +97,7 @@ margin: var(--space-050) 0 var(--space-150) 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color:var(--text-secondary);
+  color:var(--text-muted);
   font-size: var(--font-size-400);
   
 }
@@ -166,7 +164,7 @@ font-weight:var(--heading-weight);
   color: var(--link-color);
   text-decoration: none;
   transition: opacity 0.2s ease;
-  text-shadow: var( --shadow-text-h2);
+ 
 
  
 }
