@@ -3,8 +3,23 @@ import logo from "../../assets/images/logos/Logo.PNG";
 import { Link } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
+import { useState } from "react";
 
 const ResetPasswordPage = () => {
+
+// password state input value
+const [passwordValue, setPasswordValue] = useState("");
+
+
+
+
+// confirm password state value
+const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+
+
+
+
+
   return (
   // Auth card wrapper
     <div className={styles.authCard}>
@@ -29,11 +44,11 @@ const ResetPasswordPage = () => {
         {/* New password container........................................ */}
           <div className={styles.newPasswordContainer}>
             <div className={styles.inputGroup}>
-     
+      {passwordValue.length > 0 && (
     <label className={styles.floatingLabel} htmlFor="newPassword">
       New Password
     </label>
-
+      )}
     <span className={`${styles.inputIcon} ${styles.inputIconLeft}`}>
       <i className="fa-solid fa-lock"></i>
     </span>
@@ -44,6 +59,9 @@ const ResetPasswordPage = () => {
       name="newPassword"
       placeholder="New Password"
       autoComplete="new-password"
+
+      value={passwordValue}// controlled input value
+      onChange={(e) => setPasswordValue(e.target.value)} // update state on input change
     />
 
     {/* toggle new password visibility */}
@@ -65,11 +83,12 @@ const ResetPasswordPage = () => {
           <div className={styles.confirmPasswordContainer}>
 
            <div className={styles.inputGroup}>
-    
+
+    {confirmPasswordValue.length > 0 && (
     <label className={styles.floatingLabel} htmlFor="confirmPassword">
       Confirm Password
     </label>
-
+     )}
     <span className={`${styles.inputIcon} ${styles.inputIconLeft}`}>
       <i className="fa-solid fa-lock"></i>
     </span>
@@ -80,6 +99,10 @@ const ResetPasswordPage = () => {
       name="confirmPassword"
       placeholder="Confirm Password"
       autoComplete="new-password"
+
+       value={confirmPasswordValue}// controlled input value
+      onChange={(e) => setConfirmPasswordValue(e.target.value)} // update state on input change
+      
     />
 
      {/* toggle confirm password visibility */}
