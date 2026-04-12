@@ -28,7 +28,6 @@
   color: var(--text-primary);
   font-size: var(--heading-size);
   font-weight: var(--heading-weight);
-  text-shadow: var(--shadow-text-h1);
   letter-spacing: var(--heading-letter-spacing);
 }
 
@@ -84,7 +83,8 @@ border-color:var(--color-primary-start);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-secondary);
+  color:var(--text-muted);
+  
   font-size: var(--font-size-400);
  
 }
