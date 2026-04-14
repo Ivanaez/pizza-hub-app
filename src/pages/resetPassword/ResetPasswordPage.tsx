@@ -9,15 +9,88 @@ const ResetPasswordPage = () => {
 
 // password state input value
 const [passwordValue, setPasswordValue] = useState("");
-
+// toggle button - password visibility
+const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+// password error message state
+const [passwordError, setPasswordError] = useState("");
+// show/hide password hint text (on typing / blur)
+const [showPasswordText, setShowPasswordText] = useState(false);
+// indicates if password rules should be highlighted as error (on submit)
 
 
 
 // confirm password state value
 const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+// toggle button - confirm password visibility
+const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+// confirm password error message state
+const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
 
 
+
+
+// password submit validation logic
+const validatePassword = (password: string) => {
+
+  const hasLowercase = /[a-z]/.test(password);
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasLength = password.length >= 8 && password.length <= 15;
+
+  return hasLowercase && hasUppercase && hasNumber && hasLength
+};
+// check password rules status for hint text
+const hasLowercase = /[a-z]/.test(passwordValue);
+const hasUppercase = /[A-Z]/.test(passwordValue);
+const hasNumber = /[0-9]/.test(passwordValue);
+const hasLength = passwordValue.length >= 8 && passwordValue.length <= 15;
+
+// check password format
+const isPasswordValid = validatePassword(passwordValue); 
+// check  confirm password format
+const isConfirmPasswordValid = validatePassword(confirmPasswordValue);
+
+
+
+// form submission handler
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  let hasError = false;
+  const trimmedPassword = passwordValue.trim();
+
+
+  // password validation..............
+  if (trimmedPassword === "") {
+    setPasswordError("New password is required");
+    setShowPasswordText(true); 
+    hasError = true;
+  } else if (!validatePassword(trimmedPassword)) {
+    setPasswordError("Please enter a valid password");
+    setShowPasswordText(true);
+    hasError = true;
+  } else {
+    setPasswordError("");
+  }
+ const trimmedConfirmPassword = confirmPasswordValue.trim();
+
+// confirm password validation
+if (trimmedConfirmPassword === "") {
+  setConfirmPasswordError("Confirm password is required");
+  hasError = true;
+} else if (trimmedConfirmPassword !== trimmedPassword) {
+  setConfirmPasswordError("Passwords do not match");
+  hasError = true;
+} else {
+  setConfirmPasswordError("");
+}
+
+  if (hasError) return;// stop form submission if there are validation errors
+
+
+
+  };
 
 
   return (
@@ -38,7 +111,9 @@ const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
         </header>
 
          {/* Reset password form */}
-        <form className={styles.formResetPassword} noValidate>
+        <form className={styles.formResetPassword}
+        onSubmit={handleSubmit}
+        noValidate>
 
             
         {/* New password container........................................ */}
@@ -54,28 +129,101 @@ const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
     </span>
 
     <Input
-      type="password"
+      type={isPasswordVisible ? "text" : "password"}// toggle input type based on visibility state
       id="newPassword"
       name="newPassword"
       placeholder="New Password"
       autoComplete="new-password"
-
+      className={styles.inputSuccess}// adds space for check icon
+      
+      
+      onBlur={() => setShowPasswordText(false)}// hide password hint text when user leaves the password input field
       value={passwordValue}// controlled input value
-      onChange={(e) => setPasswordValue(e.target.value)} // update state on input change
-    />
+      onChange={(e) => 
+        {
+              
+           const value = e.target.value;
+          setPasswordValue(value) ; // update state on input change
+          setPasswordError(""); // clear password error when user starts typing confirm password
+          setShowPasswordText(value.length > 0); // show password hint text when user starts typing password
+      }}
 
+
+    />
+      {/* show check icon if password is valid and has input value */}
+{isPasswordValid && passwordValue.length > 0 && (
+   <span className={`${styles.inputIcon}  ${styles.validCheckIcon}`} aria-hidden="true">
+    ✓
+  </span>
+)}
     {/* toggle new password visibility */}
       <button
          type="button"
            className={`${styles.inputIcon} ${styles.inputIconRight}`}
+           onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+           onMouseDown={(e) => e.preventDefault()} // prevent focus loss on button click
            aria-label="Show new password"
         >
-         <i className="fa-regular fa-eye"></i>
+        <i
+    className={`fa-regular ${
+      isPasswordVisible ? "fa-eye" : "fa-eye-slash" // toggle icon based on visibility state
+    }`}
+  />
           </button>
 
-  </div>
-  </div>
+{/* password error message */} 
+  </div> 
+   {passwordError && (
+  <p className={styles.errorText}> {passwordError} </p>
+)}
 
+{showPasswordText && !validatePassword(passwordValue) && (
+
+<div className={styles.passwordError}>
+
+{/* password section title */}
+   <p className={styles.passwordTitle}>
+      Password must contain
+    </p>
+
+    {/* password rules status list*/}
+    <ul className={styles.passwordRules}>
+
+     {/* check uppercase letter */}
+     <li>
+  <span className={hasUppercase ? styles.valid : styles.invalid}>
+    {hasUppercase ? "✓" : ""}
+  </span>
+  One uppercase letter
+</li>
+{/* check lowercase letter */}
+      <li>
+  <span className={hasLowercase ? styles.valid : styles.invalid}>
+    {hasLowercase ? "✓" : ""}
+  </span>
+  One lowercase letter
+</li>
+
+{/* check number included */}
+<li>
+  <span className={hasNumber ? styles.valid : styles.invalid}>
+    {hasNumber ? "✓" : ""}
+  </span>
+  One number
+</li>
+
+{/* check password length */}
+<li>
+  <span className={hasLength ? styles.valid : styles.invalid}>
+    {hasLength ? "✓" : ""}
+  </span>
+  8–15 characters
+</li>
+      
+    </ul>
+  </div>
+)}
+  </div>
 
 
 
@@ -94,26 +242,50 @@ const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
     </span>
 
     <Input
-      type="password"
+      type={isConfirmPasswordVisible ? "text" : "password"}// toggle input type based on visibility state
       id="confirmPassword"
       name="confirmPassword"
       placeholder="Confirm Password"
       autoComplete="new-password"
+      className={styles.inputSuccess}// adds space for check icon
 
        value={confirmPasswordValue}// controlled input value
-      onChange={(e) => setConfirmPasswordValue(e.target.value)} // update state on input change
+      onChange={(e) => 
+        {
+          setConfirmPasswordValue(e.target.value);// update state on input change
+        setConfirmPasswordError(""); // clear confirm password error when user starts typing confirm password
+      }} 
       
     />
+    {/* show check icon if confirm password is valid and has input value */}
+{isConfirmPasswordValid && confirmPasswordValue.length > 0 && (
+  <span className={`${styles.inputIcon}  ${styles.validCheckIcon}`} aria-hidden="true">
+    ✓
+  </span>
+)}
+
 
      {/* toggle confirm password visibility */}
     <button
      type="button"
      className={`${styles.inputIcon} ${styles.inputIconRight}`}
+      onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}
       aria-label="Show confirm password"
       >
-       <i className="fa-regular fa-eye"></i>
+      <i
+      
+    className={`fa-regular ${
+      isConfirmPasswordVisible ? "fa-eye" : "fa-eye-slash" // toggle icon based on visibility state
+    }`}
+    
+  />
+  {/* confirm password error message (shown only when validation fails) */}
        </button>
       </div>
+       {confirmPasswordError && (
+    <p className={styles.errorText}> {confirmPasswordError}
+    </p>
+  )}
       </div>
 
 
