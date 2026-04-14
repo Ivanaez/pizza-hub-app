@@ -71,15 +71,15 @@ width: 100%;
 position: relative;
 max-width: 420px;
 margin: var(--space-400) auto 0;
-}
 
+}
 /* password error message */
 .errorText{
 color:var(--color-primary-end);
 display: block;
 margin: var(--space-050) 0 var(--space-150) 0;
  text-align:left;
-
+margin-left: var(--space-100);
 }
 
                         /* Password wrapper */
@@ -138,7 +138,7 @@ margin: var(--space-050) 0 var(--space-150) 0;
 .passwordError{
 margin:var(--space-050);
  text-align:left;
-
+margin-left: var(--space-100);
 }
 
 /* Password error message title */
