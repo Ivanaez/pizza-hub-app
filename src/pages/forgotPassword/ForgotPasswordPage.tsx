@@ -62,7 +62,7 @@ setIsSubmitted(false);
 
 const { error } = await supabase.auth.resetPasswordForEmail(trimmedEmail, {
   // local reset page url
-  redirectTo: "http://localhost:5173/reset-password",
+  redirectTo: "https://pizza-hub-app.vercel.app/reset-password",
 });
 
 if (error) {
