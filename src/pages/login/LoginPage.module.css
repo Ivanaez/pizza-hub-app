@@ -164,7 +164,9 @@ font-weight:var(--heading-weight);
   color: var(--link-color);
   text-decoration: none;
   transition: opacity 0.2s ease;
- 
+ font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
 
  
 }
