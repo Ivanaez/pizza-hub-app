@@ -4,6 +4,8 @@ import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { supabase } from "../../lib/supabase";
+
 
 const ForgotPasswordPage = () => {
 
@@ -16,9 +18,15 @@ const [emailError, setEmailError] = useState("");
 const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 // validate email format
 const isEmailValid = emailRegex.test(emailValue.trim());
+// optional state to show success message after email sent
+const [emailSuccess, setEmailSuccess] = useState("");
+// state to disable form after submission
+const [isSubmitted, setIsSubmitted] = useState(false);
 
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
 
@@ -44,8 +52,32 @@ else {
 if (hasError) return;
 
 
+//Backend ................................
+//  send reset email request
 
+// clear previous messages
+setEmailError("");
+setEmailSuccess("");
+setIsSubmitted(false);
+
+const { error } = await supabase.auth.resetPasswordForEmail(trimmedEmail, {
+  // local reset page url
+  redirectTo: "http://localhost:5173/reset-password",
+});
+
+if (error) {
+  // show supabase error text
+  setEmailError(error.message);
+  return;
+} 
+// show success message on success
+setEmailSuccess("Thank you! If an account with that email exists, we’ve sent a password reset link.");
+// disable form after submission
+setIsSubmitted(true);
 };
+
+
+
 
   return (
     // Container for the entire forgot password page
@@ -95,7 +127,8 @@ if (hasError) return;
               id="email"
               autoComplete="email"
               className={styles.inputEmail}
-
+              
+              disabled={isSubmitted} // disable input after submission
                value={emailValue}
               onChange={(e) => 
                 {setEmailValue(e.target.value);
@@ -116,12 +149,21 @@ if (hasError) return;
             
 
           </div>
+
            {/* render email error message only if exists */}
              {emailError && (
             <p className={styles.errorText} role="alert">
               {emailError}
             </p>
              )}
+
+            {/* render success message */}
+               {emailSuccess && (
+                 <p className={styles.successText}> {emailSuccess}
+             </p>
+           )}
+
+
           </div>
 
 
@@ -130,10 +172,14 @@ if (hasError) return;
             <Button
               type="submit"
               variant="primary"
+                disabled={isSubmitted} // disable button after submission
                 className={styles.resetPasswordButton}
                
             >
-              Reset Password
+              
+           {/* change button text based on submission status */}
+             {isSubmitted ? "Check your email" : "Reset Password"}  
+        
             </Button>
           </div>
         </form>
