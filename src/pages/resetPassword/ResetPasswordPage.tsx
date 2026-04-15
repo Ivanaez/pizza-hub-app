@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
 import { useState } from "react";
+import { supabase } from "../../lib/supabase";
 
 const ResetPasswordPage = () => {
 
@@ -25,6 +26,13 @@ const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 // confirm password error message state
 const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
+
+
+// password success message state
+const [passwordSuccess, setPasswordSuccess] = useState("");
+// disable form after successful password reset
+const [isSubmitted, setIsSubmitted] = useState(false);
 
 
 
@@ -87,10 +95,30 @@ if (trimmedConfirmPassword === "") {
 }
 
   if (hasError) return;// stop form submission if there are validation errors
+  
+  
+ 
+// backend: update password......................................
+setPasswordError("");// clear backend error before submission
 
 
+const { error } = await supabase.auth.updateUser({// update user password using Supabase auth
+  password: trimmedPassword,
+});
 
-  };
+// check backend response for errors
+if (error) {
+  setPasswordError(error.message);
+  return;
+}
+
+// success message
+setPasswordSuccess("Thank you! Your password has been reset successfully. You can now log in with your new password.");
+setIsSubmitted(true);// disable form after successful submission
+setPasswordValue(""); // clear password input
+setConfirmPasswordValue("");// clear confirm password input
+
+}
 
 
   return (
@@ -135,7 +163,7 @@ if (trimmedConfirmPassword === "") {
       placeholder="New Password"
       autoComplete="new-password"
       className={styles.inputSuccess}// adds space for check icon
-      
+      disabled={isSubmitted}// disable input after successful submission
       
       onBlur={() => setShowPasswordText(false)}// hide password hint text when user leaves the password input field
       value={passwordValue}// controlled input value
@@ -163,6 +191,7 @@ if (trimmedConfirmPassword === "") {
            onClick={() => setIsPasswordVisible(!isPasswordVisible)}
            onMouseDown={(e) => e.preventDefault()} // prevent focus loss on button click
            aria-label="Show new password"
+           disabled={isSubmitted}// disable button after successful submission
         >
         <i
     className={`fa-regular ${
@@ -248,7 +277,7 @@ if (trimmedConfirmPassword === "") {
       placeholder="Confirm Password"
       autoComplete="new-password"
       className={styles.inputSuccess}// adds space for check icon
-
+      disabled={isSubmitted}// disable input after successful submission
        value={confirmPasswordValue}// controlled input value
       onChange={(e) => 
         {
@@ -271,6 +300,7 @@ if (trimmedConfirmPassword === "") {
      className={`${styles.inputIcon} ${styles.inputIconRight}`}
       onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}
       aria-label="Show confirm password"
+       disabled={isSubmitted}// disable button after successful submission
       >
       <i
       
@@ -279,13 +309,29 @@ if (trimmedConfirmPassword === "") {
     }`}
     
   />
-  {/* confirm password error message (shown only when validation fails) */}
        </button>
-      </div>
+       </div>
+
+
+       {/* confirm password error message (shown only when validation fails) */}
        {confirmPasswordError && (
-    <p className={styles.errorText}> {confirmPasswordError}
-    </p>
-  )}
+    <p className={styles.errorText}> {confirmPasswordError}</p>
+      )}
+
+     {/* success message after successful password reset */}
+     {passwordSuccess && (
+        <p className={styles.successText}> {passwordSuccess} </p>
+       )}
+        {/* redirect login link after successful submission */}
+      {isSubmitted && (
+  <Link to="/login" className={styles.loginRedirectLink}>
+    Go to login
+  </Link>
+)}
+
+
+
+
       </div>
 
 
@@ -294,21 +340,15 @@ if (trimmedConfirmPassword === "") {
               type="submit"
               variant="primary"
               className={styles.resetPasswordButton}
+              disabled={isSubmitted}// disable button after successful submission
+
             >
-              Save New Password
+               {isSubmitted ? "Saved successfully" : "Save New Password"} {/*toggle button text after successful submission */}
             </Button>
           
 
         </form>
 
-
-
-         {/* Back to sign in */}
-        <div className={styles.backToSignInContainer}>
-          <Link className={styles.backToSignIn} to="/login">
-            Back to Sign In
-          </Link>
-        </div>
       </main>
     </div>
   );
