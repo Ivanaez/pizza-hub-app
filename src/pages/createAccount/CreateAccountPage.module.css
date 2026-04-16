@@ -193,6 +193,14 @@ list-style:none;
   height: clamp(44px, 10vw, 45px);
   margin: var(--space-300) 0;
 }
+/* Submit button disabled state */
+ .submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+ }
+
+
 /* backend message: error  */
 .signUpError{
   margin: var(--space-100) 0; /* 8px top/bottom */

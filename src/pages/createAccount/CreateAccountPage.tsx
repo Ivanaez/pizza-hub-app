@@ -178,7 +178,10 @@ if (error) {
 }
 // success -> tell user to confirm email
 setSignUpSuccess("Check your email to confirm your account");
-
+setNameValue("");
+setEmailValue("");
+setPassword("");
+setConfirmPasswordValue("");
 
 
 };
@@ -328,7 +331,7 @@ setSignUpSuccess("Check your email to confirm your account");
       onFocus={() => setShowPasswordText(true)}
       // hide hint on blur
       onBlur={() => { setShowPasswordText(false); 
-                     setIsPasswordTouched(true); }}
+                    }}
        value={password}// controlled input value
 
       onChange={(e) => {
@@ -522,7 +525,7 @@ setSignUpSuccess("Check your email to confirm your account");
    disabled={!!signUpSuccess} // disable input on successful signup
     variant="primary"
     className={styles.submitButton}>
-    Create Account
+    {signUpSuccess ? "Check your email" : "Create Account"}{/* change button text on success */}
   </Button>
 
 
