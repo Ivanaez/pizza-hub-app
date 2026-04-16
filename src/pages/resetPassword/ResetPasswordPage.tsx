@@ -54,10 +54,26 @@ const hasUppercase = /[A-Z]/.test(passwordValue);
 const hasNumber = /[0-9]/.test(passwordValue);
 const hasLength = passwordValue.length >= 8 && passwordValue.length <= 15;
 
+
+
+
+
 // check password format
 const isPasswordValid = validatePassword(passwordValue); 
 // check  confirm password format
-const isConfirmPasswordValid = validatePassword(confirmPasswordValue);
+
+// remove spaces from password
+ const trimmedPassword = passwordValue.trim();
+// remove spaces from confirm input
+ const trimmedConfirmPassword = confirmPasswordValue.trim();
+
+// validate confirm password: input + match + valid password
+ const isConfirmPasswordValid =
+  trimmedConfirmPassword.length > 0 && // has user input
+  trimmedConfirmPassword === trimmedPassword &&  // passwords match exactly
+  isPasswordValid;// password passes validation rules
+
+
 
 
 
@@ -66,7 +82,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
   let hasError = false;
-  const trimmedPassword = passwordValue.trim();
+ 
 
 
   // password validation..............
@@ -81,7 +97,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   } else {
     setPasswordError("");
   }
- const trimmedConfirmPassword = confirmPasswordValue.trim();
+ 
 
 // confirm password validation
 if (trimmedConfirmPassword === "") {
@@ -287,7 +303,7 @@ setConfirmPasswordValue("");// clear confirm password input
       
     />
     {/* show check icon if confirm password is valid and has input value */}
-{isConfirmPasswordValid && confirmPasswordValue.length > 0 && (
+{  isConfirmPasswordValid &&  (
   <span className={`${styles.inputIcon}  ${styles.validCheckIcon}`} aria-hidden="true">
     ✓
   </span>
