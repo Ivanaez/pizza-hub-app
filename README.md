@@ -12,15 +12,16 @@ https://pizza-hub-app.vercel.app
 - TypeScript
 - Vite
 - CSS Modules
-
+- Supabase
+  
 ## Features
-
 - Modular React component architecture
 - Reusable UI components
 - Scoped styling with CSS Modules
 - Clean and scalable folder structure
 - Single Page Application (SPA) architecture
 - Responsive UI layout
+- User authentication with Supabase
 
 
 ## Run Locally
@@ -32,7 +33,7 @@ npm run dev
 PizzaHub is a modern web application built with React and TypeScript.
 The project focuses on building a scalable, well-structured application with clean architecture and reusable components.
 
-The current implementation includes core pages such as Home and authentication flows, organized through a modular component-based structure.
+The current implementation includes core pages such as Home and authentication flows powered by Supabase, organized through a modular component-based structure.
 
 The application is designed with:
 
