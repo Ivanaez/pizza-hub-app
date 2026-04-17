@@ -1,21 +1,38 @@
 import styles from "./PizzaList.module.css";
 import { PizzaCard } from "../PizzaCard/PizzaCard";
-import {useRef} from "react";
-
-import prosciuttoImg from "../../../assets/images/pizzas/Prosciutto.webp"
-import ChickenSupremeImg from "../../../assets/images/pizzas/Chicken-Supreme.webp";
-import hamMushroomsImg from "../../../assets/images/pizzas/Ham-Mushrooms.webp";
-import hawaiianImg from "../../../assets/images/pizzas/Hawaiian.webp";
-import pepperoniImg from "../../../assets/images/pizzas/Pepperoni.webp";
-import quattroFormaggiImg from "../../../assets/images/pizzas/Quattro-Formaggi.webp";
+import {useRef,useState,useEffect} from "react";
+import { supabase } from "../../../lib/supabase";
 
 
 
-
-
-
-// Popular pizzas slider component with horizontal scroll and left/right controls
+// React component for pizzas
 export function PizzaList() {
+
+  // pizzas state from backend
+const [pizzas, setPizzas] = useState<any[]>([]);
+ // fetch data on mount
+  useEffect(() => {
+
+ // async fetch function to get pizzas from supabase backend
+    const fetchPizzas = async () => {
+ // request data from Supabase
+      const { data, error } = await supabase
+        .from("pizzas")// target pizzas table
+        .select("*");// select all columns
+
+     // handle request error
+      if (error) {
+        console.error(error);
+        return;
+      }
+      
+      // update pizzas state
+      setPizzas(data);
+    };
+
+    fetchPizzas();
+  }, []);
+
 
 // Reference to cards container for button scroll control
 const popularCardsRef = useRef<HTMLDivElement | null>(null);
@@ -144,62 +161,19 @@ const stopDragging = () => {
 >
 
     
+  
+{/* Render pizzas dynamically from backend */}
+{pizzas.map((pizza) => (
   <PizzaCard
-    title="Prosciutto"
-    priceFrom={11.30}
-    imageSrc={prosciuttoImg}
-    imageAlt="Prosciutto Pizza"
+    key={pizza.id}
+    title={pizza.name}
+    priceFrom={pizza.price}
+    imageSrc={pizza.image_url}
+    imageAlt={pizza.name}
     orderHref="/order"
     detailsHref="/details"
   />
-  <PizzaCard
-  title="Quattro Formaggi"
-  priceFrom={9.5}
-  imageSrc={quattroFormaggiImg}
-  imageAlt="Quattro Formaggi Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-<PizzaCard
-  title="Hawaiian"
-  priceFrom={10.6}
-  imageSrc={hawaiianImg}
-  imageAlt="Hawaiian Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-<PizzaCard
-  title="Ham & Mushrooms"
-  priceFrom={9.70}
-  imageSrc={hamMushroomsImg}
-  imageAlt="Ham & Mushrooms Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-
-
-<PizzaCard
-  title="Chicken Supreme"
-  priceFrom={10.2}
-  imageSrc={ChickenSupremeImg}
-  imageAlt="Chicken Supreme Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
-
-<PizzaCard
-  title="Pepperoni"
-  priceFrom={8.9}
-  imageSrc={pepperoniImg}
-  imageAlt="Pepperoni Pizza"
-  orderHref="/order"
-  detailsHref="/details"
-/>
-
+))}
 
   </div>
          {/* slider right control */}
