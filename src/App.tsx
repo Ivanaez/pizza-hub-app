@@ -5,6 +5,7 @@ import LoginPage from "./pages/login/LoginPage";
 import CreateAccountPage from "./pages/createAccount/CreateAccountPage";
 import ForgotPasswordPage from "./pages/forgotPassword/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
+import CartPage from "./pages/cart/CartPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
                       {/* Pages WITH header/footer */}
       <Route path="/" element={<Layout />}>
        <Route index element={<HomePage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Route>
 
                      {/* Pages WITHOUT header/footer */}
