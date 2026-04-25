@@ -1,12 +1,14 @@
 
 import styles from "./CartPage.module.css";
-import prosciuttoImg from "../../assets/images/pizzas/Prosciutto.webp";
+import { useCart } from "../../features/cart/CartContext";
 import { Trash2,Minus,Plus} from "lucide-react";
 import LinkButton from "../../ui/LinkButton/LinkButton";
 
 
 
 export default function CartPage() {
+  const { cartItems,removeFromCart } = useCart();
+
   return (
 
     <main className={styles.cartPage}>
@@ -19,24 +21,25 @@ export default function CartPage() {
         </header>
 
       <div className={styles.cartContent}>
-
+ 
         {/* Cart items section */}
         <section>
-          
+
+           {cartItems.map((item) => (
           <article className={styles.cartItemWrapper}>
 
             {/* Product image area */}
             <div className={styles.imageWrapper}>
               <img
-                src={prosciuttoImg}
-                alt="Proscuitto"
+                src={item.image} alt={item.title}
+                
               />
             </div>
 
             {/* Product text block */}
             <div className={styles.productInfo}>
-              <h2 className={styles.productName}>Proscuitto</h2>
-              <p className={styles.productPrice}>12.99€</p>
+              <h2 className={styles.productName}> {item.title}</h2>
+              <p className={styles.productPrice}> {item.price.toFixed(2)} €</p>
             </div>
 
 
@@ -50,7 +53,7 @@ export default function CartPage() {
                 </button>
 
                 {/* Quantity value */}
-                <span className={styles.quantityValue}>1</span>
+                <span className={styles.quantityValue}> {item.quantity} </span>
                  {/**/}
                 <button type="button" className={styles.quantityButton}>
                     <Plus size={16} />
@@ -58,12 +61,14 @@ export default function CartPage() {
               </div>
 
               {/* Remove item button */}
-              <button type="button" className={styles.deleteButton}>
+              <button type="button" className={styles.deleteButton} 
+              onClick={() => removeFromCart(item.id)}>     
                 <Trash2 className={styles.deleteIcon} />
               </button>
 
             
           </article>
+        ))}
         </section>
        
 
