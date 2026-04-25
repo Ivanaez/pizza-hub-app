@@ -1,6 +1,7 @@
 import styles from "./PizzaCard.module.css";
 import linkButton from "../../../ui/LinkButton/LinkButton.module.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../features/cart/CartContext";
 
 /* Props for the PizzaCard component */
 type Props = {
@@ -8,14 +9,18 @@ type Props = {
   priceFrom: number;
   imageSrc: string;
   imageAlt: string;
-  orderHref: string;
   detailsHref: string;
 
 }
+
+
+
 /* Function component for the PizzaCard */
 export function PizzaCard({
-  title,priceFrom,imageSrc,imageAlt,orderHref,detailsHref
+  title,priceFrom,imageSrc,imageAlt,detailsHref
+  
 }: Props) {
+  const { addToCart } = useCart(); // Get addToCart function from cart context
 
   return (
 
@@ -38,10 +43,22 @@ export function PizzaCard({
        {/* pizza action buttons container */}
       <div className={styles.pizzaActions}>
 
-                      {/* Link Button Order */}
-        <Link to={orderHref} className={`${styles.btn}  ${linkButton.linkButton}  ${linkButton.primary} `}>
-          Select
-        </Link>
+                      {/*  Button add */}
+        <button
+  className={`${styles.btn} ${linkButton.linkButton} ${linkButton.primary}`}
+  onClick={() =>
+    addToCart({
+      id: title,
+      title: title,
+      price: priceFrom,
+      image: imageSrc,
+      quantity: 1,
+
+    })
+  }
+>
+  Add to Cart
+</button>
                        {/* Link Button Details */}
         <Link to={detailsHref} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
           Details
