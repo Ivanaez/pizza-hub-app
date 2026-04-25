@@ -3,12 +3,26 @@ import logo from "../../../assets/images/logos/Logo.PNG";
 import { Link,useNavigate } from "react-router-dom";
 import { useState,useRef,useEffect } from "react";
 import { supabase } from "../../../lib/supabase";
+import { useCart } from "../../../features/cart/CartContext";
+import { User,ShoppingCart } from "lucide-react";
 
 
 
 
 // Main header component
 const Header = () => {
+
+
+  // Get cart items from cart context to show item count badge on cart icon
+  const { cartItems } = useCart();
+// Calculate total quantity of items in the cart for badge count
+const cartCount = cartItems.reduce(
+  (total, item) => total + item.quantity,
+  0
+);
+
+
+
                // Menu open/close state
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -201,10 +215,11 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
 <div className={styles.headerTools}>
 
   {/* User Icon */}
-  <Link to="/login" onClick={handleUserIconClick}// prevent navigation if logged in
+  <Link to="/login" 
+  onClick={handleUserIconClick}// prevent navigation if logged in
   className={`${styles.iconBtn} ${styles.userBtn}`}>
-    <i className="fa-solid fa-user"></i>
-
+  <User className={`${styles.iconBtn} ${styles.userBtn}`} />
+   
     <span className={styles.userText} onClick={handleAuthClick}>{/*} handle login/logout logic*/}
    {isLoggedIn ? "Logout" : "Login"} {/* show "Logout" if logged in, otherwise "Login" */}
     </span>
@@ -212,8 +227,15 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
   </Link>
 
   {/* Cart Icon */}
-  <Link to="/cart" className={`${styles.iconBtn} ${styles.cartBtn}`}>
-    <i className="fa-solid fa-cart-shopping"></i>
+  <Link to="/cart" 
+  className={`${styles.iconBtn} ${styles.cartBtn}`}>
+    <ShoppingCart className={`${styles.iconBtn} ${styles.cartBtn}`} />
+
+ {/* Show cart item count badge if there are items in the cart */}
+     {cartCount > 0 && (
+      <span className={styles.cartBadge}> {cartCount} </span>
+  )}
+
   </Link>
 </div>
 

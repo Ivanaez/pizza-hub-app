@@ -120,7 +120,26 @@
   font-size: var(--font-size-500);
 
 }
-                            /* User icon color */
+/* Cart button */
+.cartBtn {
+position: relative;
+
+}
+  /* Cart badge */
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-primary-start);
+  color: var(--color-white);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-300);
+}         /* User icon color */
 .userBtn  {
  color: var(--color-primary-start);
 }
