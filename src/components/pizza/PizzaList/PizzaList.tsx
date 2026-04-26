@@ -170,7 +170,7 @@ const stopDragging = () => {
     priceFrom={pizza.price}
     imageSrc={pizza.image_url}
     imageAlt={pizza.name}
-    orderHref="/order"
+    
     detailsHref="/details"
   />
 ))}
