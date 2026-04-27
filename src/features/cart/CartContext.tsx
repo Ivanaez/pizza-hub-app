@@ -7,14 +7,29 @@ type CartItem = {
   price: number;
   image: string;
   quantity: number;
+
 };
+
+
 // Type definition for the cart context value
 type CartContextType = {
   cartItems: CartItem[];
   toastMessage: string | null;
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
+  subtotal: number;
+  total: number;
+  delivery: number;
 };
+
+
+
+
+
+
+
 // Create the cart context with an initial value of null
 const CartContext = createContext<CartContextType | null>(null);
 
@@ -25,9 +40,35 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
 // State for items in the cart
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  
+
 // State for temporary toast messages when items are added to the cart
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+
+
+
+// Function to increase the quantity of an item in the cart by id
+const increaseQuantity = (id: string) => {
+  setCartItems((prev) => {
+    return prev.map((item) =>
+      item.id === id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+  });
+};
+// Function to decrease the quantity of an item in the cart by id
+const decreaseQuantity = (id: string) => {
+  setCartItems((prev) => {
+    return prev
+      .map((item) =>
+        item.id === id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0);
+  });
+};
 
 
 
@@ -52,8 +93,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
 
 
-
-
     // shows temporary message when item is added
  setToastMessage("Item added to cart");
   setTimeout(() => {  // clears message after 1.5 seconds
@@ -70,10 +109,26 @@ const removeFromCart = (id: string) => {
 };
 
 
+const delivery = 3.9; // fixed delivery fee
+
+// subtotal is calculated by summing the price * quantity for all items in the cart
+const subtotal = cartItems.reduce(
+  (total, item) => total + item.price * item.quantity,
+  0
+
+);
+
+// total is calculated by summing the price * quantity for all items in the cart
+const total = subtotal + delivery;
+
+
+
+
+
 
 // Provide the cart state and functions to the context consumers
   return (
-    <CartContext.Provider value={{ cartItems,toastMessage, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems,toastMessage, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, subtotal, total, delivery }}>
       {children}
     </CartContext.Provider>
   );
