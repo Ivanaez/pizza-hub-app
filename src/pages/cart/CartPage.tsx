@@ -144,7 +144,7 @@ const isCartEmpty = cartItems.length === 0;
     Proceed to Checkout
   </LinkButton>
 
-    <LinkButton to="/menu"
+    <LinkButton to="/"
      className={styles.continueButton}
      variant="secondary">
       Continue Shopping
