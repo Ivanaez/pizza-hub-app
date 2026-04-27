@@ -14,7 +14,7 @@ const Header = () => {
 
 
   // Get cart items from cart context to show item count badge on cart icon
-  const { cartItems } = useCart();
+  const { cartItems,total } = useCart();
 // Calculate total quantity of items in the cart for badge count
 const cartCount = cartItems.reduce(
   (total, item) => total + item.quantity,
@@ -225,6 +225,15 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
     </span>
 
   </Link>
+
+
+{cartCount > 0 && ( // if cart is not empty, show total price next to cart icon
+<span className={styles.cartTotal}> {/* show total price */}
+    {total.toFixed(2)} €
+  </span>
+)}
+
+
 
   {/* Cart Icon */}
   <Link to="/cart" 
