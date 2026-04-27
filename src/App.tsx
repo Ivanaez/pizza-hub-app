@@ -6,6 +6,9 @@ import CreateAccountPage from "./pages/createAccount/CreateAccountPage";
 import ForgotPasswordPage from "./pages/forgotPassword/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 import CartPage from "./pages/cart/CartPage";
+import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
+
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
       <Route path="/" element={<Layout />}>
        <Route index element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Route>
 
                      {/* Pages WITHOUT header/footer */}
@@ -21,6 +25,7 @@ function App() {
       <Route path="/create-account" element={<CreateAccountPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
+      
     </Routes>
   );
 }
