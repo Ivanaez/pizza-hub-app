@@ -7,7 +7,13 @@ import LinkButton from "../../ui/LinkButton/LinkButton";
 
 
 export default function CartPage() {
-  const { cartItems,removeFromCart } = useCart();
+// Get cart state and functions from the cart context
+  const { cartItems,removeFromCart,increaseQuantity,decreaseQuantity,subtotal,total,delivery } = useCart();
+
+// Check if the cart is empty
+const isCartEmpty = cartItems.length === 0;
+
+
 
   return (
 
@@ -16,9 +22,14 @@ export default function CartPage() {
       <div className={styles.cartContainer}>
 
         <header >
-          {/* Cart page heading */}
-          <h1 className={styles.title}>Your Cart</h1>
+           
+          <h1 className={`${styles.title} ${isCartEmpty ? styles.empty : ""}`}>
+          {isCartEmpty ? "Your cart is empty" : "Your Cart"}
+            </h1>  
+
         </header>
+        
+
 
       <div className={styles.cartContent}>
  
@@ -48,14 +59,16 @@ export default function CartPage() {
                   {/* Quantity buttons */}
               <div className={styles.quantityControlContainer}>
 
-                <button type="button" className={styles.quantityButton}>
+                <button type="button" className={styles.quantityButton} 
+                onClick={() => decreaseQuantity(item.id)}>
                     <Minus size={16} />
                 </button>
 
                 {/* Quantity value */}
                 <span className={styles.quantityValue}> {item.quantity} </span>
                  {/**/}
-                <button type="button" className={styles.quantityButton}>
+                <button type="button" className={styles.quantityButton} 
+                onClick={() => increaseQuantity(item.id)}>
                     <Plus size={16} />
                 </button>
               </div>
@@ -79,8 +92,12 @@ export default function CartPage() {
 
 
 
-      {/* Cart summary section **********************************************/}
-<aside className={styles.cartSummary}>
+  
+
+    
+    {!isCartEmpty && (  // If the cart is empty, hide the summary section
+
+<aside className={styles.cartSummary}> {/* Cart summary section **********************************************/}
   {/* Summary card title */}
   <h2 className={styles.summaryTitle}>Cart Summary</h2>
 
@@ -92,13 +109,13 @@ export default function CartPage() {
     {/* Subtotal price row */}
     <div className={styles.summaryRow}>
       <span className={styles.summaryLabel}>Subtotal</span>
-      <span className={styles.summaryValue}>49.00€</span>
+      <span className={styles.summaryValue}>{subtotal.toFixed(2)} €</span>
     </div>
 
     {/* Delivery price row */}
     <div className={styles.summaryRow}>
       <span className={styles.summaryLabel}>Delivery</span>
-      <span className={styles.summaryValue}>Free</span>
+      <span className={styles.summaryValue}>{delivery.toFixed(2)} €</span>
     </div>
       {/* section devider line*/}
      <div className={styles.summaryDivider} />
@@ -108,7 +125,7 @@ export default function CartPage() {
   {/* Final total row */}
   <div className={styles.summaryTotal}>
     <span className={styles.summaryTotalLabel}>Total</span>
-    <span className={styles.summaryTotalValue}>49.00€</span>
+    <span className={styles.summaryTotalValue}>{total.toFixed(2)} €</span>
     {/* section devider line*/}
   
   </div>
@@ -135,6 +152,9 @@ export default function CartPage() {
 
   </div>
 </aside>
+)}
+
+
 </div>
 </div>
 
