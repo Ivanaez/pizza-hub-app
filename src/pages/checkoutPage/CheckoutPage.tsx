@@ -46,9 +46,8 @@ export default function CheckoutPage() {
 
           {/* Shipping section title block */}
           <header className={styles.sectionHeader}>
-
             {/* Section icon placeholder */}
-            <span className={styles.sectionIcon}><User size={20} /></span>
+            <span className={styles.sectionIcon}><User /></span>
 
             {/* Title and description wrapper */}
             <div>
