@@ -1,6 +1,6 @@
 import styles from "./CheckoutPage.module.css";
 import Input from "../../ui/Input/Input";
-import { Check, User,ShieldCheck ,CreditCard, Banknote,Lock } from "lucide-react";
+import { Check, User,CreditCard, Banknote,Lock } from "lucide-react";
 import Button from "../../ui/Button/Button";
 
 
@@ -181,13 +181,13 @@ export default function CheckoutPage() {
             <input type="radio" name="payment" defaultChecked />
 
          <span><Banknote size={20} /></span>
-
+       <div className={styles.paymentContent}>
          <div>
            <h3>Cash on delivery</h3>
            <p>Pay when you receive your order.</p>
          </div>
         </div>
-
+      </div>
 
 
        {/* Card payment option */}
@@ -197,12 +197,13 @@ export default function CheckoutPage() {
 
         <span><CreditCard size={20} /></span>
 
+       <div className={styles.paymentContent}>
          <div>
            <h3>Card</h3>
            <p>Pay securely with your debit or credit card.</p>
          </div>
        </div>
-
+     </div>
      </div>
 
     </section>
@@ -217,17 +218,10 @@ export default function CheckoutPage() {
       type="submit"
       variant = "secondary"
       className={styles.submitButton}>
-        <Lock size={18} />  
+        <Lock size={20} />  
         Complete Order
 
      </Button>
-
-
-     {/* Security message text */}
-     <p className={styles.securityNote}>
-         <span><ShieldCheck size={16} /></span>
-       Your data is safe and secure
-     </p>
 
    </section>
         

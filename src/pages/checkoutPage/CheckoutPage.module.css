@@ -202,9 +202,82 @@ margin: var(--space-200) 0;
 }
 
 
-.paymentOption{
 
 
+.paymentOption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-150);
+  margin-bottom: var(--space-150);
+}
 
+.paymentContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-050);
+
+}
+
+
+.checkoutAction{
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+.submitButton {
+
+  width: 100%;
+  max-width: 420px;
+  min-height: 42px;
+
+
+  gap: var(--space-150);
+  margin: var(--space-200) 0;
+}
+
+/* Responsive design for large screens 1024px and up *****************************************************/
+
+@media (min-width: 1024px) {
+  .checkoutContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .checkoutSteps {
+    grid-column: 1 / -1;
+  }
+
+  .checkoutCard {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  .paymentCard {
+    grid-column: 2;
+    grid-row: 2;
+    margin:0;
+   
+    
+  }
+
+  .checkoutAction {
+    grid-column: 2;
+   grid-row:3;
+   align-self:end;
+   
+    
+  }
+
+.submitButton {
+  max-width: none;
+  width: 100%;
+  
+
+}
 
 }
