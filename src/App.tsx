@@ -7,6 +7,7 @@ import ForgotPasswordPage from "./pages/forgotPassword/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 import CartPage from "./pages/cart/CartPage";
 import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
+import ConfirmationPage from "./pages/confirmationPage/ConfirmationPage";
 
 
 
@@ -18,6 +19,7 @@ function App() {
        <Route index element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Route>
 
                      {/* Pages WITHOUT header/footer */}
