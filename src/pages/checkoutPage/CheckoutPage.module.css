@@ -97,7 +97,7 @@ display: flex;
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   padding: var(--space-200);
-  ;
+  
 
 }
 
@@ -162,6 +162,21 @@ background: var( --color-secondary-hover-start);
 }
 
 
+
+.errorMessage {
+  
+   margin-top: var(--space-050);
+  font-size: var(--caption-size);
+  color: var( --color-primary-hover-end );
+  font-weight: var(--caption-weight);
+  letter-spacing: var( --letter-spacing-caption);
+
+}
+
+.inputError,
+.inputError:focus {
+  border-color: var(--color-primary-hover-end);
+}
 
 
 

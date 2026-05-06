@@ -2,10 +2,109 @@ import styles from "./CheckoutPage.module.css";
 import Input from "../../ui/Input/Input";
 import { Check, User,CreditCard, Banknote,Lock } from "lucide-react";
 import Button from "../../ui/Button/Button";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { parsePhoneNumberFromString } from "libphonenumber-js"
 
-
-
+// Checkout page component for handling user input and navigation
 export default function CheckoutPage() {
+
+  /// Navigation hook for programmatic route changes
+const navigate = useNavigate();
+
+  
+// Form state management for shipping details
+const [formData, setFormData] = useState({
+  firstName: "",
+  lastName: "",
+  phone: "",
+  street: "",
+  streetNumber: "",
+  city: "",
+  postalCode: "",
+  
+});
+
+
+// Validation error state for form fields
+const [errors, setErrors] = useState({
+  firstName: "",
+  lastName: "",
+  phone: "",
+  street: "",
+  streetNumber: "",
+  city: "",
+  postalCode: "",
+})
+
+
+
+// Handle input changes and update form state
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value } = event.target
+
+  setFormData({...formData,[name]: value,})
+    
+    
+}
+
+
+
+// Handle form submission with validation
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault()
+
+
+  const nameRegex = /^[A-Za-z\s'-]+$/
+  const firstName = formData.firstName.trim()
+  const lastName = formData.lastName.trim()
+  const phone = formData.phone.trim()
+
+  const parsedPhone = parsePhoneNumberFromString(phone, "DE")
+
+
+  // Initialize new errors object for validation results
+ const newErrors = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  street: "",
+  streetNumber: "",
+  city: "",
+  postalCode: "",
+}
+
+
+// first name validation: minimum length and character type
+  if (firstName.length < 2) {
+    newErrors.firstName = "First name must be at least 2 characters"
+  } else if (!nameRegex.test(firstName)) {
+    newErrors.firstName = "First name must contain only Latin letters"
+  }
+
+// last name validation: minimum length and character type
+  if (lastName.length < 2) {
+    newErrors.lastName = "Last name must be at least 2 characters"
+  } else if (!nameRegex.test(lastName)) {
+    newErrors.lastName = "Last name must contain only Latin letters"
+  }
+
+// phone number validation using libphonenumber-js for German format
+  if (!parsedPhone || !parsedPhone.isValid()) {
+  newErrors.phone = "Please enter a valid phone number"
+}
+
+  setErrors(newErrors)
+
+  if (newErrors.firstName || newErrors.lastName || newErrors.phone) return
+
+  navigate("/confirmation")
+}
+
+
+
+
+
   return (
     /* Main checkout page wrapper */
     <main className={styles.checkoutPage}>
@@ -41,6 +140,7 @@ export default function CheckoutPage() {
 
 
 
+
         {/* Main checkout card container */}
         <section className={styles.checkoutCard}>
 
@@ -57,11 +157,8 @@ export default function CheckoutPage() {
 
           </header>
 
-
-
-
-          {/* Shipping form input fields ******************************************************/}
-          <form className={styles.checkoutForm}>
+{/* Shipping form input fields ******************************************************/}
+          <form id="checkoutForm" onSubmit={handleSubmit} className={styles.checkoutForm}>
 
             {/* First name input field */}
             <div className={styles.formField}>
@@ -71,9 +168,18 @@ export default function CheckoutPage() {
                id="firstName" 
                name="firstName" 
                placeholder="Enter your first name" 
-               />
+                value={formData.firstName}
+                onChange={handleChange}
+                 className={`${styles.input} ${errors.firstName ? styles.inputError : ""}`}
 
-            </div>
+               />
+                       
+                {/* First name error message */}
+                 {errors.firstName && (
+                  <p className={styles.errorMessage}>
+                 {errors.firstName}
+                   </p>
+                  )}
 
             {/* Last name input field */}
             <div className={styles.formField}>
@@ -83,7 +189,18 @@ export default function CheckoutPage() {
               id="lastName" 
               name="lastName" 
               placeholder="Enter your last name" 
+              value={formData.lastName}
+              onChange={handleChange}
+              className={`${styles.input} ${errors.lastName ? styles.inputError : ""}`}
               />
+                      </div>
+
+                       {/* Last name error message */}
+                        {errors.lastName && (
+                  <p className={styles.errorMessage}>
+                            {errors.lastName}
+                        </p>
+                  )}
 
             </div>
 
@@ -92,10 +209,22 @@ export default function CheckoutPage() {
               <label htmlFor="phoneNumber">Phone number</label>
 
               <Input
-               id="phoneNumber" 
-               name="phoneNumber" 
-               type="tel" placeholder="Enter your phone number"
+               id="phone" 
+               name="phone" 
+               type="tel"
+                placeholder="Enter your phone number"
+               value={formData.phone}
+               onChange={handleChange}
+                className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
                 />
+
+               {/* Phone number error message */}
+                        {errors.phone && (
+                  <p className={styles.errorMessage}>
+                            {errors.phone}
+                        </p>
+                  )}
+
 
             </div>
 
@@ -107,7 +236,9 @@ export default function CheckoutPage() {
               id="street" 
               name="street"
               placeholder="Enter your street" 
-               />
+              value={formData.street}
+              onChange={handleChange}
+              />
 
             </div>
 
@@ -119,7 +250,9 @@ export default function CheckoutPage() {
               id="streetNumber"
                name="streetNumber" 
                placeholder="Enter number"
-                />
+                value={formData.streetNumber}
+                onChange={handleChange}
+              />
 
             </div>
 
@@ -132,6 +265,8 @@ export default function CheckoutPage() {
               id="city" 
               name="city" 
               placeholder="Enter your city" 
+              value={formData.city}
+              onChange={handleChange}
               />
 
             </div>
@@ -144,15 +279,16 @@ export default function CheckoutPage() {
               id="postalCode" 
               name="postalCode" 
               placeholder="Enter postal code"
+              value={formData.postalCode}
+              onChange={handleChange}
                />
             </div>
 
+       
           </form>
-
         </section>
-
-
-
+       
+ 
 
              {/* Payment method section card ****************************************************/}
     <section className={styles.paymentCard}>
@@ -217,6 +353,7 @@ export default function CheckoutPage() {
      <Button
       type="submit"
       variant = "secondary"
+      form="checkoutForm"
       className={styles.submitButton}>
         <Lock size={20} />  
         Complete Order
@@ -225,9 +362,12 @@ export default function CheckoutPage() {
 
    </section>
         
+  
 
       </div>
+       
     </main>
+      
   );
 }
 
