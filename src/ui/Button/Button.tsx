@@ -8,12 +8,14 @@ type ButtonProps = {
   className?: string;
   disabled?: boolean;
   children: React.ReactNode;
+   form?: string;
 };
 
 /* Button reusable React component */
 export default function Button({
   type = "button",
   variant = "primary",
+  form,
   onClick,
   className,
   disabled,
@@ -31,6 +33,7 @@ export default function Button({
     <button
       type={type}
       className={buttonClassName}
+      form={form}
       onClick={onClick}
        disabled={disabled}
     >
