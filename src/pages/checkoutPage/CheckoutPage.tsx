@@ -9,10 +9,29 @@ import { parsePhoneNumberFromString } from "libphonenumber-js"
 // Checkout page component for handling user input and navigation
 export default function CheckoutPage() {
 
-  /// Navigation hook for programmatic route changes
+  // Navigation hook for programmatic route changes
 const navigate = useNavigate();
 
-  
+
+
+// State to Boolean to track form submission status and control button state
+const [isSubmitting, setIsSubmitting] = useState(false)
+// Button content changes based on submission state to show spinner or default text
+const buttonContent = () => {
+  if (isSubmitting) {
+    return <span className={styles.spinner}></span>
+  }
+  return (
+    <>
+      <Lock size={20} />
+      Complete Order
+    </>
+  )
+}
+
+
+
+
 // Form state management for shipping details
 const [formData, setFormData] = useState({
   firstName: "",
@@ -38,27 +57,40 @@ const [errors, setErrors] = useState({
 })
 
 
-
-// Handle input changes and update form state
+// Handle input changes and update form state with optional cleaning for specific fields
 const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const { name, value } = event.target
 
-  setFormData({...formData,[name]: value,})
-    
-    
+  const cleanedValue =
+    name === "postalCode" ||
+    name === "streetNumber" ||
+    name === "phone"
+      ? value.replace(/\D/g, "")
+      : value
+
+  setFormData({ ...formData, [name]: cleanedValue })
 }
 
 
 
+
+
+
 // Handle form submission with validation
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit =  (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
 
 
   const nameRegex = /^[A-Za-z\s'-]+$/
+
+
   const firstName = formData.firstName.trim()
   const lastName = formData.lastName.trim()
   const phone = formData.phone.trim()
+  const street = formData.street.trim()
+  const streetNumber = formData.streetNumber.trim()
+  const city = formData.city.trim()
+  const postalCode = formData.postalCode.trim()
 
   const parsedPhone = parsePhoneNumberFromString(phone, "DE")
 
@@ -94,17 +126,42 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   newErrors.phone = "Please enter a valid phone number"
 }
 
+// address local validation
+if (!street) {
+  newErrors.street = "Street is required"
+}
+
+if (!streetNumber) {
+  newErrors.streetNumber = "Street number is required"
+}
+
+if (!city) {
+  newErrors.city = "City is required"
+}
+
+if (!postalCode) {
+  newErrors.postalCode = "Postal code is required"
+}
+
+
+// Update error state with validation results
   setErrors(newErrors)
 
-  if (newErrors.firstName || newErrors.lastName || newErrors.phone) return
+  if (newErrors.firstName || newErrors.lastName || newErrors.phone || newErrors.street || newErrors.streetNumber || newErrors.city || newErrors.postalCode) return
 
+// Simulate form submission and navigate to confirmation page after a delay
+  setIsSubmitting(true)
+
+setTimeout(() => {
   navigate("/confirmation")
+}, 3000)
+  
 }
 
 
 
 
-
+// JSX structure for the checkout page with form fields, validation messages, and navigation
   return (
     /* Main checkout page wrapper */
     <main className={styles.checkoutPage}>
@@ -238,7 +295,15 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
               placeholder="Enter your street" 
               value={formData.street}
               onChange={handleChange}
+              className={`${styles.input} ${errors.street ? styles.inputError : ""}`}
               />
+
+                {/* Street error message */}
+                        {errors.street && (
+                  <p className={styles.errorMessage}>
+                            {errors.street}
+                        </p>
+                  )}
 
             </div>
 
@@ -252,6 +317,7 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
                placeholder="Enter number"
                 value={formData.streetNumber}
                 onChange={handleChange}
+                className={`${styles.input} ${errors.streetNumber ? styles.inputError : ""}`}
               />
 
             </div>
@@ -267,7 +333,15 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
               placeholder="Enter your city" 
               value={formData.city}
               onChange={handleChange}
+              className={`${styles.input} ${errors.city ? styles.inputError : ""}`}
               />
+              
+                {/* City error message */}
+                        {errors.city && (
+                  <p className={styles.errorMessage}>
+                            {errors.city}
+                        </p>
+                  )}
 
             </div>
 
@@ -281,7 +355,16 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
               placeholder="Enter postal code"
               value={formData.postalCode}
               onChange={handleChange}
+                className={`${styles.input} ${errors.postalCode ? styles.inputError : ""}`}
                />
+               
+                {/* Postal code error message */}
+                        {errors.postalCode && (
+                  <p className={styles.errorMessage}>
+                            {errors.postalCode}
+                        </p>
+                  )}
+
             </div>
 
        
@@ -354,9 +437,10 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       type="submit"
       variant = "secondary"
       form="checkoutForm"
+        disabled={isSubmitting}
       className={styles.submitButton}>
-        <Lock size={20} />  
-        Complete Order
+
+      {buttonContent()}
 
      </Button>
 
