@@ -27,6 +27,24 @@ const [isSubmitted, setIsSubmitted] = useState(false);
 
 
 
+// state to show loading spinner on button during async request
+const [isSubmitting, setIsSubmitting] = useState(false);
+// function to render button content based on submission state
+const submitContent = () => {
+  if (isSubmitting) {
+    return <span className={styles.spinner}></span>;
+  }
+
+  return (
+    <>
+    Reset Password
+    </>
+  );
+};
+
+
+
+
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
@@ -60,6 +78,7 @@ if (hasError) return;
 setEmailError("");
 setEmailSuccess("");
 setIsSubmitted(false);
+setIsSubmitting(true);
 
 const { error } = await supabase.auth.resetPasswordForEmail(trimmedEmail, {
   // local reset page url
@@ -75,6 +94,7 @@ if (error) {
 setEmailSuccess("Thank you! If an account with that email exists, we’ve sent a password reset link.");
 // disable form after submission
 setIsSubmitted(true);
+setIsSubmitting(false);
 };
 
 
@@ -174,13 +194,13 @@ setIsSubmitted(true);
             <Button
               type="submit"
               variant="primary"
-                disabled={isSubmitted} // disable button after submission
+                disabled={isSubmitted || isSubmitting} 
                 className={styles.resetPasswordButton}
                
             >
               
            {/* change button text based on submission status */}
-             {isSubmitted ? "Check your email" : "Reset Password"}  
+             {isSubmitted ? "Check your email" : submitContent()} 
         
             </Button>
           </div>
