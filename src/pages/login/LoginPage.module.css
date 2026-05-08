@@ -73,13 +73,27 @@ max-width: 420px;
 margin: var(--space-400) auto 0;
 
 }
+/* Input modifier: adds border color for error state */
+.inputError,
+.inputError:focus {
+   border-color: var(--color-primary-hover-end) !important;
+
+}
+
 /* password error message */
 .errorText{
-color:var(--color-primary-end);
+
 display: block;
 margin: var(--space-050) 0 var(--space-150) 0;
  text-align:left;
 margin-left: var(--space-100);
+
+ margin-top: var(--space-050);
+  font-size: var(--caption-size);
+  color: var( --color-primary-hover-end );
+  font-weight: var(--caption-weight);
+  letter-spacing: var( --letter-spacing-caption);
+
 }
 
                         /* Password wrapper */
@@ -147,12 +161,24 @@ color:var(--color-primary-start);
 letter-spacing: var(--letter-spacing-tight);
 font-weight:var(--heading-weight);
 
+ margin-top: var(--space-050);
+  font-size: var(--caption-size);
+  color: var( --color-primary-hover-end );
+  font-weight: var(--caption-weight);
+  letter-spacing: var( --letter-spacing-caption);
+
 }
 /* Password rules list */
 .passwordRules {
   list-style:none;
   gap:var(--space-100);
   
+   margin-top: var(--space-050);
+  font-size: var(--caption-size);
+  color: var( --color-primary-hover-end );
+  font-weight: var(--caption-weight);
+  letter-spacing: var( --letter-spacing-caption);
+
 }
 
 
@@ -187,6 +213,8 @@ font-weight:var(--heading-weight);
  width: min(90vw, 420px);
  height: clamp(44px, 10vw, 45px);
 
+gap: var(--space-050);
+
 }
 
 /* Login button disabled state */
@@ -194,6 +222,27 @@ font-weight:var(--heading-weight);
 opacity: 0.55;
 cursor:not-allowed;
 filter:grayscale(20%)
+}
+
+
+.spinner {
+ width: var(--space-300);
+  height: var(--space-300);
+  border: var(--border-width-200) solid rgba(255, 255, 255, 0.4);
+  border-top: var(--border-width-200) solid var(--color-white);
+  border-radius: var(--radius-full);
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
   /* Secondary section - (New here) text */
@@ -229,7 +278,10 @@ filter:grayscale(20%)
 /* backend auth error message */
 .errorTextLogin{
 
-color:var(--color-primary-end);
+font-size: var(--caption-size);
+  color: var( --color-primary-hover-end );
+  font-weight: var(--caption-weight);
+  letter-spacing: var( --letter-spacing-caption);
 margin: var(--space-050) ;
 }
 
@@ -238,6 +290,7 @@ margin: var(--space-050) ;
 width: min(75vw, 320px);        
 height: clamp(36px, 8vw, 38px); 
 
+  gap: var(--space-050);
 }
 
  /* text-OR  */
@@ -274,7 +327,7 @@ height: clamp(36px, 8vw, 38px);
 width: min(75vw, 320px);        
 height: clamp(36px, 8vw, 38px); 
 
-
+gap: var(--space-050);
 }
   /* security-text */
 .securityText{

@@ -5,6 +5,7 @@ import Button from "../../ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../../lib/supabase";
+import { Check, UserPlus } from "lucide-react";
 
 
 
@@ -65,6 +66,23 @@ const [signUpError, setSignUpError] = useState("");
 // backend success state
 const [signUpSuccess, setSignUpSuccess] = useState("");
 
+
+
+
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+const submitContent = () => {
+  if (isSubmitting) {
+    return <span className={styles.spinner}></span>;
+  }
+
+  return (
+    <>
+      <UserPlus size={20} />
+      Create Account
+    </>
+  );
+};
 
 
 
@@ -162,6 +180,7 @@ if (hasError) return;
 // clear previous backend messages
 setSignUpError("");
 setSignUpSuccess("");
+setIsSubmitting(true);
 
 // send signup request to Supabase (backend)
 const { error } = await supabase.auth.signUp({
@@ -182,7 +201,7 @@ setNameValue("");
 setEmailValue("");
 setPassword("");
 setConfirmPasswordValue("");
-
+setIsSubmitting(false);
 
 };
 
@@ -225,7 +244,7 @@ setConfirmPasswordValue("");
       placeholder="Name"
      disabled={!!signUpSuccess} // disable input on successful signup
       value={nameValue} // controlled input value
-       className={styles.inputSuccess}// adds space for check icon
+       className={`${styles.input} ${nameError ? styles.inputError : ""}`}
 
       onChange={(e) => {
         const value = e.target.value;// raw input
@@ -239,7 +258,7 @@ setConfirmPasswordValue("");
      {/* show valid name check */}
 {isNameValid && (
   <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
-    ✓
+     <Check size={20} />
   </span>
 )}
 
@@ -270,7 +289,7 @@ setConfirmPasswordValue("");
       id="email"
       name="email"
       placeholder="Email"
-        className={styles.inputSuccess}// adds space for check icon
+        className={`${styles.input} ${emailError ? styles.inputError : ""}`} 
         disabled={!!signUpSuccess} // disable input on successful signup
       maxLength={254}
 
@@ -288,7 +307,7 @@ setConfirmPasswordValue("");
     className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
     aria-hidden="true"
   >
-    ✓
+     <Check size={20} />
   </span>
    )}
 
@@ -325,7 +344,7 @@ setConfirmPasswordValue("");
       disabled={!!signUpSuccess} // disable input on successful signup
       name="password"
       placeholder="Password"
-      className={styles.inputSuccess}// adds space for check icon
+        className={`${styles.input} ${ isPasswordTouched && !isPasswordValid ? styles.inputError : ""}`}
      
       // show hint on focus
       onFocus={() => setShowPasswordText(true)}
@@ -345,7 +364,7 @@ setConfirmPasswordValue("");
     className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
     aria-hidden="true"
   >
-    ✓
+    <Check size={20} />
   </span>
 )}
 
@@ -356,7 +375,7 @@ setConfirmPasswordValue("");
      className={`${styles.inputIcon} ${styles.right}`}
      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
      onMouseDown={(e) => e.preventDefault()}
-      disabled={!!signUpSuccess} // disable input on successful signup
+      disabled={!!signUpSuccess } 
      aria-label="Show password"
        >
         {/* eye / eye-slash icon*/}
@@ -381,7 +400,7 @@ setConfirmPasswordValue("");
   <div className={styles.passwordError}>
 
     <p className={styles.passwordTitle}>
-      Password must contain
+      Password must contain:
     </p>
 
     {/* password rules status list*/}
@@ -390,14 +409,14 @@ setConfirmPasswordValue("");
      {/* check uppercase letter */}
      <li>
   <span className={hasUppercase ? styles.valid : styles.invalid}>
-    {hasUppercase ? "✓" : ""}
+    {hasUppercase ?  <Check size={15} /> : ""}
   </span>
   One uppercase letter
 </li>
 {/* check lowercase letter */}
       <li>
   <span className={hasLowercase ? styles.valid : styles.invalid}>
-    {hasLowercase ? "✓" : ""}
+    {hasLowercase ?  <Check size={15} /> : ""}
   </span>
   One lowercase letter
 </li>
@@ -405,7 +424,7 @@ setConfirmPasswordValue("");
 {/* check number included */}
 <li>
   <span className={hasNumber ? styles.valid : styles.invalid}>
-    {hasNumber ? "✓" : ""}
+    {hasNumber ?  <Check size={15} /> : ""}
   </span>
   One number
 </li>
@@ -413,7 +432,7 @@ setConfirmPasswordValue("");
 {/* check password length */}
 <li>
   <span className={hasLength ? styles.valid : styles.invalid}>
-    {hasLength ? "✓" : ""}
+    {hasLength ?  <Check size={15} /> : ""}
   </span>
   8–15 characters
 </li>
@@ -441,7 +460,7 @@ setConfirmPasswordValue("");
       placeholder="Confirm Password"
       autoComplete="new-password"
       disabled={!!signUpSuccess} // disable input on successful signup
-      className={styles.inputSuccess}// adds space for check icon
+        className={`${styles.input} ${confirmPasswordError ? styles.inputError : ""}`}
       value={confirmPasswordValue}// controlled input value
     
       onChange={(e) => setConfirmPasswordValue(e.target.value)}// update state on typing
@@ -452,7 +471,7 @@ setConfirmPasswordValue("");
     className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`}
     aria-hidden="true"
   >
-    ✓
+    <Check size={20} />
   </span>
 )}
 
@@ -460,7 +479,7 @@ setConfirmPasswordValue("");
         {confirmPasswordValue.length > 0 && (
       <button
      type="button"
-      disabled={!!signUpSuccess} // disable input on successful signup
+      disabled={!!signUpSuccess  || isSubmitting} // disable input on successful signup
      className={`${styles.inputIcon} ${styles.right}`}
      onClick={() =>
     setIsConfirmPasswordVisible(!isConfirmPasswordVisible) /* toggle visibility state */
@@ -522,10 +541,12 @@ setConfirmPasswordValue("");
   {/* Button */}
   <Button 
     type="submit" 
-   disabled={!!signUpSuccess} // disable input on successful signup
+   disabled={!!signUpSuccess  || isSubmitting} 
     variant="primary"
     className={styles.submitButton}>
-    {signUpSuccess ? "Check your email" : "Create Account"}{/* change button text on success */}
+
+    
+    {signUpSuccess ? "Check your email" : submitContent()}{/* change button text on success */}
   </Button>
 
 

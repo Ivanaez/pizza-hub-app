@@ -5,6 +5,7 @@ import Button from "../../ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../../lib/supabase";
+import { Check } from "lucide-react";
 
 
 const ForgotPasswordPage = () => {
@@ -126,8 +127,9 @@ setIsSubmitted(true);
               placeholder="Email"
               id="email"
               autoComplete="email"
-              className={styles.inputEmail}
               
+               className={`${styles.inputEmail} ${emailError ? styles.inputError : ""}`}
+               
               disabled={isSubmitted} // disable input after submission
                value={emailValue}
               onChange={(e) => 
@@ -143,7 +145,7 @@ setIsSubmitted(true);
              className={styles.validIcon} 
                aria-hidden="true"
              >
-                ✓
+                <Check size={20} />
             </span>
             )}
             

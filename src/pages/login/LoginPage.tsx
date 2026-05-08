@@ -8,6 +8,8 @@ import type { FormEvent } from "react";
 import { supabase } from "../../lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Check, LogIn, User, UserPlus } from "lucide-react";
+
 
 
 const LoginPage = () => {
@@ -32,6 +34,23 @@ const [emailError, setEmailError] = useState("");
 // check email format
 const isEmailValid = emailRegex.test(emailValue.trim());
 
+
+
+// submission state for loading spinner
+const [isSubmitting, setIsSubmitting] = useState(false);
+// login button content: spinner or text
+const loginContent = () => {
+  if (isSubmitting) {
+    return <span className={styles.spinner}></span>
+  }
+
+  return (
+    <>
+      <LogIn size={20} />
+      Login
+    </>
+  )
+}
 
 
 // backend login error.............
@@ -82,7 +101,7 @@ setEmailError(""); // clear error
   setShowPasswordError(true); // empty password
   hasError = true;
 } else if (!isPasswordValid) {
-  setShowPasswordError(true); // invalid rules
+  setShowPasswordError(true); // invalid format
   hasError = true;
 } else {
   setShowPasswordError(false); // clear error
@@ -91,6 +110,7 @@ setEmailError(""); // clear error
  
 // clear backend error
 setLoginError("");
+setIsSubmitting(true); // start spinner
 
 // send login request to backend (Supabase auth)
 const { data,error } = await supabase.auth.signInWithPassword({
@@ -99,11 +119,16 @@ const { data,error } = await supabase.auth.signInWithPassword({
 });
 // check backend response
 if (error) {
-  setLoginError("Invalid email or password");// login failed
+  setLoginError("Invalid email or password")
+  setIsSubmitting(false) // stop spinner on error
 } else {
-  console.log(data.user);// debug user
-  navigate("/");// go to home
+  console.log(data.user)
+
+    setIsSubmitting(false); // stop spinner on success
+    navigate("/")
+ 
 }
+
 
 };
 
@@ -131,7 +156,7 @@ if (error) {
 
          {/* Short description encouraging user to sign in */}
         <p> 
-            Join us and make your next order easier.
+            Join us and make your next order easier
         </p>
         
       </header>
@@ -153,13 +178,14 @@ if (error) {
       <i className="fa-regular fa-envelope"></i>
     </span>
          {/*  email input field */}
+
     <Input
       type="email"
       name="email"
       placeholder="Email"
       id="email"
       autoComplete="email"
-       className={styles.inputSuccess}// adds space for check icon
+        className={`${styles.input} ${emailError ? styles.inputError : ""}`}
 
       onChange={(e) => {
   const value = e.target.value; // raw input value
@@ -170,7 +196,7 @@ if (error) {
     {/* show valid email check */}
     {isEmailValid && emailValue.length > 0 && (
   <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
-    ✓
+    <Check size={20} />
   </span>
    )}
 
@@ -202,7 +228,7 @@ if (error) {
       placeholder="Password"
       id="password"
       autoComplete="current-password"
-      className={styles.inputSuccess}// adds space for check icon
+      className={`${styles.input} ${showPasswordError ? styles.inputError : ""}`}
       
       onChange={(e) => {setPasswordValue(e.target.value); // update input state
        setShowPasswordError(false);// reset error state
@@ -211,7 +237,7 @@ if (error) {
     {/*  show valid password check  */}
     {  isPasswordValid && passwordValue.length > 0 && (
   <span className={`${styles.inputIcon} ${styles.validPosition} ${styles.validIcon}`} aria-hidden="true">
-    ✓
+    <Check size={20} />
   </span>
 )}
                  {/* eye span icon */}
@@ -240,10 +266,10 @@ if (error) {
     Password must contain:</p>
 
   <ul className={styles.passwordRules} >
-    <li> One uppercase letter</li>
-    <li> One lowercase letter</li>
-    <li> One number</li>
-    <li> 8–15 characters</li>
+    <li>* One uppercase letter</li>
+    <li>* One lowercase letter</li>
+    <li>* One number</li>
+    <li>* 8–15 characters</li>
   </ul>
 </div>
 
@@ -265,10 +291,9 @@ if (error) {
    type="submit" 
    variant="primary" 
    className={styles.loginPageButton} 
-    
+     disabled={isSubmitting} /* disable while submitting */
    >
-   
-    Login
+  {loginContent()} {/* show spinner or text */}
 </Button>
 </div>
 </form>
@@ -287,7 +312,9 @@ if (error) {
     to="/create-account"
     variant="secondary"
     className={styles.createAccount}
+   
   >
+    <UserPlus size={20} />
     Create Account
   </LinkButton>
 </div>
@@ -304,6 +331,7 @@ if (error) {
     variant="secondary"
     className={styles.guestButton}
   >
+    <User size={20} />
     Continue as Guest
   </LinkButton>
 </div>
