@@ -1,4 +1,8 @@
-   /* Global CSS Variables */
+ @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+ 
+ /* Global CSS Variables */
 :root {
 
   
@@ -204,8 +208,7 @@
 
           /* Page Settings */
 html {
-  
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
 }
               /* Background Image */
 body {
