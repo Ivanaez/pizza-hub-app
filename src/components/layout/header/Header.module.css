@@ -26,16 +26,14 @@
                            /* Menu toggle button (left side) */
 .buttonToggle {
   
-  font-size: var(--font-size-700);
+  
   background: none;
   border: none;
   cursor: pointer;
   color: var(--text-primary);
   
- 
-  
-  
 }
+
         /* Navigation Menu (sliding from left) */
 .menu {
   position: fixed;
@@ -68,24 +66,35 @@
   text-decoration: none;
   font-weight:var(--label-weight);
 
+  display: flex;
+  align-items: center;
+ }
+
+ .chevron {
+ color: var(--text-secondary);
+  margin-left: auto;
+  display:flex ;
+  align-items: center;
  }
                             /* Menu icons */
- .menu a i {
-  margin-right: var(--space-150); 
-  font-size: var(--font-size-400);      
-  width: var(--font-size-500);          
-  text-align: center;
+ .menu a svg {
+  margin-right: var(--space-300); 
+          
+ 
+  
 }
                           /* Menu list container */
 .menu ul {
   list-style: none;
    margin-top: var(--space-700); /* 64px */
+   
 }
                          /* Menu list items */
 .menu li {
  padding: var(--space-200) var(--space-200); /* 16px vertical and horizontal padding */
   cursor: pointer;
    border-bottom: var(--border-width-100) solid var(--divider-color);
+   
 }
                               /* Logo (center) */
 
@@ -111,6 +120,7 @@
   display: flex;
   gap: var(--space-100); /* 8px gap between icons */
   align-items: center;
+
 
 }
                               /* Header icon buttons */
@@ -165,8 +175,8 @@ position: relative;
     font-size: 26px;
   }
                                /* Menu icons - 768px */
-   .menu a i {
-  font-size: var(--font-size-600);      
+   .menu a svg {
+  font-size: var(--font-size-700);      
   width: 25px;          
   
 }
@@ -183,7 +193,7 @@ position: relative;
 }
 
 }
-                            /* Desktop-1024px */
+                            /* Desktop-1024px ************************************************/
 
 
 @media (min-width: 1024px) {
@@ -196,7 +206,7 @@ position: relative;
     
   }
                             /* Menu icons hidden - desktop 1024px */
-   .menu a i {
+   .menu a svg {
     display: none;
   }
                             /* Close menu button - desktop 1024px */
@@ -232,7 +242,7 @@ position: relative;
 
   .menu li {
   border-bottom: none;
- 
+
 
   }
 
@@ -240,7 +250,12 @@ position: relative;
     text-decoration: none;
     color: var(--text-primary);
     font-weight: var(--font-weight-700);
-    
+     transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  .menu a:hover{
+ color: var(--color-primary-end);
+  opacity: 0.8;
+
   }
 
   .menu ul {
@@ -248,11 +263,9 @@ position: relative;
     display: flex;
     gap: var(--space-650); /* 56px gap between menu items */
     justify-content: center;
+    
   }
-  .menu li:hover {
  
-  opacity: 0.6;
-}
  
                             /* Header tools (icons right side) - desktop */
   .headerTools{
@@ -268,9 +281,14 @@ position: relative;
     display: inline-block;
     font-weight: var(--label-weight);
     color: var(--text-primary);
+     font-weight: var(--font-weight-700);
+   transition: color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+   
   }
   .userText:hover {
-    opacity: 0.6;
+    opacity: 0.8;
+    color:  var(--color-primary-end);
+    
   }
                              /* Hide menu items 4 and 5 on - desktop */
   .menu li:nth-child(5),
@@ -279,6 +297,28 @@ position: relative;
   {
     display: none;
   }
-
    
+  .userBtn {
+  color: var(--text-primary);
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+
+.userBtn:hover {
+  color: var(--color-primary-end);
+  opacity: 0.8;
+}
+
+  
+   }
+   .cartBtn{
+   transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+   }
+   .cartBtn:hover{
+    opacity: 0.8;
+    color:  var(--color-primary-end);
+   
+   }
+
+
+

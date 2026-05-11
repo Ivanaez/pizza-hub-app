@@ -4,7 +4,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { useState,useRef,useEffect } from "react";
 import { supabase } from "../../../lib/supabase";
 import { useCart } from "../../../features/cart/CartContext";
-import { User,ShoppingCart } from "lucide-react";
+import { User,ShoppingCart,Home,Truck, MapPin, CircleHelp, BadgePercent, Phone, Menu, ChevronRight,X} from "lucide-react";
 
 
 
@@ -141,7 +141,7 @@ useEffect(() => {
   aria-label="Menu"
   onClick={() => setIsMenuOpen(!isMenuOpen)}
 >
- ☰
+ <Menu size={25} strokeWidth={2.0} />
 </button>
                        {/* Logo link */}
   <Link to="/" className={styles.logoLink} title="Logo Pizza-Hub">
@@ -160,51 +160,57 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
    
    onClick={() => setIsMenuOpen(false)}
    >
-    <i className="fa-solid fa-xmark"></i>
+    <X size={28} strokeWidth={2.2} />
   </button>
 
   <ul>
     <li>
       <Link to="/">
-        <i className="fa-solid fa-house"></i> Home
+       <Home  /> HOME
+     <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
       <Link to="/delivery">
-        <i className="fa-solid fa-truck"></i> Delivery
+        <Truck /> DELIVERY
+      <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
       <Link to="/locations">
-        <i className="fa-solid fa-location-dot"></i> Locations
+        <MapPin />  LOCATIONS
+       <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
       <Link to="/about">
-        <i className="fa-solid fa-info-circle"></i> About
+        <CircleHelp /> ABOUT
+        <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
       <Link to="/deals">
-        <i className="fa-solid fa-tag"></i> Deals
+       <BadgePercent /> DEALS
+      <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
       <Link to="/contact">
-        <i className="fa-solid fa-phone"></i> Contact
+        <Phone /> CONTACT
+       <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 <li>
   <Link 
      to="/login" onClick={handleAuthClick}// handle login/logout logic
      >
-    <i className="fa-solid fa-user"></i> 
-    {isLoggedIn ? "Logout" : "Login"}  {/* show "Logout" if logged in, otherwise "Login"*/}
+    <User /> {isLoggedIn ? "LOGOUT" : "LOGIN"}  {/* show "Logout" if logged in, otherwise "Login"*/}
+     <ChevronRight className={styles.chevron} size={30} />
   </Link>
 </li>
 
@@ -221,7 +227,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
   <User className={`${styles.iconBtn} ${styles.userBtn}`} />
    
     <span className={styles.userText} onClick={handleAuthClick}>{/*} handle login/logout logic*/}
-   {isLoggedIn ? "Logout" : "Login"} {/* show "Logout" if logged in, otherwise "Login" */}
+   {isLoggedIn ? "LOGOUT" : "LOGIN"} {/* show "Logout" if logged in, otherwise "Login" */}
     </span>
 
   </Link>
