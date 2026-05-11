@@ -2,6 +2,7 @@ import styles from "./PizzaCard.module.css";
 import linkButton from "../../../ui/LinkButton/LinkButton.module.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../features/cart/CartContext";
+import { Eye, ShoppingCart } from "lucide-react";
 
 /* Props for the PizzaCard component */
 type Props = {
@@ -37,7 +38,7 @@ export function PizzaCard({
           {/* pizza title and price */}
       <div className={styles.pizzaContent}>
         <h3 className={styles.pizzaTitle}> {title} </h3>
-        <p className={styles.pizzaPrice}>  from {priceFrom.toFixed(2)}€  </p>
+        <p className={styles.pizzaPrice}>   {priceFrom.toFixed(2)} €  </p>
       </div>
 
        {/* pizza action buttons container */}
@@ -57,11 +58,13 @@ export function PizzaCard({
     })
   }
 >
-  Add to Cart
+   <ShoppingCart size={16} />
+  ADD
 </button>
                        {/* Link Button Details */}
         <Link to={detailsHref} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
-          Details
+        <Eye size={20} />
+          DETAILS
         </Link>
       </div>
     </article>
