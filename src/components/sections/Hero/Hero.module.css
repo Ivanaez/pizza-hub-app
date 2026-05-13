@@ -34,10 +34,8 @@
   letter-spacing: var(--heading-letter-spacing);
   
   }
-    /*Hero title text shadow*/
-  .bannerText h1{
-  text-shadow: var(--shadow-text-h1);
-}
+   
+
 
                 /* Hero buttons container */
   .bannerButtons {
