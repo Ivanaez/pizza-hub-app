@@ -8,7 +8,7 @@
   top: var(--space-700);
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.9;
+
   background-color: var( --color-secondary-start); 
   color: var(--color-white);
   
@@ -18,7 +18,7 @@
   font-size: var(--font-size-300);
   font-weight: var(--label-weight);
 
-  
-
   z-index: 9999;
+
+  
 }

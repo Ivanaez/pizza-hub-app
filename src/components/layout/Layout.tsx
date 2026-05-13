@@ -18,7 +18,7 @@ function Layout() {
 
   {/* Global cart toast notification */}
 {toastMessage && (
-  <div className={styles.cartToast}>
+ <div className={`${styles.cartToast} ${styles.cartToastVisible}`}>
     {toastMessage}
   </div>
 )}
