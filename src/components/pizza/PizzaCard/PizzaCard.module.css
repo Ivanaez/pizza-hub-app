@@ -3,9 +3,9 @@
   flex: 0 0 var(--card-width-mobile);
   aspect-ratio: 3 / 2;
   scroll-snap-align: start;
- background: var(--surface-card-bg);
+ background: var( --surface-card-bg);
  
-  border: var(--border-width-400) solid var(--border-medium);
+  border: var(--border-width-200) solid var(--border-medium);
   border-radius: var(--radius-card);
   box-shadow:var(--shadow-card);
 }
@@ -38,8 +38,8 @@ margin: var(--space-100) var(--space-400);
 
 .pizzaTitle {
   color: var(--text-primary);
-  font-size: var(--font-size-400);
-  font-weight: var(--font-weight-600);
+  font-size: var(--subheading-size);
+  font-weight: var(--subheading-weight );
   letter-spacing: var(--heading-letter-spacing);
   line-height: 1.2;
 }
@@ -47,8 +47,8 @@ margin: var(--space-100) var(--space-400);
   
    .pizzaPrice{
      color: var(--text-primary);
-  font-size: var(--font-size-400);
-  font-weight: var(--font-weight-400);
+  font-size: var(--body-size);
+  font-weight: var(  --body-weight);
   letter-spacing: var(--body-letter-spacing);
   
 

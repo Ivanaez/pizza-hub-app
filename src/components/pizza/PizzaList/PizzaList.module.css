@@ -39,6 +39,7 @@
 /* Scroll buttons hidden by default */
   .scrollBtn {
   display: none;
+ 
 }
 
 
@@ -95,9 +96,10 @@
   height: 50px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   font-size: var(--font-size-500);
+
 }
                           /* scroll btn-left */
 .scrollBtn.left {
