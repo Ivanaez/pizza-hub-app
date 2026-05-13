@@ -1,5 +1,6 @@
 import styles from './Footer.module.css';
 import { Link } from 'react-router-dom';
+import {Phone,Clock,MapPin} from "lucide-react"
 
 import facebookLogo from "../../../assets/images/social/facebook-logo.svg";
 import instagramLogo from "../../../assets/images/social/instagram-logo.svg";
@@ -15,9 +16,9 @@ const Footer = () => {
 
        {/* Footer navigation links */}
         <nav className={styles.footerNav} aria-label="Footer navigation">
-          <Link to="/help">Help / FAQ</Link>
-           <Link to="/contact">Contact</Link>
-            <Link to="/terms">Terms & Privacy</Link>
+          <Link to="/help">HELP / FAQ</Link>
+           <Link to="/contact">CONTACT</Link>
+            <Link to="/terms">TERMS & PRIVACY</Link>
 </nav>
                        {/* Social media links with icons */}
 <div className={styles.footerSocial}>
@@ -38,20 +39,20 @@ const Footer = () => {
                            {/* Footer info */}
 <div className={styles.footerInfo}>
   <div className={styles.footerInfoBox}>
-    <p className={styles.footerInfoTitle}>Contact:</p>
+    <p className={styles.footerInfoTitle}>Contact Us</p>
 
     <p>
-      <i className="fa-solid fa-phone" aria-hidden="true"></i>{" "}
+     <Phone size={18} strokeWidth={2.5}/>{" "}
       <a href="tel:+442079460958">+44 20 7946 0958</a>
     </p>
 
     <p>
-      <i className="fa-solid fa-clock" aria-hidden="true"></i>{" "}
-      Mon - Sun: 09:30 - 22:00
+     <Clock size={18} strokeWidth={2.5}  /> {" "}
+      Mon - Sun: 09:30 AM - 22:00 PM
     </p>
 
     <p>
-      <i className="fa-solid fa-location-dot" aria-hidden="true"></i>{" "}
+     <MapPin size={20} strokeWidth={2.5} />{" "}
       <a
         href="https://www.google.com/maps/search/?api=1&query=221B+Baker+Street+London+NW1+6XE"
         target="_blank"

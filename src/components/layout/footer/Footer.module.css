@@ -30,12 +30,15 @@
   font-weight: var(--label-weight);
   font-size: var(--label-size);
   letter-spacing: var(--letter-spacing-label);
+
   position : relative;
+   transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
   
 } 
                            /* Footer link hover */
 .footerNav a:hover {
   opacity: 0.75;
+  color: var(--color-primary-end);
 }
 
                  /* Social icons wrapper */
@@ -51,13 +54,14 @@
   width: 35px;
   height: 35px;
   object-fit: contain;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease-in-out ;
   border-radius: 50%;
   
 }
                              /* Social hover effect */
 .footerSocial a:hover img {
-  transform: scale(1.1);
+  
+  transform: translateY(-2px);
 }
                   /*  Divider line for visual separation */
 .footerDivider {
@@ -93,7 +97,8 @@
 }
                         /* Footer copyright */
 .footerBottom p {
-  font-size: var(--caption-size);
+  font-size: var( --caption-size);
+  font-weight: var(---caption-weight);
   color: var(--text-secondary);
   text-align: center;
 }
@@ -122,7 +127,7 @@
      /* Footer link */
   .footerNav a {
    font-size: var(--font-size-200);
-    
+    font-weight: var(--font-weight-700);
   }
 /* Social icons wrapper */
 .footerSocial {
