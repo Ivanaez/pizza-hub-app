@@ -158,6 +158,15 @@ position: relative;
   display: none;
 }
 
+.cartTotal {
+  color: var( --color-primary-end);
+  font-size: var(--font-size-300);
+  font-weight: var(--font-weight-600);
+  letter-spacing: var(--label-letter-spacing);
+}
+
+
+
 
                                /* TABLET – 768px  */
 
