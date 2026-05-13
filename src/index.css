@@ -102,13 +102,13 @@
 
 /* Font Weight Text-Roles */
 
- --heading-weight: var(--font-weight-600);
-  --subheading-weight: var(--font-weight-300);
+ --heading-weight: var(--font-weight-800);
+  --subheading-weight: var(--font-weight-700);
   --body-weight: var(--font-weight-500);
-  --muted-weight: var(--font-weight-300);
+  --muted-weight: var(--font-weight-600);
   --label-weight: var(--font-weight-600);
-  --button-weight: var(--font-weight-700);
- ---caption-weight: var(--font-weight-300);
+  --button-weight: var(--font-weight-800);
+ ---caption-weight: var(--font-weight-500);
 
 
 
@@ -128,9 +128,7 @@
 --shadow-input: var(--shadow-100);
 --shadow-input-focus: var(--shadow-400);
 
- /* Text shadows (semantic) */
-  --shadow-text-h1: 0 2px 8px rgba(0,0,0,0.20);
-  --shadow-text-h2: 0 2px 6px rgba(0,0,0,0.15);
+
 
 
 
