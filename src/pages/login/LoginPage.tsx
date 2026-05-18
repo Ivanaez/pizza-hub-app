@@ -9,11 +9,12 @@ import { supabase } from "../../lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Check, LogIn, User, UserPlus } from "lucide-react";
-
+import { useUser } from "../../features/user/UserContext";
 
 
 const LoginPage = () => {
 
+  const { login } = useUser();
   
 /* Password state *****************/
 const [passwordValue, setPasswordValue] = useState("");
@@ -123,6 +124,7 @@ if (error) {
   setIsSubmitting(false) // stop spinner on error
 } else {
   console.log(data.user)
+  login(data.user?.user_metadata?.name ?? "User");
 
     setIsSubmitting(false); // stop spinner on success
     navigate("/")
