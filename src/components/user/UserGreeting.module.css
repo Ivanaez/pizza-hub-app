@@ -1,0 +1,33 @@
+.userGreeting {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-secondary);
+   font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  margin: var(--space-150) ;
+}
+
+.logoutText {
+   margin-left: var(--space-050);
+   font-size: var(--body-size);
+  color: var(--color-primary-start);
+
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logoutText:hover {
+  opacity: 0.75;
+}
+
+
+
+/* Desktop styles 1024px+ *********************************************/
+@media (min-width: 1024px) {
+  .userGreeting {
+
+    margin: var(--space-050) ;
+  }
+}
