@@ -188,6 +188,9 @@ const { error } = await supabase.auth.signUp({
   password: password,
  options: {
     emailRedirectTo: "https://pizza-hub-app.vercel.app/login",// redirect after email confirmation
+     data: {
+      name: nameValue,
+    },
   },
 });
 // if backend returns error -> show it
