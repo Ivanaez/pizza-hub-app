@@ -104,10 +104,10 @@
 
  --heading-weight: var(--font-weight-800);
   --subheading-weight: var(--font-weight-700);
-  --body-weight: var(--font-weight-500);
+  --body-weight: var(--font-weight-400);
   --muted-weight: var(--font-weight-600);
   --label-weight: var(--font-weight-600);
-  --button-weight: var(--font-weight-800);
+  --button-weight: var(--font-weight-700);
  ---caption-weight: var(--font-weight-500);
 
 
