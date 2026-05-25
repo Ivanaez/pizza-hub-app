@@ -1,0 +1,121 @@
+ /*  card */
+ .productCard {
+  flex: 0 0 var(--card-width-mobile);
+  aspect-ratio: 3 / 2;
+  scroll-snap-align: start;
+ background: var(--color-white);
+ 
+  border-radius: var(--radius-card);
+  box-shadow:var(--shadow-card);
+ 
+}
+
+
+/* card image */
+.cardImg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+
+  -webkit-user-drag: none; /*prevent image drag*/
+}
+
+  /* card divider */
+.cardDivider{
+height: var(--border-width-100);
+background: var(--divider-color);
+margin: var(--space-100) var(--space-400);
+}
+
+  /* card content */
+  .cardContent{
+   display:flex;
+   justify-content:space-between;
+   padding: var(--space-150);
+   margin-bottom: var(--space-100);
+   flex-direction:column;
+   
+}            
+
+.cardTitle {
+  color: var(--text-primary);
+  font-size: var(--subheading-size);
+  font-weight: var(--subheading-weight );
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: 1.2;
+  min-height:40px;
+}
+                          
+  
+   .cardPrice{
+     color: var(--text-primary);
+  font-size: var(--body-size);
+  font-weight: var( --font-weight-600 );
+  letter-spacing: var(--body-letter-spacing);
+  
+
+   }
+
+
+    /* card actions container */
+  .cardActions{
+   display:flex;
+   gap:var(--space-050);
+   margin-top:var(--space-050);
+   margin-bottom:var(--space-100);
+   
+  }
+ 
+
+   /* pizza action buttons */
+  .cardActions .btn{
+   padding:var(--space-100) var(--space-300);
+   margin:0px 0px var(--space-200) var(--space-100);
+   gap :var(--space-050);
+   -webkit-user-drag:none;  /* prevent button drag */
+  
+  min-width:0;
+   }
+   
+   /*Important section*/
+
+
+   /* Menu section image variant with fixed height for equal card layout */
+   .section .cardImg{
+  height: 220px;
+  object-fit: contain;
+
+   }
+
+
+    /* Desktop breakpoints 1024px ****************************************/           
+ @media (min-width: 1024px) {
+  .productCard {
+    flex-basis: var(--card-width-desktop);
+  }
+
+ /*  card Image-1024px */
+  .cardImg {
+     transition: transform 200ms ease, filter 200ms ease;
+  
+  }
+
+  /* card image hover effect - 1024px*/
+  .cardImg:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.18));
+                        
+}
+/* card action buttons */
+  .cardActions .btn{
+   padding:var(--space-100) var(--space-400);
+   
+  
+ 
+   }
+        
+
+
+}
+    
