@@ -1,0 +1,7 @@
+
+/* Main menu page wrapper */
+.pageContainer {
+  width: 100%;
+  max-width: var(--layout-container-max);
+  margin: 0 auto;
+}
