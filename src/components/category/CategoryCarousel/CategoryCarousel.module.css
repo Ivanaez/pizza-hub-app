@@ -1,0 +1,30 @@
+/* Horizontal category carousel */
+.carousel {
+    display: flex;
+
+    gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    padding: 24px;
+}
+/* Hide Chrome scrollbar */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+/* Prevent card shrinking */
+.carousel > * {
+  flex: 0 0 auto;
+}
+
+/* Center carousel on desktop */
+@media (min-width: 1024px) {
+  .carousel {
+    gap: 25px;
+    justify-content: center;
+  }
+}
