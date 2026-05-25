@@ -8,7 +8,11 @@ import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 import CartPage from "./pages/cart/CartPage";
 import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
 import ConfirmationPage from "./pages/confirmationPage/ConfirmationPage";
-
+import { MenuPage } from "./pages/menu/MenuPage";
+import { BurgersPage } from "./pages/menu/burgers/BurgersPage";
+import { PizzasPage } from "./pages/menu/pizzas/PizzasPage";
+import { SoftDrinksPage } from "./pages/menu/softDrinks/SoftDrinksPage";
+import {DessertsPage} from "./pages/menu/desserts/DessertsPage";
 
 
 function App() {
@@ -20,6 +24,11 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/menu/burgers" element={<BurgersPage />} />
+        <Route path="/menu/desserts" element={<DessertsPage />} />
+        <Route path="/menu/pizzas" element={<PizzasPage />} />
+        <Route path="/menu/soft-drinks" element={<SoftDrinksPage />} />
       </Route>
 
                      {/* Pages WITHOUT header/footer */}
