@@ -1,0 +1,56 @@
+/* Category navigation card */
+.card {
+    border: 0;
+    border-radius: var(--radius-card);
+    background: var(--color-white);
+    cursor: pointer;
+    overflow: hidden;
+    width: clamp(120px, 28vw, 200px);
+    box-shadow: var(--shadow-card);
+   
+    display: flex;
+    flex-direction: column;
+     text-decoration: none;
+}
+/* Card hover interaction */
+.card:hover{
+opacity:0.90;
+
+}
+/* Active category state */
+.active {
+  border: 2px solid var(--color-secondary-hover-start);
+}
+
+
+/* Category preview image */
+.image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+/* Centered category title */
+.title {
+     display: flex;
+    align-items: center;
+   justify-content: center;
+    min-height: 48px;
+
+    color: var(--text-primary);
+
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-700);
+    letter-spacing: var(--body-letter-spacing);
+   text-align: center;
+   
+}
+
+/* Desktop title typography *****************************************************/
+@media (min-width: 1024px) {
+  .title {
+   font-size: var(--font-size-300);
+    font-weight: var(--font-weight-700);
+   
+  }
+}
