@@ -1,0 +1,32 @@
+ /* Mobile first products grid */
+ .section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+ 
+  width: 100%;
+  padding: var(--space-400);
+  gap: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+/* Two columns tablet layout */
+@media (min-width: 425px) {
+  .section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Three columns desktop layout */
+@media (min-width: 768px) {
+  .section {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* Four columns large screens */
+@media (min-width:1024px) {
+  .section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
