@@ -1,15 +1,15 @@
 import styles from "./LoginPage.module.css";
-import logo from "../../assets/images/logos/Logo.PNG";
-import Input from "../../ui/Input/Input";
-import Button from "../../ui/Button/Button";
-import LinkButton from "../../ui/LinkButton/LinkButton";
+import logo from "@/assets/images/logos/Logo.PNG";
+import Input from "@/ui/Input/Input";
+import Button from "@/ui/Button/Button";
+import LinkButton from "@/ui/LinkButton/LinkButton";
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { supabase } from "../../lib/supabase";
+import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Check, LogIn, User, UserPlus } from "lucide-react";
-import { useUser } from "../../features/user/UserContext";
+import { useUser } from "@/features/user/UserContext";
 
 
 const LoginPage = () => {

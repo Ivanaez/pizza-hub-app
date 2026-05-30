@@ -1,9 +1,9 @@
 import styles from "./Header.module.css";
-import logo from "../../../assets/images/logos/Logo.PNG";
+import logo from "@/assets/images/logos/Logo.PNG";
 import { Link,useNavigate } from "react-router-dom";
 import { useState,useRef,useEffect } from "react";
-import { supabase } from "../../../lib/supabase";
-import { useCart } from "../../../features/cart/CartContext";
+import { supabase } from "@/lib/supabase";
+import { useCart } from "@/features/cart/CartContext";
 import { User,ShoppingCart,Home,Truck, MapPin, CircleHelp, BadgePercent, Phone, Menu, ChevronRight,X} from "lucide-react";
 
 

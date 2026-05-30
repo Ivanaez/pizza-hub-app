@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { supabase } from "../../../lib/supabase";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { supabase } from "@/lib/supabase";
+import { ProductCard } from "@/components/product/ProductCard/ProductCard";
 
 import styles from "./ProductSection.module.css";
 

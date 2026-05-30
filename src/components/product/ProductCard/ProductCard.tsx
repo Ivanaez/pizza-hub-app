@@ -1,7 +1,7 @@
 import styles from "./ProductCard.module.css";
 import linkButton from "../../../ui/LinkButton/LinkButton.module.css";
 import { Link } from "react-router-dom";
-import { useCart } from "../../../features/cart/CartContext";
+import { useCart } from "@/features/cart/CartContext";
 import { Eye, ShoppingCart } from "lucide-react";
 
 /* Props for the Card component */

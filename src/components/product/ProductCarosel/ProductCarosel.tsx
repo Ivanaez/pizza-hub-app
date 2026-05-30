@@ -1,7 +1,7 @@
 import styles from "./ProductCarosel.module.css";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductCard } from "@/components/product/ProductCard/ProductCard";
 import {useRef,useState,useEffect} from "react";
-import { supabase } from "../../../lib/supabase";
+import { supabase } from "@/lib/supabase";
 
 
 

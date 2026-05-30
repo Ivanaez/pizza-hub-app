@@ -1,10 +1,10 @@
 import styles from "./CreateAccountPage.module.css";
-import logo from "../../assets/images/logos/Logo.PNG";
-import Input from "../../ui/Input/Input";
-import Button from "../../ui/Button/Button";
+import logo from "@/assets/images/logos/Logo.PNG";
+import Input from "@/ui/Input/Input";
+import Button from "@/ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { supabase } from "../../lib/supabase";
+import { supabase } from "@/lib/supabase";
 import { Check, UserPlus } from "lucide-react";
 
 

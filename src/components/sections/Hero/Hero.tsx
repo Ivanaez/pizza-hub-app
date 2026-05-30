@@ -1,7 +1,7 @@
 
 import styles from "./Hero.module.css";
-import bannerImg from "../../../assets/images/banners/banner.webp";
-import LinkButton from "../../../ui/LinkButton/LinkButton"; 
+import bannerImg from "@/assets/images/banners/banner.webp";
+import LinkButton from "@/ui/LinkButton/LinkButton"; 
 import { ShoppingBag, Utensils } from "lucide-react";
 
 

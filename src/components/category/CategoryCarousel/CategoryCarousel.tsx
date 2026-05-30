@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./CategoryCarousel.module.css";
-import { CategoryCard } from "../CategoryCard/CategoryCard";
-import { supabase } from "../../../lib/supabase";
+import { CategoryCard } from "@/components/category/CategoryCard/CategoryCard";
+import { supabase } from "@/lib/supabase";
 
 // Category database object type
 type Category = {

@@ -1,5 +1,5 @@
 import styles from "./UserGreeting.module.css";
-import { useUser } from "../../features/user/UserContext";
+import { useUser } from "@/features/user/UserContext";
 
 function UserGreeting() {
   // get user data

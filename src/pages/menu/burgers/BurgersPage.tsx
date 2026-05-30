@@ -1,5 +1,5 @@
-import { CategoryCarousel } from "../../../components/category/CategoryCarousel/CategoryCarousel";
-import { ProductSection} from "../../../components/product/ProductSection/ProductSection";
+import { CategoryCarousel } from "@/components/category/CategoryCarousel/CategoryCarousel";
+import { ProductSection } from "@/components/product/ProductSection/ProductSection";
 import styles from "./BurgersPage.module.css";
 
 
