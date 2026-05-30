@@ -9,7 +9,7 @@ type LinkButtonProps = {
    className?: string;
 };
 // Link button component
- function LinkButton({ to, children, className, variant = "primary" }: LinkButtonProps) {
+export function LinkButton({ to, children, className, variant = "primary" }: LinkButtonProps) {
 
 // Render router link button
   return (
@@ -21,5 +21,3 @@ type LinkButtonProps = {
     
   );
 }
-
-export default LinkButton;

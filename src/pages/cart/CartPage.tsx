@@ -2,7 +2,7 @@
 import styles from "./CartPage.module.css";
 import { useCart } from "@/features/cart/CartContext";
 import { Trash2,Minus,Plus} from "lucide-react";
-import LinkButton from "@/ui/LinkButton/LinkButton";
+import { LinkButton } from "@/ui/LinkButton/LinkButton";
 
 
 
