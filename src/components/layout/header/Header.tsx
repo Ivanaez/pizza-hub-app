@@ -10,7 +10,7 @@ import { User,ShoppingCart,Home,Truck, MapPin, CircleHelp, BadgePercent, Phone, 
 
 
 // Main header component
-const Header = () => {
+export function Header() {
 
 
   // Get cart items from cart context to show item count badge on cart icon
@@ -257,6 +257,4 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
       </div>
     </header>
   );
-};
-
-export default Header;
+}

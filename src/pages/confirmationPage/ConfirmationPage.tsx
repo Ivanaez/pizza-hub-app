@@ -1,6 +1,6 @@
 import styles from "./ConfirmationPage.module.css"
 
-export default function ConfirmationPage() {
+export function ConfirmationPage() {
   return (
     <main className={styles.confirmationPage}>
       <h1>Order Confirmed</h1>

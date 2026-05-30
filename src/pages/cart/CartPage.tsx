@@ -6,7 +6,7 @@ import { LinkButton } from "@/ui/LinkButton/LinkButton";
 
 
 
-export default function CartPage() {
+export function CartPage() {
 // Get cart state and functions from the cart context
   const { cartItems,removeFromCart,increaseQuantity,decreaseQuantity,subtotal,total,delivery } = useCart();
 

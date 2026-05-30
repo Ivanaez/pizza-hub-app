@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase";
 import { Check } from "lucide-react";
 
 
-const ForgotPasswordPage = () => {
+export function ForgotPasswordPage() {
 
 
 // // email state input value
@@ -220,5 +220,4 @@ setIsSubmitting(false);
       </main>
     </div>
   );
-};
-export default ForgotPasswordPage;
+}

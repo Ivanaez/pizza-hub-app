@@ -6,7 +6,7 @@ import { Input } from "@/ui/Input/Input";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
-const ResetPasswordPage = () => {
+export function ResetPasswordPage() {
 
 // password state input value
 const [passwordValue, setPasswordValue] = useState("");
@@ -368,6 +368,4 @@ setConfirmPasswordValue("");// clear confirm password input
       </main>
     </div>
   );
-};
-
-export default ResetPasswordPage;
+}

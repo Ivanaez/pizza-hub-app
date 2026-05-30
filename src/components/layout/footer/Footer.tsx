@@ -6,7 +6,7 @@ import facebookLogo from "../../../assets/images/social/facebook-logo.svg";
 import instagramLogo from "../../../assets/images/social/instagram-logo.svg";
 import twitterLogo from "../../../assets/images/social/twitter-x-logo.svg";
 // Main footer component
-const Footer = () => {
+export function Footer() {
   return (
                     // Main footer element with styling
     <footer className={styles.mainFooter}>
@@ -77,6 +77,4 @@ const Footer = () => {
       
     </footer>
   );
-};
-
-export default Footer;
+}

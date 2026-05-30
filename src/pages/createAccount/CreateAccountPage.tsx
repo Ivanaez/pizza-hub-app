@@ -9,7 +9,7 @@ import { Check, UserPlus } from "lucide-react";
 
 
 
-function CreateAccountPage() {
+export function CreateAccountPage() {
 // name state input value
 const [nameValue, setNameValue] = useState("");
 // name error message
@@ -571,6 +571,3 @@ setIsSubmitting(false);
    
   );
 }
-
-
-export default CreateAccountPage;

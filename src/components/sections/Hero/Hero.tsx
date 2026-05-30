@@ -6,7 +6,7 @@ import { ShoppingBag, Utensils } from "lucide-react";
 
 
                    
-function Hero() {
+export function Hero() {
   return (
 /* Hero main wrapper */
     <div className={styles.bannerWrap}>
@@ -52,5 +52,3 @@ function Hero() {
     </div>
   );
 }
-
-export default Hero;

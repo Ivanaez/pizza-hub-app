@@ -1,9 +1,9 @@
 import styles from './HomePage.module.css';
-import Hero from "@/components/sections/Hero/Hero";
+import { Hero } from "@/components/sections/Hero/Hero";
 import { PizzaList } from "@/components/product/ProductCarosel/ProductCarosel";
-import UserGreeting from "@/components/user/UserGreeting";
+import { UserGreeting } from "@/components/user/UserGreeting";
 
-function HomePage() {
+export function HomePage() {
   return (
     
   //  Controls homepage layout and styling
@@ -15,5 +15,3 @@ function HomePage() {
     </main>
   );
 }
-
-export default HomePage;

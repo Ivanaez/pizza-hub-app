@@ -12,7 +12,7 @@ import { Check, LogIn, User, UserPlus } from "lucide-react";
 import { useUser } from "@/features/user/UserContext";
 
 
-const LoginPage = () => {
+export function LoginPage() {
 
   const { login } = useUser();
   
@@ -348,8 +348,6 @@ if (error) {
 
     </div>
   );
-};
-
-export default LoginPage;
+}
 
 

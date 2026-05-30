@@ -8,7 +8,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js"
 import { useCart } from "../../features/cart/CartContext";
 
 // Checkout page component for handling user input and navigation
-export default function CheckoutPage() {
+export function CheckoutPage() {
 
   // Navigation hook for programmatic route changes
 const navigate = useNavigate();

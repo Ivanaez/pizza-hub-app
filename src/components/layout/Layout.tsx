@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import  Header  from "@/components/layout/header/Header";
-import Footer  from "@/components/layout/footer/Footer";
+import { Header } from "@/components/layout/header/Header";
+import { Footer } from "@/components/layout/footer/Footer";
 import { useCart } from "@/features/cart/CartContext";
 import styles from "./Layout.module.css";
 
 // Main layout wrapper for all pages that use header and footer
-function Layout() {
+export function Layout() {
   
 // Get toast message from cart context to show global notifications
   const { toastMessage } = useCart();  
@@ -38,6 +38,3 @@ function Layout() {
     
   );
 }
-
-
-export default Layout;

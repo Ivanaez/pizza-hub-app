@@ -1,7 +1,7 @@
 import styles from "./UserGreeting.module.css";
 import { useUser } from "@/features/user/UserContext";
 
-function UserGreeting() {
+export function UserGreeting() {
   // get user data
   const { user, logout } = useUser();
 
@@ -21,5 +21,3 @@ function UserGreeting() {
     </p>
   );
 }
-
-export default UserGreeting;

@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "@/components/layout/Layout";
-import HomePage from "@/pages/home/HomePage";
-import LoginPage from "@/pages/login/LoginPage";
-import CreateAccountPage from "@/pages/createAccount/CreateAccountPage";
-import ForgotPasswordPage from "@/pages/forgotPassword/ForgotPasswordPage";
-import ResetPasswordPage from "@/pages/resetPassword/ResetPasswordPage";
-import CartPage from "@/pages/cart/CartPage";
-import CheckoutPage from "@/pages/checkoutPage/CheckoutPage";
-import ConfirmationPage from "@/pages/confirmationPage/ConfirmationPage";
+import { Layout } from "@/components/layout/Layout";
+import { HomePage } from "@/pages/home/HomePage";
+import { LoginPage } from "@/pages/login/LoginPage";
+import { CreateAccountPage } from "@/pages/createAccount/CreateAccountPage";
+import { ForgotPasswordPage } from "@/pages/forgotPassword/ForgotPasswordPage";
+import { ResetPasswordPage } from "@/pages/resetPassword/ResetPasswordPage";
+import { CartPage } from "@/pages/cart/CartPage";
+import { CheckoutPage } from "@/pages/checkoutPage/CheckoutPage";
+import { ConfirmationPage } from "@/pages/confirmationPage/ConfirmationPage";
 import { MenuPage } from "@/pages/menu/MenuPage";
 import { BurgersPage } from "@/pages/menu/burgers/BurgersPage";
 import { PizzasPage } from "@/pages/menu/pizzas/PizzasPage";
@@ -15,7 +15,7 @@ import { SoftDrinksPage } from "@/pages/menu/softDrinks/SoftDrinksPage";
 import { DessertsPage } from "@/pages/menu/desserts/DessertsPage";
 
 
-function App() {
+export function App() {
   return (
     <Routes>
                       {/* Pages WITH header/footer */}
@@ -40,5 +40,3 @@ function App() {
     </Routes>
   );
 }
-
-export default App;
