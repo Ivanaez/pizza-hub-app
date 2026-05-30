@@ -20,7 +20,7 @@ onBlur?: React.FocusEventHandler<HTMLInputElement>;
 };
 
 /* Reusable input UI component */
-const Input = ({ type = "text",className, placeholder, name,id,autoComplete,onChange,required,disabled,onFocus,onBlur,value,maxLength }: InputProps) => {
+export const Input = ({ type = "text",className, placeholder, name,id,autoComplete,onChange,required,disabled,onFocus,onBlur,value,maxLength }: InputProps) => {
 
 /* Render styled HTML input element */
   return (
@@ -41,5 +41,3 @@ const Input = ({ type = "text",className, placeholder, name,id,autoComplete,onCh
     />
   );
 };
-
-export default Input;

@@ -1,5 +1,5 @@
 import styles from "./CheckoutPage.module.css";
-import Input from "@/ui/Input/Input";
+import { Input } from "@/ui/Input/Input";
 import { Check, User,CreditCard, Banknote,Lock } from "lucide-react";
 import { Button } from "@/ui/Button/Button";
 import { useState } from "react";
