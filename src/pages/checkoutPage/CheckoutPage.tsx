@@ -1,7 +1,7 @@
 import styles from "./CheckoutPage.module.css";
 import Input from "@/ui/Input/Input";
 import { Check, User,CreditCard, Banknote,Lock } from "lucide-react";
-import Button from "@/ui/Button/Button";
+import { Button } from "@/ui/Button/Button";
 import { useState } from "react";
 import { Navigate,useNavigate } from "react-router-dom";
 import { parsePhoneNumberFromString } from "libphonenumber-js"

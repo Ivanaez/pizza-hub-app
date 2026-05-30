@@ -12,7 +12,7 @@ type ButtonProps = {
 };
 
 /* Button reusable React component */
-export default function Button({
+export function Button({
   type = "button",
   variant = "primary",
   form,

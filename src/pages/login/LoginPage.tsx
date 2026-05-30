@@ -1,7 +1,7 @@
 import styles from "./LoginPage.module.css";
 import logo from "@/assets/images/logos/Logo.PNG";
 import Input from "@/ui/Input/Input";
-import Button from "@/ui/Button/Button";
+import { Button } from "@/ui/Button/Button";
 import LinkButton from "@/ui/LinkButton/LinkButton";
 import { useState } from "react";
 import type { FormEvent } from "react";
