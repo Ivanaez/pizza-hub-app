@@ -37,7 +37,7 @@ const isCartEmpty = cartItems.length === 0;
         <section>
 
            {cartItems.map((item) => (
-          <article className={styles.cartItemWrapper}>
+          <article key={item.id} className={styles.cartItemWrapper}>
 
             {/* Product image area */}
             <div className={styles.imageWrapper}>
