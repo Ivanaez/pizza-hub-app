@@ -3,8 +3,9 @@ import Input from "@/ui/Input/Input";
 import { Check, User,CreditCard, Banknote,Lock } from "lucide-react";
 import Button from "@/ui/Button/Button";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate,useNavigate } from "react-router-dom";
 import { parsePhoneNumberFromString } from "libphonenumber-js"
+import { useCart } from "../../features/cart/CartContext";
 
 // Checkout page component for handling user input and navigation
 export default function CheckoutPage() {
@@ -12,7 +13,13 @@ export default function CheckoutPage() {
   // Navigation hook for programmatic route changes
 const navigate = useNavigate();
 
+// Get cart items
+const { cartItems } = useCart();
 
+// Prevent empty checkout
+if (cartItems.length === 0) {
+  return <Navigate to="/cart" replace />;
+}
 
 // State to Boolean to track form submission status and control button state
 const [isSubmitting, setIsSubmitting] = useState(false)
