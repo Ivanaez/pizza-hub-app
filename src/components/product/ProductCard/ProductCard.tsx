@@ -10,14 +10,14 @@ type Props = {
   priceFrom: number;
   imageSrc: string;
   imageAlt: string;
-  detailsHref: string;
+  
   variant?: "carousel" | "section";
 }
 
 
 
 /* Function component for the card */
-export function ProductCard({title,priceFrom,imageSrc,imageAlt,detailsHref,variant = "carousel"}: Props) {
+export function ProductCard({title,priceFrom,imageSrc,imageAlt,variant = "carousel"}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
 
