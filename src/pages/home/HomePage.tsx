@@ -1,6 +1,6 @@
 import styles from './HomePage.module.css';
 import { Hero } from "@/components/sections/Hero/Hero";
-import { PizzaList } from "@/components/product/ProductCarosel/ProductCarosel";
+import { PizzaList } from "@/components/product/ProductCarousel/ProductCarousel";
 import { UserGreeting } from "@/components/user/UserGreeting";
 
 export function HomePage() {

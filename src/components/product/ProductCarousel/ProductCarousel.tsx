@@ -1,4 +1,4 @@
-import styles from "./ProductCarosel.module.css";
+import styles from "./ProductCarousel.module.css";
 import { ProductCard } from "@/components/product/ProductCard/ProductCard";
 import {useRef,useState,useEffect} from "react";
 import { supabase } from "@/lib/supabase";
