@@ -11,20 +11,20 @@ type Props = {
   imageSrc: string;
   imageAlt: string;
   
-  variant?: "carousel" | "section";
+ 
 }
 
 
 
 /* Function component for the card */
-export function ProductCard({title,priceFrom,imageSrc,imageAlt,variant = "carousel"}: Props) {
+export function ProductCard({title,priceFrom,imageSrc,imageAlt = ""}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
 
   return (
 
                 /*  Product card main container */
-    <article className={`${styles.productCard} ${styles[variant]}`}>
+    <article className={styles.productCard} >
 
                   {/* card image */}
         <img  className={styles.cardImg}  src={imageSrc} alt={imageAlt}  />

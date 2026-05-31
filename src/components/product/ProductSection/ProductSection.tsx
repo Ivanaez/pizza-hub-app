@@ -60,7 +60,7 @@ const { data, error } = await query;
 
       {products.map((product) => (
         <ProductCard
-           variant="section"
+          
            key={product.title}
           title={product.title}
           imageSrc={product.image}

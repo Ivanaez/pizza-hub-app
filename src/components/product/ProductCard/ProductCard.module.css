@@ -14,11 +14,12 @@
 /* card image */
 .cardImg {
   width: 100%;
-  height: auto;
-  object-fit: cover;
   display: block;
 
   -webkit-user-drag: none; /*prevent image drag*/
+
+   height: 220px;
+  object-fit: contain;
 }
 
   /* card divider */
@@ -78,17 +79,9 @@ margin: var(--space-100) var(--space-400);
   min-width:0;
    }
    
-   /*Important section*/
+   
 
-
-   /* Menu section image variant with fixed height for equal card layout */
-   .section .cardImg{
-  height: 220px;
-  object-fit: contain;
-
-   }
-
-
+   
     /* Desktop breakpoints 1024px ****************************************/           
  @media (min-width: 1024px) {
   .productCard {
