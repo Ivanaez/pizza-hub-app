@@ -66,7 +66,7 @@ const { data, error } = await query;
           imageSrc={product.image}
            imageAlt={product.title}
           priceFrom={product.price}
-          detailsHref="/"
+          
         />
       ))}
     </section>

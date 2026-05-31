@@ -171,7 +171,7 @@ const stopDragging = () => {
     imageSrc={product.image_url}
     imageAlt={product.name}
     
-    detailsHref="/details"
+    
   />
 ))}
 
