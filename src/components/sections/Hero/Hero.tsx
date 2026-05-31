@@ -35,7 +35,7 @@ export function Hero() {
 
 
      <LinkButton
-      to="/order"
+      to="#"
        variant="primary">
 
          <ShoppingBag size={20} />

@@ -16,9 +16,9 @@ export function Footer() {
 
        {/* Footer navigation links */}
         <nav className={styles.footerNav} aria-label="Footer navigation">
-          <Link to="/help">HELP / FAQ</Link>
-           <Link to="/contact">CONTACT</Link>
-            <Link to="/terms">TERMS & PRIVACY</Link>
+          <Link to="#">HELP / FAQ</Link>
+           <Link to="#">CONTACT</Link>
+            <Link to="#">TERMS & PRIVACY</Link>
 </nav>
                        {/* Social media links with icons */}
 <div className={styles.footerSocial}>

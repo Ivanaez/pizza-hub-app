@@ -60,7 +60,7 @@ export function ProductCard({title,priceFrom,imageSrc,imageAlt,detailsHref,varia
   ADD
 </button>
                        {/* Link Button Details */}
-        <Link to={detailsHref} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
+        <Link to="#" className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
         <Eye size={20} />
           DETAILS
         </Link>

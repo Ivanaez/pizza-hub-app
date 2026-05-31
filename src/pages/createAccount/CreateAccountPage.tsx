@@ -517,7 +517,7 @@ setIsSubmitting(false);
     />
     <span>
   I agree to the{" "}
-  <Link to="/terms">Terms & Conditions</Link>
+  <Link to="#">Terms & Conditions</Link>
 </span>
   </label>
 

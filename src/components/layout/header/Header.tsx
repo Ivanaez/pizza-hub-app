@@ -172,35 +172,35 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
     </li>
 
     <li>
-      <Link to="/delivery">
+      <Link to="#">
         <Truck /> DELIVERY
       <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
-      <Link to="/locations">
+      <Link to="#">
         <MapPin />  LOCATIONS
        <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
-      <Link to="/about">
+      <Link to="#">
         <CircleHelp /> ABOUT
         <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
-      <Link to="/deals">
+      <Link to="#">
        <BadgePercent /> DEALS
       <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>
 
     <li>
-      <Link to="/contact">
+      <Link to="#">
         <Phone /> CONTACT
        <ChevronRight className={styles.chevron} size={30} />
       </Link>
