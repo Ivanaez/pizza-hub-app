@@ -1,6 +1,6 @@
 import styles from './HomePage.module.css';
 import { Hero } from "@/components/sections/Hero/Hero";
-import { PizzaList } from "@/components/product/ProductCarousel/ProductCarousel";
+import { ProductCarousel } from "@/components/product/ProductCarousel/ProductCarousel";
 import { UserGreeting } from "@/components/user/UserGreeting";
 
 export function HomePage() {
@@ -10,7 +10,7 @@ export function HomePage() {
     <main className={styles.page}>
      
       <Hero />
-      <PizzaList />
+      <ProductCarousel />
       <UserGreeting />
     </main>
   );
