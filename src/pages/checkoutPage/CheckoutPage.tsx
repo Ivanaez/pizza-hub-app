@@ -5,7 +5,7 @@ import { Button } from "@/ui/Button/Button";
 import { useState } from "react";
 import { Navigate,useNavigate } from "react-router-dom";
 import { parsePhoneNumberFromString } from "libphonenumber-js"
-import { useCart } from "../../features/cart/CartContext";
+import { useCart } from "@/features/cart/CartContext";
 
 // Checkout page component for handling user input and navigation
 export function CheckoutPage() {
