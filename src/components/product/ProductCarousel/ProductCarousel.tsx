@@ -5,32 +5,32 @@ import { supabase } from "@/lib/supabase";
 
 
 
-// React component for pizzas
-export function PizzaList() {
 
-  // pizzas state from backend
-const [pizzas, setPizzas] = useState<any[]>([]);
+export function ProductCarousel() {
+
+  // products state from backend
+const [products, setProducts] = useState<any[]>([]);
  // fetch data on mount
   useEffect(() => {
 
- // async fetch function to get pizzas from supabase backend
-    const fetchPizzas = async () => {
+ // async fetch function to get products from supabase backend
+    const fetchProducts = async () => {
  // request data from Supabase
       const { data, error } = await supabase
-        .from("pizzas")// target pizzas table
-        .select("*");// select all columns
-
+        .from("products")     // target products table
+        .select("*")      // select all columns
+        .eq("is_popular", true);// filter for popular products only
      // handle request error
       if (error) {
         console.error(error);
         return;
       }
       
-      // update pizzas state
-      setPizzas(data);
+      // update products state
+      setProducts(data);
     };
 
-    fetchPizzas();
+    fetchProducts();
   }, []);
 
 
@@ -162,14 +162,14 @@ const stopDragging = () => {
 
     
   
-{/* Render pizzas dynamically from backend */}
-{pizzas.map((pizza) => (
+{/* Render products dynamically from backend */}
+{products.map((product) => (
   <ProductCard
-    key={pizza.id}
-    title={pizza.name}
-    priceFrom={pizza.price}
-    imageSrc={pizza.image_url}
-    imageAlt={pizza.name}
+    key={product.id}
+    title={product.name}
+    priceFrom={product.price}
+    imageSrc={product.image_url}
+    imageAlt={product.name}
     
     detailsHref="/details"
   />
