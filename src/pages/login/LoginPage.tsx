@@ -8,7 +8,7 @@ import type { FormEvent } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Check, LogIn, User, UserPlus } from "lucide-react";
+import { Check, LogIn, User, UserPlus, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useUser } from "@/features/user/UserContext";
 
 
@@ -177,7 +177,7 @@ if (error) {
     )}
                            {/* email span icon */}      
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-      <i className="fa-regular fa-envelope"></i>
+      <Mail size={18} />
     </span>
          {/*  email input field */}
 
@@ -220,7 +220,7 @@ if (error) {
     )}
                           {/* lock span icon */}
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-      <i className="fa-solid fa-lock"></i>
+      <Lock size={18} />
     </span>
 
        {/* password input field */}
@@ -251,7 +251,7 @@ if (error) {
       onClick={() => setShowPassword(!showPassword)} /* toggle password visibility */
     >
       {/* Toggle password visibility icon */}
-      <i className={`fa-regular ${showPassword ? "fa-eye" : "fa-eye-slash"}`}></i>
+      {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
     </button>
 )}
 

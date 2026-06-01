@@ -5,6 +5,8 @@ import { Button } from "@/ui/Button/Button";
 import { Input } from "@/ui/Input/Input";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
+import {Lock,Eye, EyeOff} from "lucide-react";
+
 
 export function ResetPasswordPage() {
 
@@ -169,7 +171,7 @@ setConfirmPasswordValue("");// clear confirm password input
     </label>
       )}
     <span className={`${styles.inputIcon} ${styles.inputIconLeft}`}>
-      <i className="fa-solid fa-lock"></i>
+          <Lock size={16} />
     </span>
 
     <Input
@@ -209,11 +211,8 @@ setConfirmPasswordValue("");// clear confirm password input
            aria-label="Show new password"
            disabled={isSubmitted}// disable button after successful submission
         >
-        <i
-    className={`fa-regular ${
-      isPasswordVisible ? "fa-eye" : "fa-eye-slash" // toggle icon based on visibility state
-    }`}
-  />
+             {isPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
+  
           </button>
 
 {/* password error message */} 
@@ -283,7 +282,7 @@ setConfirmPasswordValue("");// clear confirm password input
     </label>
      )}
     <span className={`${styles.inputIcon} ${styles.inputIconLeft}`}>
-      <i className="fa-solid fa-lock"></i>
+          <Lock size={18} />
     </span>
 
     <Input
@@ -318,13 +317,7 @@ setConfirmPasswordValue("");// clear confirm password input
       aria-label="Show confirm password"
        disabled={isSubmitted}// disable button after successful submission
       >
-      <i
-      
-    className={`fa-regular ${
-      isConfirmPasswordVisible ? "fa-eye" : "fa-eye-slash" // toggle icon based on visibility state
-    }`}
-    
-  />
+           {isConfirmPasswordVisible ? <Eye size={18} /> : <EyeOff size={18} />}
        </button>
        </div>
 

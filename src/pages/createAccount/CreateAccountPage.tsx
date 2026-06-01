@@ -5,7 +5,7 @@ import { Button } from "@/ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Check, UserPlus } from "lucide-react";
+import { Check, UserPlus, User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 
 
 
@@ -237,7 +237,7 @@ setIsSubmitting(false);
     </label>
      )}
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-    <i className="fa-regular fa-user"></i>
+      <User size={18} />
   </span>
 
     <Input
@@ -283,7 +283,7 @@ setIsSubmitting(false);
      )}
 
     <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-      <i className="fa-regular fa-envelope"></i>
+      <Mail size={18} />
      </span>
 
     <Input
@@ -336,7 +336,7 @@ setIsSubmitting(false);
     </label>
     )}
        <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-     <i className="fa-solid fa-lock"></i>
+     <Lock size={18} />
      
       </span>
 
@@ -382,10 +382,7 @@ setIsSubmitting(false);
      aria-label="Show password"
        >
         {/* eye / eye-slash icon*/}
-      <i
-      className={`fa-regular ${isPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
-
-       ></i>
+           {isPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
      </button>
      )}
 
@@ -453,7 +450,7 @@ setIsSubmitting(false);
     </label>
    )}
      <span className={`${styles.inputIcon} ${styles.left}`} aria-hidden="true">
-     <i className="fa-solid fa-lock"></i>
+      <Lock size={18} />
       </span>
 
     <Input
@@ -490,9 +487,7 @@ setIsSubmitting(false);
      aria-label="Show confirm password"
        >
           {/* eye / eye-slash icon*/}
-      <i
-        className={`fa-regular ${isConfirmPasswordVisible ? "fa-eye" : "fa-eye-slash" }`}
-          ></i>
+            {isConfirmPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
        
      </button>
       )}

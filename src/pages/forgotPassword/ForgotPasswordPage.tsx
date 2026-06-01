@@ -5,8 +5,8 @@ import { Button } from "@/ui/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Check } from "lucide-react";
 
+import { Check, Mail } from "lucide-react";
 
 export function ForgotPasswordPage() {
 
@@ -138,7 +138,7 @@ setIsSubmitting(false);
               className={`${styles.inputIcon} ${styles.left}`}
               aria-hidden="true"
             >
-              <i className="fa-regular fa-envelope"></i>
+              <Mail size={18} />
             </span>
          
             <Input
