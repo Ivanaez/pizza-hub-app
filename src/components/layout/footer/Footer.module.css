@@ -126,8 +126,8 @@
   }
      /* Footer link */
   .footerNav a {
-   font-size: var(--font-size-200);
-    font-weight: var(--font-weight-700);
+   font-size: var(--button-size);
+    font-weight: var(--subheading-weight);
   }
 /* Social icons wrapper */
 .footerSocial {

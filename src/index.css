@@ -166,8 +166,8 @@
  --label-size: var(--font-size-100);
  --button-size: var(--font-size-200);
  --caption-size: var(--font-size-100);
-
-
+ --title-size: var(--font-size-500);
+ --display-size: var(--font-size-700);
 
 /* Spacing Scale *************************************************************************/
 --space-050: 4px;
@@ -180,6 +180,14 @@
 --space-600: 48px;
 --space-650: 56px;
 --space-700: 64px;
+
+/* Icon sizes */
+--icon-size-xs: var(--space-150);
+--icon-size-sm: var(--font-size-200);
+--icon-size-md: var(--space-300);
+
+/* Page surfaces */
+--surface-page-bg: linear-gradient(#ffffff, #eaeaea);
 
 
 
@@ -210,7 +218,7 @@ html {
 }
               /* Background Image */
 body {
-  background: linear-gradient(#ffffff, #eaeaea);
+  background: var(--surface-page-bg);
 }
 
   

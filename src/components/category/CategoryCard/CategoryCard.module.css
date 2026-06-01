@@ -39,8 +39,8 @@ opacity:0.90;
 
     color: var(--text-primary);
 
-    font-size: var(--font-size-200);
-    font-weight: var(--font-weight-700);
+    font-size: var(--button-size);
+    font-weight: var(--subheading-weight);
     letter-spacing: var(--body-letter-spacing);
    text-align: center;
    
@@ -49,8 +49,8 @@ opacity:0.90;
 /* Desktop title typography *****************************************************/
 @media (min-width: 1024px) {
   .title {
-   font-size: var(--font-size-300);
-    font-weight: var(--font-weight-700);
+   font-size: var(--body-size);
+    font-weight: var(--subheading-weight);
    
   }
 }

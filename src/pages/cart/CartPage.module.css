@@ -133,8 +133,8 @@
 }
 /* Quantity button icons - and + */
 .quantityButton svg {
-  width: var(--font-size-100);
-  height: var(--font-size-100);
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
 }
 /* quantity number display */
 .quantityValue {
@@ -335,8 +335,8 @@ margin-right: 10px;
   }
 /* Quantity button icons - and + */
 .quantityButton svg {
-  width: var(--font-size-200);
-  height: var(--font-size-200);
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
 }
 
 /* Quantity control container */
@@ -346,8 +346,8 @@ margin-right: 10px;
 }
 /* Delete item (trash icon button) */
 .deleteIcon{
-width:var(--font-size-600); 
-height: var(--font-size-600);
+width: var(--icon-size-md);
+height: var(--icon-size-md);
 
 }
 

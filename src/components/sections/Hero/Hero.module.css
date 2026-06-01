@@ -41,7 +41,7 @@
   .bannerButtons {
     margin-top: auto;
     display: flex;
-    gap: var(--font-size-300);
+    gap: var(--space-200);
     flex-wrap: wrap;
     
    
@@ -69,7 +69,7 @@
     box-shadow: var(--shadow-hero);
     border-radius: var(--radius-400);
     overflow: hidden; 
-    background: linear-gradient(#ffffff, #eaeaea);
+    background: var(--surface-page-bg);
 
 
 }
@@ -86,7 +86,7 @@
     gap: var(--space-300);
     color: var(--text-primary);
     order: 1;               
-    background: linear-gradient(#ffffff, #eaeaea);
+    background: var(--surface-page-bg);
   }
 
                             /* Right: image-768px */
@@ -115,7 +115,7 @@
     right: -80px;           
     width: 80px;
     height: 100%;
-    background: linear-gradient(#ffffff, #eaeaea);
+    background: var(--surface-page-bg);
 
     transform: skewX(-12deg);
     transform-origin: left top;

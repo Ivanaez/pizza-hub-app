@@ -66,12 +66,12 @@
 @media (min-width: 1024px) {
 
   .popularText h2 {
-    font-size: var(--font-size-700);
+    font-size: var(--display-size);
   }
 
   /* Popular section description text */
   .popularText p {
-    font-size: var(--font-size-400);
+    font-size: var(--subheading-size);
   }
 
 
@@ -98,7 +98,7 @@
   border: none;
   background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  font-size: var(--font-size-700);
+  font-size: var(--display-size);
 
 }
                      

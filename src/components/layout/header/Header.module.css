@@ -55,7 +55,7 @@
   top: var(--space-150); left: var(--space-150);
   background: none;
   border: none;
-  font-size: var(--font-size-500);
+  font-size: var(--title-size);
   cursor: pointer;
   color: var(--text-primary);
 }
@@ -127,7 +127,7 @@
 .iconBtn {
   text-decoration: none;   
   color: var(--text-primary);             
-  font-size: var(--font-size-500);
+  font-size: var(--title-size);
 
 }
 /* Cart button */
@@ -148,7 +148,7 @@ position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-300);
+  font-size: var(--body-size);
 }         /* User icon color */
 .userBtn  {
  color: var(--color-primary-start);
@@ -160,8 +160,8 @@ position: relative;
 
 .cartTotal {
   color: var( --color-primary-end);
-  font-size: var(--font-size-300);
-  font-weight: var(--font-weight-600);
+  font-size: var(--body-size);
+  font-weight: var(--label-weight);
   letter-spacing: var(--label-letter-spacing);
 }
 
@@ -185,7 +185,7 @@ position: relative;
   }
                                /* Menu icons - 768px */
    .menu a svg {
-  font-size: var(--font-size-700);      
+  font-size: var(--display-size);      
   width: 25px;          
   
 }
@@ -258,7 +258,7 @@ position: relative;
   .menu a {
     text-decoration: none;
     color: var(--text-primary);
-    font-weight: var(--font-weight-700);
+    font-weight: var(--subheading-weight);
      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
   .menu a:hover{
@@ -290,7 +290,7 @@ position: relative;
     display: inline-block;
     font-weight: var(--label-weight);
     color: var(--text-primary);
-     font-weight: var(--font-weight-700);
+     font-weight: var(--subheading-weight);
    transition: color 0.5s ease-in-out, opacity 0.5s ease-in-out;
    
   }
