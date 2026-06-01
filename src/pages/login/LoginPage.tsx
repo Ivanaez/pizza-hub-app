@@ -123,7 +123,7 @@ if (error) {
   setLoginError("Invalid email or password")
   setIsSubmitting(false) // stop spinner on error
 } else {
-  console.log(data.user)
+ 
   login(data.user?.user_metadata?.name ?? "User");
 
     setIsSubmitting(false); // stop spinner on success
