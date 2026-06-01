@@ -160,7 +160,7 @@ if (!postalCode) {
   setIsSubmitting(true)
 
 setTimeout(() => {
-  navigate("/confirmation")
+  navigate("/confirmation", { state: { fromCheckout: true } })
 }, 3000)
   
 }
