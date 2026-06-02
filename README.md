@@ -1,7 +1,5 @@
 # PizzaHub App
 
-![PizzaHub preview](pizzahub-preview.png)
-
 Modern pizza ordering UI built with React, TypeScript, Vite and CSS Modules.
 
 ## Live Demo
@@ -28,6 +26,7 @@ https://pizza-hub-app.vercel.app
 ```bash
 npm install
 npm run dev
+```
 
 
 PizzaHub is a modern web application built with React and TypeScript.
