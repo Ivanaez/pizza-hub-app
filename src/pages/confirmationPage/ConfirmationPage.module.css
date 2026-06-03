@@ -1,0 +1,123 @@
+/* Page layout */
+.confirmationPage {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.confirmationContainer {
+  width: 100%;
+  max-width: var(--layout-container-max);
+  margin: 0 auto;
+  padding: var(--space-300) var(--space-200);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Progress steps */
+.confirmationSteps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-200);
+  margin-top: var(--space-100);
+  width: 100%;
+}
+
+.confirmationStep {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: var(--space-100);
+  color: var(--text-muted);
+  font-size: var(--caption-size);
+  font-weight: var(--label-weight);
+}
+
+/* Connector line between steps */
+.confirmationStep:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 24px);
+  width: calc(100% - 48px);
+  height: 2px;
+  background: var(--border-medium);
+  z-index: 0;
+}
+
+.confirmationStep span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: var(--border-width-200) solid var(--color-secondary-hover-start);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary-hover-start);
+  color: var(--color-white);
+}
+
+.confirmationStep p {
+  margin: 0;
+}
+
+.confirmationStep:nth-child(3) p {
+  color: var(--color-secondary-start);
+}
+
+/* Content card */
+.confirmationCard {
+  width: min(100%, 540px);
+  margin: 0 auto;
+  padding: var(--space-400) var(--space-300);
+  background: var(--surface-card-bg);
+  border: var(--border-width-100) solid var(--border-light);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  margin-top: var(--space-200);
+}
+
+.confirmationCard h1 {
+  margin: 0 0 var(--space-150);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  color: var(--text-primary);
+}
+
+.confirmationCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  line-height: 1.5;
+}
+
+/* Large display refinements */
+
+@media (min-width: 1024px) {
+  .confirmationStep span {
+    width: 40px;
+    height: 40px;
+  }
+
+  .confirmationStep p {
+    font-weight: var(--subheading-weight);
+  }
+
+  .confirmationCard {
+    width: min(100%, 600px);
+    padding: var(--space-400) var(--space-500);
+  }
+
+  .confirmationCard h1 {
+    font-size: calc(var(--heading-size) * 1.1);
+    font-weight: var(--subheading-weight);
+  }
+
+  .confirmationCard p {
+    font-size: calc(var(--body-size) * 1.05);
+    font-weight: var(--body-weight);
+  }
+}
