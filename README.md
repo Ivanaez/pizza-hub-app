@@ -1,6 +1,6 @@
 # PizzaHub App
 
-Modern pizza ordering UI built with React, TypeScript, Vite and CSS Modules.
+Responsive pizza ordering web app built with React, TypeScript, Vite, CSS Modules and Supabase.
 
 ## Live Demo
 https://pizza-hub-app.vercel.app
@@ -11,6 +11,8 @@ https://pizza-hub-app.vercel.app
 - Vite
 - CSS Modules
 - Supabase
+- React Router
+- Lucide React
   
 ## Features
 - Modular React component architecture
@@ -29,29 +31,13 @@ npm run dev
 ```
 
 
-PizzaHub is a modern web application built with React and TypeScript.
-The project focuses on building a scalable, well-structured application with clean architecture and reusable components.
+PizzaHub is a working food ordering interface built with React, TypeScript and Vite. It shows a clean product browsing experience with category filtering, a shopping cart flow, and account authentication.
 
-The current implementation includes core pages such as Home and authentication flows powered by Supabase, organized through a modular component-based structure.
+The app includes:
+- A responsive homepage with hero section, product carousel and personalized greeting
+- Menu pages for pizzas, burgers, desserts and soft drinks
+- A cart system with add/remove items, quantity control and price totals
+- User login, sign up, forgot password and reset password flows powered by Supabase
+- Global layout with header, footer and shared state for cart and user data
 
-The application is designed with:
-
-Layout components (Header, Navbar, Footer)
-
-Dedicated page components
-
-Reusable UI components (buttons, inputs, cards, links)
-
-Scoped styling using CSS Modules
-
-The main focus of this project is:
-
-Clean and maintainable code
-
-Proper component architecture
-
-Scalable folder structure
-
-Modern development practices
-
-This project is being developed step by step with a strong focus on structure, code quality, and modern web development principles.
+This project is designed to be easy to expand, with reusable components, scoped CSS Modules styling, and a clear page structure for future features.
