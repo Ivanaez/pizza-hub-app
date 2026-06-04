@@ -166,6 +166,7 @@ const stopDragging = () => {
 {products.map((product) => (
   <ProductCard
     key={product.id}
+    id={product.id}
     title={product.name}
     priceFrom={product.price}
     imageSrc={product.image_url}

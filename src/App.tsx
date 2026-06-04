@@ -13,6 +13,7 @@ import { BurgersPage } from "@/pages/menu/burgers/BurgersPage";
 import { PizzasPage } from "@/pages/menu/pizzas/PizzasPage";
 import { SoftDrinksPage } from "@/pages/menu/softDrinks/SoftDrinksPage";
 import { DessertsPage } from "@/pages/menu/desserts/DessertsPage";
+import { ProductDetailsPage } from "@/pages/productDetails/ProductDetailsPage";
 
 
 export function App() {
@@ -29,6 +30,7 @@ export function App() {
         <Route path="/menu/desserts" element={<DessertsPage />} />
         <Route path="/menu/pizzas" element={<PizzasPage />} />
         <Route path="/menu/soft-drinks" element={<SoftDrinksPage />} />
+        <Route path="/product/:productId" element={<ProductDetailsPage />} />
       </Route>
 
                      {/* Pages WITHOUT header/footer */}

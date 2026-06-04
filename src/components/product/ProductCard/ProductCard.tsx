@@ -6,6 +6,7 @@ import { Eye, ShoppingCart } from "lucide-react";
 
 /* Props for the Card component */
 type Props = {
+  id: number;
   title: string;
   priceFrom: number;
   imageSrc: string;
@@ -17,7 +18,7 @@ type Props = {
 
 
 /* Function component for the card */
-export function ProductCard({title,priceFrom,imageSrc,imageAlt = ""}: Props) {
+export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = ""}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
 
@@ -60,7 +61,7 @@ export function ProductCard({title,priceFrom,imageSrc,imageAlt = ""}: Props) {
   ADD
 </button>
                        {/* Link Button Details */}
-        <Link to="#" className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
+        <Link to={`/product/${id}`} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
         <Eye size={20} />
           DETAILS
         </Link>

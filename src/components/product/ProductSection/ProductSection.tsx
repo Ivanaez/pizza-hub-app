@@ -7,6 +7,7 @@ import styles from "./ProductSection.module.css";
 
 // Product card data
 type Product = {
+  id: number;
   title: string;
   image: string;
   price: number;
@@ -44,6 +45,7 @@ const { data, error } = await query;
 
       // Update products state
       setProducts((data ?? []).map((product) => ({
+        id: product.id,
         title: product.name,
         image: product.image_url,
          price: product.price,
@@ -61,7 +63,8 @@ const { data, error } = await query;
       {products.map((product) => (
         <ProductCard
           
-           key={product.title}
+           key={product.id}
+          id={product.id}
           title={product.title}
           imageSrc={product.image}
            imageAlt={product.title}
