@@ -14,6 +14,17 @@ https://pizza-hub-app.vercel.app
 - React Router
 - Lucide React
   
+## Development Tools
+Tools used for code assistance, debugging, and documentation:
+- ChatGPT
+- Gemini
+- Cursor
+- Codex
+  
+## Project Management
+Tools used for planning and organizing work:
+- Linear
+  
 ## Features
 - Modular React component architecture
 - Reusable UI components
