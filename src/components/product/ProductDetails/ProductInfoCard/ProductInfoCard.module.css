@@ -1,0 +1,32 @@
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-500);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-300);
+}
+
+.title {
+  font-size: var(--font-size-600);
+  margin: 0;
+}
+
+.description {
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+.sectionText {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
