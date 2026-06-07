@@ -141,7 +141,7 @@ useEffect(() => {
   aria-label="Menu"
   onClick={() => setIsMenuOpen(!isMenuOpen)}
 >
- <Menu size={25} strokeWidth={2.0} />
+ <Menu size={25} strokeWidth={3} />
 </button>
                        {/* Logo link */}
   <Link to="/" className={styles.logoLink} title="Logo Pizza-Hub">
@@ -160,7 +160,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
    
    onClick={() => setIsMenuOpen(false)}
    >
-    <X size={28} strokeWidth={2.2} />
+    <X size={28} strokeWidth={3} />
   </button>
 
   <ul>
@@ -224,7 +224,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
   <Link to="/login" 
   onClick={handleUserIconClick}// prevent navigation if logged in
   className={`${styles.iconBtn} ${styles.userBtn}`}>
-  <User className={`${styles.iconBtn} ${styles.userBtn}`} />
+  <User size={24} strokeWidth={3} className={`${styles.iconBtn} ${styles.userBtn}`} />
    
     <span className={styles.userText} onClick={handleAuthClick}>{/*} handle login/logout logic*/}
    {isLoggedIn ? "LOGOUT" : "LOGIN"} {/* show "Logout" if logged in, otherwise "Login" */}
@@ -244,7 +244,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
   {/* Cart Icon */}
   <Link to="/cart" 
   className={`${styles.iconBtn} ${styles.cartBtn}`}>
-    <ShoppingCart className={`${styles.iconBtn} ${styles.cartBtn}`} />
+    <ShoppingCart size={24} strokeWidth={3} className={`${styles.iconBtn} ${styles.cartBtn}`} />
 
  {/* Show cart item count badge if there are items in the cart */}
      {cartCount > 0 && (

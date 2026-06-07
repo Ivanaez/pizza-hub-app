@@ -211,9 +211,8 @@ setConfirmPasswordValue("");// clear confirm password input
            aria-label="Show new password"
            disabled={isSubmitted}// disable button after successful submission
         >
-             {isPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
-  
-          </button>
+             {isPasswordVisible ? <Eye size={20} strokeWidth={3} /> : <EyeOff size={20} strokeWidth={3} />}
+        </button>
 
 {/* password error message */} 
   </div> 
@@ -317,7 +316,7 @@ setConfirmPasswordValue("");// clear confirm password input
       aria-label="Show confirm password"
        disabled={isSubmitted}// disable button after successful submission
       >
-           {isConfirmPasswordVisible ? <Eye size={18} /> : <EyeOff size={18} />}
+           {isConfirmPasswordVisible ? <Eye size={18} strokeWidth={3} /> : <EyeOff size={18} strokeWidth={3} />}
        </button>
        </div>
 

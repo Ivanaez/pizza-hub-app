@@ -57,12 +57,12 @@ export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = ""}: Props) 
     })
   }
 >
-   <ShoppingCart size={16} />
+   <ShoppingCart size={16} strokeWidth={3} />
   ADD
 </button>
                        {/* Link Button Details */}
         <Link to={`/product/${id}`} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
-        <Eye size={20} />
+        <Eye size={20} strokeWidth={3} />
           DETAILS
         </Link>
       </div>

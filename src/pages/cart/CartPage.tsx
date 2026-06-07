@@ -61,7 +61,7 @@ const isCartEmpty = cartItems.length === 0;
 
                 <button type="button" className={styles.quantityButton} 
                 onClick={() => decreaseQuantity(item.id)}>
-                    <Minus size={16} />
+                    <Minus size={16} strokeWidth={3} />
                 </button>
 
                 {/* Quantity value */}
@@ -69,14 +69,14 @@ const isCartEmpty = cartItems.length === 0;
                  {/**/}
                 <button type="button" className={styles.quantityButton} 
                 onClick={() => increaseQuantity(item.id)}>
-                    <Plus size={16} />
+                    <Plus size={16} strokeWidth={3} />
                 </button>
               </div>
 
               {/* Remove item button */}
               <button type="button" className={styles.deleteButton} 
               onClick={() => removeFromCart(item.id)}>     
-                <Trash2 className={styles.deleteIcon} />
+                <Trash2 className={styles.deleteIcon} strokeWidth={3} />
               </button>
 
             

@@ -382,7 +382,7 @@ setIsSubmitting(false);
      aria-label="Show password"
        >
         {/* eye / eye-slash icon*/}
-           {isPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
+           {isPasswordVisible ? <Eye size={20} strokeWidth={3} /> : <EyeOff size={20} strokeWidth={3} />}
      </button>
      )}
 
@@ -487,7 +487,7 @@ setIsSubmitting(false);
      aria-label="Show confirm password"
        >
           {/* eye / eye-slash icon*/}
-            {isConfirmPasswordVisible ? <Eye size={20} /> : <EyeOff size={20} />}
+            {isConfirmPasswordVisible ? <Eye size={20} strokeWidth={3} /> : <EyeOff size={20} strokeWidth={3} />}
        
      </button>
       )}

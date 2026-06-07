@@ -251,7 +251,7 @@ if (error) {
       onClick={() => setShowPassword(!showPassword)} /* toggle password visibility */
     >
       {/* Toggle password visibility icon */}
-      {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
+      {showPassword ? <Eye size={18} strokeWidth={3} /> : <EyeOff size={18} strokeWidth={3} />}
     </button>
 )}
 
