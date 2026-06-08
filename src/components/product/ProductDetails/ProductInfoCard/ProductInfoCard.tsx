@@ -1,18 +1,19 @@
 import styles from "./ProductInfoCard.module.css";
 
+type ProductInfoCardProps = {
+  description: string | null;
+};
+
 /* Product information card */
-export function ProductInfoCard() {
+export function ProductInfoCard({ description }: ProductInfoCardProps) {
+  const productDescription = description?.trim() || "Product details are not available yet.";
+
   return (
     <aside className={styles.card}>
-      <h2 className={styles.title}>Description</h2>
+      <h2 className={styles.title}>DESCRIPTION</h2>
       <p className={styles.description}>
-        Short, clear product description will appear here. This is a placeholder showing where real product data will load.
+        {productDescription}
       </p>
-
-      <div className={styles.section}>
-        <h3>Options</h3>
-        <p className={styles.sectionText}>Size, add-ons and special requests will appear here.</p>
-      </div>
 
       <div className={styles.section}>
         <h3>Allergens</h3>

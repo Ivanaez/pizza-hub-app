@@ -7,6 +7,7 @@ type ProductDetailsProduct = {
   id: number;
   name: string;
   price: number;
+  description: string | null;
   image_url: string;
 };
 
@@ -38,7 +39,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
         </div>
 
       <div className={styles.sidebar}>
-        <ProductInfoCard />
+        <ProductInfoCard description={product.description} />
         </div>
       </div>
     </section>
