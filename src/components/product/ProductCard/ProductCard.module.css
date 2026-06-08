@@ -78,6 +78,13 @@ margin: var(--space-100) var(--space-400);
   
   min-width:0;
    }
+
+.cardActions .fullAction {
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 var(--space-100) var(--space-200);
+  padding-inline: var(--space-300);
+}
    
    
 
