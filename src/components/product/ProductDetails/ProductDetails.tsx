@@ -4,6 +4,7 @@ import { ProductHero } from "./ProductHero/ProductHero";
 import styles from "./ProductDetails.module.css";
 
 type ProductDetailsProduct = {
+  id: number;
   name: string;
   price: number;
   image_url: string;
@@ -29,6 +30,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
     <div className={styles.grid}>
         <div className={styles.heroColumn}>
           <ProductHero
+            id={product.id}
             name={product.name}
             price={product.price}
             imageUrl={product.image_url}

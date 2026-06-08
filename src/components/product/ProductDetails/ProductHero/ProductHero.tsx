@@ -1,15 +1,30 @@
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/ui/Button/Button";
+import { useCart } from "@/features/cart/CartContext";
 import styles from "./ProductHero.module.css";
 
 type ProductHeroProps = {
+  id: number;
   name: string;
   price: number;
   imageUrl: string;
 };
 
 /* Product hero section */
-export function ProductHero({ name, price, imageUrl }: ProductHeroProps) {
+export function ProductHero({ id, name, price, imageUrl }: ProductHeroProps) {
+  const { addToCart } = useCart();
+
+  // Add current product
+  const handleAddToCart = () => {
+    addToCart({
+      id: String(id),
+      title: name,
+      price,
+      image: imageUrl,
+      quantity: 1,
+    });
+  };
+
   return (
     <section className={styles.hero}>
 
@@ -41,6 +56,7 @@ export function ProductHero({ name, price, imageUrl }: ProductHeroProps) {
           <Button
           type="button"
           variant="secondary"
+          onClick={handleAddToCart}
           className={styles.addButton}>
             <ShoppingCart size={16} strokeWidth={3} />
             ADD TO CART
