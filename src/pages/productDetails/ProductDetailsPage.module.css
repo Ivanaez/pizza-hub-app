@@ -3,6 +3,13 @@
   max-width: var(--layout-container-max);
   margin-inline: auto;
   box-sizing: border-box;
-  padding-top: var(--space-400);
   padding-bottom: var(--space-600);
+}
+
+.stateMessage {
+  padding: var(--space-500) var(--space-200);
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  text-align: center;
 }
