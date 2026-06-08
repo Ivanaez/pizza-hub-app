@@ -25,49 +25,74 @@
 
 .details {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-300);
 }
 
 .price {
+  flex: 0 0 auto;
   font-size: var(--display-size);
   font-weight: var(--subheading-weight);
+  white-space: nowrap;
 }
 
 .quantityRow {
   display: flex;
+  flex: 1 1 auto;
+  align-items: center;
   gap: var(--space-300);
   flex-wrap: wrap;
-  align-items: center;
 }
 
 .quantityControl {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-100);
-  width: fit-content;
-  flex: 0 0 auto;
-  white-space: nowrap;
   border: var(--border-width-100) solid var(--border-light);
   border-radius: var(--radius-full);
-  padding: var(--space-150) var(--space-200);
+  overflow: hidden;
+  background: var(--color-white);
+  flex-shrink: 0;
 }
 
 .quantityButton {
+  width: var(--space-600);
+  height: var(--space-600);
   border: none;
-  background: none;
+  background: transparent;
   color: var(--text-primary);
-  font-size: var(--font-size-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
+.quantityButton svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}
+
 .quantityValue {
-  min-width: 1.5rem;
-  text-align: center;
-  font-weight: var(--font-weight-600);
+  width: var(--space-600);
+  height: var(--space-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: var(--subheading-size);
+  font-weight: var(--subheading-weight);
+  letter-spacing: var(--body-letter-spacing);
+  flex-shrink: 0;
+}
+
+.quantityButton + .quantityValue,
+.quantityValue + .quantityButton {
+  border-left: var(--border-width-100) solid var(--border-light);
 }
 
 .addButton {
+  flex: 0 1 auto;
   border: none;
   background-color: var(--color-secondary-start);
   color: var(--color-white);
@@ -78,7 +103,65 @@
   gap: var(--space-150);
 }
 
+@media (max-width: 375px) {
+  .details,
+  .quantityRow {
+    gap: var(--space-050);
+  }
+
+  .quantityButton {
+    width: calc(var(--space-500) - var(--space-050));
+    height: calc(var(--space-500) - var(--space-050));
+  }
+
+  .quantityValue {
+    width: var(--space-400);
+    height: calc(var(--space-500) - var(--space-050));
+  }
+}
+
+@media (max-width: 768px) {
+  .details {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: var(--space-100);
+    min-width: 0;
+  }
+
+  .price {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .quantityRow {
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    gap: var(--space-100);
+    min-width: 0;
+  }
+
+  .quantityControl {
+    flex: 0 0 auto;
+  }
+
+  .addButton {
+    flex: 0 0 var(--space-600);
+    width: var(--space-600);
+    height: var(--space-600);
+    padding: var(--space-150);
+    justify-content: center;
+    font-size: 0;
+    gap: 0;
+  }
+
+  .addButton svg {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    flex-shrink: 0;
+  }
+}
 
 
- 
 

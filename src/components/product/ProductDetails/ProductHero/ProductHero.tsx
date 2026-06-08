@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/ui/Button/Button";
 import { useCart } from "@/features/cart/CartContext";
@@ -13,15 +14,28 @@ type ProductHeroProps = {
 /* Product hero section */
 export function ProductHero({ id, name, price, imageUrl }: ProductHeroProps) {
   const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
+
+  // Increase quantity
+  const increaseQuantity = () => {
+    setQuantity((currentQuantity) => currentQuantity + 1);
+  };
+
+  // Decrease quantity
+  const decreaseQuantity = () => {
+    setQuantity((currentQuantity) => Math.max(1, currentQuantity - 1));
+  };
 
   // Add current product
   const handleAddToCart = () => {
-    addToCart({
-      id: String(id),
-      title: name,
-      price,
-      image: imageUrl,
-      quantity: 1,
+    Array.from({ length: quantity }).forEach(() => {
+      addToCart({
+        id: String(id),
+        title: name,
+        price,
+        image: imageUrl,
+        quantity: 1,
+      });
     });
   };
 
@@ -38,18 +52,30 @@ export function ProductHero({ id, name, price, imageUrl }: ProductHeroProps) {
 
       <div className={styles.details}>
         <div className={styles.price}>
-          {price.toFixed(2)} {"\u20ac"}
+          {(price * quantity).toFixed(2)} {"\u20ac"}
         </div>
 
         <div className={styles.quantityRow}>
           
           <div className={styles.quantityControl}>
-            <button className={styles.quantityButton}>
-              <Minus size={16} strokeWidth={3} />
+            <button
+              type="button"
+              className={styles.quantityButton}
+              aria-label="Decrease quantity"
+              onClick={decreaseQuantity}
+            >
+              <Minus size={16} strokeWidth={3.25} />
             </button>
-            <span className={styles.quantityValue}>1</span>
-            <button className={styles.quantityButton}>
-              <Plus size={16} strokeWidth={3} />
+
+            <span className={styles.quantityValue}>{quantity}</span>
+
+            <button
+              type="button"
+              className={styles.quantityButton}
+              aria-label="Increase quantity"
+              onClick={increaseQuantity}
+            >
+              <Plus size={16} strokeWidth={3.25} />
             </button>
           </div>
 
