@@ -16,7 +16,7 @@ export function ProductInfoCard({ description }: ProductInfoCardProps) {
       </p>
 
       <div className={styles.section}>
-        <h3>Allergens</h3>
+        <h3>ALLERGENS</h3>
         <p className={styles.sectionText}>Allergen information important for safe ordering.</p>
       </div>
     </aside>
