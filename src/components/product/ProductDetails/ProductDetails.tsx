@@ -8,6 +8,7 @@ type ProductDetailsProduct = {
   name: string;
   price: number;
   description: string | null;
+  allergens: string[] | null;
   image_url: string;
 };
 
@@ -39,7 +40,10 @@ export function ProductDetails({ product }: ProductDetailsProps) {
         </div>
 
       <div className={styles.sidebar}>
-        <ProductInfoCard description={product.description} />
+        <ProductInfoCard
+          description={product.description}
+          allergens={product.allergens}
+        />
         </div>
       </div>
     </section>

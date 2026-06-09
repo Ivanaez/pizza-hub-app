@@ -30,3 +30,18 @@
   color: var(--text-secondary);
   line-height: 1.75;
 }
+
+.allergenList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-100);
+}
+
+.allergenItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  line-height: 1.5;
+}
