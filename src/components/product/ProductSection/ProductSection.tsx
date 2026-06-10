@@ -30,9 +30,11 @@ export function ProductSection({ category }: ProductSectionProps) {
     async function fetchProducts() {
       let query = supabase
   .from("products")
-  .select("id, name, image_url, price, weight");
+  .select("id, name, image_url, price, weight, is_best_seller");
 
-if (category) {
+if (category === "best-seller") {
+  query = query.eq("is_best_seller", true);
+} else if (category) {
   query = query.eq("category", category);
 }
 
