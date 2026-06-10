@@ -75,6 +75,7 @@ const { data, error } = await query;
           priceFrom={product.price}
           weight={product.weight}
           hasDetails={category !== "soft-drinks"}
+          variant={category === "best-seller" ? "best-seller" : "default"}
           
         />
       ))}

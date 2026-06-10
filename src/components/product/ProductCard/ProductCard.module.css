@@ -1,5 +1,6 @@
  /*  card */
  .productCard {
+  position: relative;
   flex: 0 0 var(--card-width-mobile);
   aspect-ratio: 3 / 2;
   scroll-snap-align: start;
@@ -8,6 +9,35 @@
   border-radius: var(--radius-card);
   box-shadow:var(--shadow-card);
  
+}
+
+.bestSellerCard {
+  box-shadow: var(--shadow-card);
+}
+
+.bestSellerBadge {
+  position: absolute;
+  top: var(--space-150);
+  left: var(--space-150);
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-050);
+
+  padding: var(--space-050) var(--space-100);
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+  color: var(--button-text-primary);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-letter-spacing);
+  box-shadow: var(--shadow-button);
+}
+
+.bestSellerBadge svg {
+  flex-shrink: 0;
+  fill: currentColor;
 }
 
 

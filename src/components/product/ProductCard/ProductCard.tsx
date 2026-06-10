@@ -2,7 +2,9 @@ import styles from "./ProductCard.module.css";
 import linkButton from "@/ui/LinkButton/LinkButton.module.css";
 import { Link } from "react-router-dom";
 import { useCart } from "@/features/cart/CartContext";
-import { Eye, ShoppingCart } from "lucide-react";
+import { Eye, ShoppingCart, Star } from "lucide-react";
+
+type ProductCardVariant = "default" | "best-seller";
 
 /* Props for the Card component */
 type Props = {
@@ -13,6 +15,7 @@ type Props = {
   imageAlt: string;
   weight: string | null;
   hasDetails?: boolean;
+  variant?: ProductCardVariant;
   
  
 }
@@ -20,15 +23,24 @@ type Props = {
 
 
 /* Function component for the card */
-export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, hasDetails = true}: Props) {
+export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, hasDetails = true, variant = "default"}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
   const productWeight = weight?.trim();
+  const isBestSeller = variant === "best-seller";
 
   return (
 
                 /*  Product card main container */
-    <article className={styles.productCard} >
+    <article className={`${styles.productCard} ${isBestSeller ? styles.bestSellerCard : ""}`} >
+
+                  {/* bestseller badge */}
+      {isBestSeller && (
+        <div className={styles.bestSellerBadge}>
+          <Star size={16} strokeWidth={2.5} />
+          
+        </div>
+      )}
 
                   {/* card image */}
         <img  className={styles.cardImg}  src={imageSrc} alt={imageAlt}  />
