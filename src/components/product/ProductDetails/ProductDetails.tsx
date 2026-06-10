@@ -9,6 +9,7 @@ type ProductDetailsProduct = {
   price: number;
   description: string | null;
   allergens: string[] | null;
+  weight: string | null;
   image_url: string;
 };
 
@@ -36,6 +37,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             name={product.name}
             price={product.price}
             imageUrl={product.image_url}
+            weight={product.weight}
           />
         </div>
 

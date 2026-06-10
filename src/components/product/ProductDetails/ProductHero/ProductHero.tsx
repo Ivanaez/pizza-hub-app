@@ -9,10 +9,11 @@ type ProductHeroProps = {
   name: string;
   price: number;
   imageUrl: string;
+  weight: string | null;
 };
 
 /* Product hero section */
-export function ProductHero({ id, name, price, imageUrl }: ProductHeroProps) {
+export function ProductHero({ id, name, price, imageUrl, weight }: ProductHeroProps) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
@@ -42,12 +43,18 @@ export function ProductHero({ id, name, price, imageUrl }: ProductHeroProps) {
   return (
     <section className={styles.hero}>
 
-      <div className={styles.imageFrame}>
-        <img
-          className={styles.productImage}
-          src={imageUrl}
-          alt={name}
-        />
+      <div className={styles.imageGroup}>
+        <div className={styles.imageFrame}>
+          <img
+            className={styles.productImage}
+            src={imageUrl}
+            alt={name}
+          />
+        </div>
+
+        {weight && (
+          <span className={styles.productWeight}>{weight}</span>
+        )}
       </div>
 
       <div className={styles.details}>

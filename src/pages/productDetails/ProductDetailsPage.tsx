@@ -11,6 +11,7 @@ type Product = {
   price: number;
   description: string | null;
   allergens: string[] | null;
+  weight: string | null;
   image_url: string;
   category: string;
   is_popular: boolean;
@@ -37,7 +38,7 @@ export function ProductDetailsPage() {
 
       const { data, error } = await supabase
         .from("products")
-        .select("id, name, price, description, allergens, image_url, category, is_popular")
+        .select("id, name, price, description, allergens, weight, image_url, category, is_popular")
         .eq("id", productIdNumber)
         .maybeSingle();
 
