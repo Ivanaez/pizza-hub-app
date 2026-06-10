@@ -2,7 +2,7 @@
 import styles from "./Hero.module.css";
 import bannerImg from "@/assets/images/banners/banner.webp";
 import { LinkButton } from "@/ui/LinkButton/LinkButton"; 
-import { ShoppingBag, Utensils } from "lucide-react";
+import { Star, Utensils } from "lucide-react";
 
 
                    
@@ -38,8 +38,8 @@ export function Hero() {
       to="#"
        variant="primary">
 
-         <ShoppingBag size={20} />
-        ORDER NOW
+         <Star size={20} />
+        BEST SELLER
 
         </LinkButton>
 
