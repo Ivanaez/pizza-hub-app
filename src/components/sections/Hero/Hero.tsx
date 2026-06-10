@@ -28,7 +28,7 @@ export function Hero() {
       to="/menu" 
       variant="secondary">
 
-        <Utensils size={16} />
+        <Utensils size={16} strokeWidth={3} />
         MENU
         
         </LinkButton>
@@ -38,7 +38,7 @@ export function Hero() {
       to="/best-seller"
        variant="primary">
 
-         <Star size={20} />
+         <Star size={20} strokeWidth={3} />
         BEST SELLER
 
         </LinkButton>
