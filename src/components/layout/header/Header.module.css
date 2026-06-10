@@ -251,8 +251,24 @@ position: relative;
 
   .menu li {
   border-bottom: none;
+  position: relative;
 
 
+  }
+
+  /* Navigation separator dots */
+  .menu li:nth-child(-n + 3)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc((var(--space-650) * -1) / 2);
+    width: var(--space-050);
+    height: var(--space-050);
+    border-radius: var(--radius-full);
+    background: var(--text-primary);
+   
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 
   .menu a {
