@@ -14,6 +14,7 @@ import { PizzasPage } from "@/pages/menu/pizzas/PizzasPage";
 import { SoftDrinksPage } from "@/pages/menu/softDrinks/SoftDrinksPage";
 import { DessertsPage } from "@/pages/menu/desserts/DessertsPage";
 import { ProductDetailsPage } from "@/pages/productDetails/ProductDetailsPage";
+import { BestSellerPage } from "@/pages/bestSeller/BestSellerPage";
 
 
 export function App() {
@@ -30,6 +31,7 @@ export function App() {
         <Route path="/menu/desserts" element={<DessertsPage />} />
         <Route path="/menu/pizzas" element={<PizzasPage />} />
         <Route path="/menu/soft-drinks" element={<SoftDrinksPage />} />
+        <Route path="/best-seller" element={<BestSellerPage />} />
         <Route path="/product/:productId" element={<ProductDetailsPage />} />
       </Route>
 

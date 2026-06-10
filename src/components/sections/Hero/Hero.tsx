@@ -35,7 +35,7 @@ export function Hero() {
 
 
      <LinkButton
-      to="#"
+      to="/best-seller"
        variant="primary">
 
          <Star size={20} />
