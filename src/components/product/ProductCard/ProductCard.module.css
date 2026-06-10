@@ -98,16 +98,48 @@ margin: var(--space-100) var(--space-400);
   min-width:0;
    }
 
+.cardActions .btn svg {
+  flex-shrink: 0;
+}
+
+.cardActions .btn:not(.fullAction):last-child {
+  margin-right: var(--space-100);
+}
+
 .cardActions .fullAction {
   flex: 1 1 auto;
   justify-content: center;
   margin: 0 var(--space-100) var(--space-200);
   padding-inline: var(--space-300);
 }
+
+@media (min-width: 425px) and (max-width: 500px) {
+  .cardMeta {
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: var(--space-050);
+    min-height: var(--space-500);
+  }
+
+  .metaSeparator {
+    align-self: flex-start;
+    height: var(--body-size);
+  }
+
+  .cardActions {
+    flex-direction: column;
+    gap: var(--space-100);
+  }
+
+  .cardActions .btn:not(.fullAction) {
+    margin: 0 var(--space-100);
+  }
+}
+   
    
    
 
-   
     /* Desktop breakpoints 1024px ****************************************/           
  @media (min-width: 1024px) {
   .productCard {
@@ -133,8 +165,6 @@ margin: var(--space-100) var(--space-400);
   
  
    }
-        
-
 
 }
     
