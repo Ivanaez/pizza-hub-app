@@ -8,6 +8,7 @@ export function SoftDrinksPage() {
     // Main page content
     <main className={styles.page}>
       <CategoryCarousel />
+      <h1 className={styles.pageTitle}>SOFT DRINKS</h1>
       <ProductSection category="soft-drinks" />
     </main>
   );

@@ -11,6 +11,7 @@ export function MenuPage() {
      <main className={styles.pageContainer}>
 
       <CategoryCarousel />
+      <h1 className={styles.pageTitle}>ALL PRODUCTS</h1>
       <ProductSection />
     </main>
   );

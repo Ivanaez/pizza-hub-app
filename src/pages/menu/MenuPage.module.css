@@ -5,3 +5,12 @@
   max-width: var(--layout-container-max);
   margin: 0 auto;
 }
+
+.pageTitle {
+  margin-block: var(--space-150);
+  color: var(--text-primary);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  text-align: center;
+}

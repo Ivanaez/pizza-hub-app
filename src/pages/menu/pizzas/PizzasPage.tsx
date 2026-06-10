@@ -11,6 +11,7 @@ export function PizzasPage() {
     // Pizza page layout
     <main className={styles.page}>
       <CategoryCarousel />
+       <h1 className={styles.pageTitle}>PIZZAS</h1>
        <ProductSection category="pizzas" />
     </main>
   );

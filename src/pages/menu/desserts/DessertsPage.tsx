@@ -11,6 +11,7 @@ export function DessertsPage() {
     <main className={styles.page}>
         {/* Navigate food categories */}
       <CategoryCarousel />
+     <h1 className={styles.pageTitle}>DESSERTS</h1>
      <ProductSection category="desserts" />
 
     </main>

@@ -12,6 +12,7 @@ export function BurgersPage() {
     <main className={styles.page}>
        {/* Food category carousel */}
       <CategoryCarousel />
+        <h1 className={styles.pageTitle}>BURGERS & SANDWICHES</h1>
         <ProductSection category="burgers" />
     </main>
   );
