@@ -39,7 +39,7 @@ export function Hero() {
        variant="primary">
 
          <ShoppingBag size={20} />
-        ORDER
+        ORDER NOW
 
         </LinkButton>
 

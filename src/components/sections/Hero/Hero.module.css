@@ -80,7 +80,7 @@
     flex-direction: column;  
     position: relative;     
     inset: auto;            
-    flex: 0 0 40%;
+    flex: 0 0 42%;
     padding: var(--space-400);
     justify-content: center;
     gap: var(--space-300);
@@ -91,7 +91,7 @@
 
                             /* Right: image-768px */
   .bannerImage{
-    flex: 0 0 60%;
+    flex: 0 0 58%;
     width: 100%;
     height: 100%;
     order: 2;           
@@ -104,9 +104,18 @@
    /* Banner text - tablet-768px */
   .bannerText > * {
   position: relative;
-  z-index: 1;
+    z-index: 1;
 
 }
+
+  .bannerButtons {
+    flex-wrap: nowrap;
+  }
+
+  .bannerButtons a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 
                     /* Decorative skewed element - 768px */
   .bannerText::after{
