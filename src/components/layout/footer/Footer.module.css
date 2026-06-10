@@ -18,8 +18,10 @@
 .footerNav {
   justify-content: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--space-300);
-  margin: var(--space-050);
+  margin: var(--space-300) var(--space-050) var(--space-050);
 }
 
                            /* Footer link */
@@ -118,6 +120,8 @@
 
       /* Footer navigation links - 1024px */
     .footerNav {
+    flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
     margin: var(--space-200);
     justify-content: center;
