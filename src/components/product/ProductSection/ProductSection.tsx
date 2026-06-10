@@ -11,6 +11,7 @@ type Product = {
   title: string;
   image: string;
   price: number;
+  weight: string | null;
 };
 
 // Section component props
@@ -29,7 +30,7 @@ export function ProductSection({ category }: ProductSectionProps) {
     async function fetchProducts() {
       let query = supabase
   .from("products")
-  .select("*");
+  .select("id, name, image_url, price, weight");
 
 if (category) {
   query = query.eq("category", category);
@@ -49,6 +50,7 @@ const { data, error } = await query;
         title: product.name,
         image: product.image_url,
          price: product.price,
+        weight: product.weight,
         }))
       );
     }
@@ -69,6 +71,7 @@ const { data, error } = await query;
           imageSrc={product.image}
            imageAlt={product.title}
           priceFrom={product.price}
+          weight={product.weight}
           hasDetails={category !== "soft-drinks"}
           
         />

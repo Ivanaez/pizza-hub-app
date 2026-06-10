@@ -11,6 +11,7 @@ type Props = {
   priceFrom: number;
   imageSrc: string;
   imageAlt: string;
+  weight: string | null;
   hasDetails?: boolean;
   
  
@@ -19,9 +20,10 @@ type Props = {
 
 
 /* Function component for the card */
-export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", hasDetails = true}: Props) {
+export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, hasDetails = true}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
+  const productWeight = weight?.trim();
 
   return (
 
@@ -38,7 +40,16 @@ export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", hasDetai
           {/*  title and price */}
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}> {title} </h3>
-        <p className={styles.cardPrice}>   {priceFrom.toFixed(2)} €  </p>
+        <div className={styles.cardMeta}>
+          <p className={styles.cardPrice}>   {priceFrom.toFixed(2)} €  </p>
+
+          {productWeight && (
+            <>
+              <span className={styles.metaSeparator} aria-hidden="true" />
+              <span className={styles.productWeight}>{productWeight}</span>
+            </>
+          )}
+        </div>
       </div>
 
        {/* card action buttons container */}

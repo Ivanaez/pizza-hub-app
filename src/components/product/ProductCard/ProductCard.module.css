@@ -48,6 +48,11 @@ margin: var(--space-100) var(--space-400);
   min-height:40px;
 }
                           
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-150);
+}
   
    .cardPrice{
      color: var(--text-primary);
@@ -57,6 +62,20 @@ margin: var(--space-100) var(--space-400);
   
 
    }
+
+.metaSeparator {
+  align-self: stretch;
+  width: var(--border-width-100);
+  background: var(--divider-color);
+  flex-shrink: 0;
+}
+
+.productWeight {
+  color: var(--text-muted);
+  font-weight: var(--label-weight);
+  font-size: var(--label-size);
+  text-align: center;
+}
 
 
     /* card actions container */

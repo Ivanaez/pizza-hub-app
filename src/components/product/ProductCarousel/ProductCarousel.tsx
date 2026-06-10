@@ -171,6 +171,7 @@ const stopDragging = () => {
     priceFrom={product.price}
     imageSrc={product.image_url}
     imageAlt={product.name}
+    weight={product.weight}
     
     
   />
