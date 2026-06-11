@@ -1,0 +1,16 @@
+.page {
+  width: 100%;
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+  box-sizing: border-box;
+  padding-inline: var(--space-200);
+}
+
+.pageTitle {
+  margin-block: var(--space-400);
+  color: var(--text-primary);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  text-align: center;
+}
