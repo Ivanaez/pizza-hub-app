@@ -43,7 +43,7 @@ export function Footer() {
 
     <p>
      <Phone size={18} strokeWidth={2.5}/>{" "}
-      <a href="tel:+442079460958">+44 20 7946 0958</a>
+      <a href="tel:+493012345678">+49 30 1234 5678</a>
     </p>
 
     <p>
@@ -54,11 +54,11 @@ export function Footer() {
     <p>
      <MapPin size={20} strokeWidth={2.5} />{" "}
       <a
-        href="https://www.google.com/maps/search/?api=1&query=221B+Baker+Street+London+NW1+6XE"
+        href="https://www.google.com/maps/search/?api=1&query=Alexanderplatz+1+10178+Berlin+Germany"
         target="_blank"
         rel="noreferrer"
       >
-        221B Baker Street, London NW1 6XE, United Kingdom
+        Alexanderplatz 1, 10178 Berlin, Germany
       </a>
     </p>
   </div>
