@@ -17,6 +17,7 @@ import { ProductDetailsPage } from "@/pages/productDetails/ProductDetailsPage";
 import { BestSellerPage } from "@/pages/bestSeller/BestSellerPage";
 import { PrivacyPolicyPage } from "@/pages/legal/PrivacyPolicyPage/PrivacyPolicyPage";
 import { TermsConditionsPage } from "@/pages/legal/TermsConditionsPage/TermsConditionsPage";
+import { AboutPage } from "@/pages/about/AboutPage";
 
 
 export function App() {
@@ -34,6 +35,7 @@ export function App() {
         <Route path="/menu/pizzas" element={<PizzasPage />} />
         <Route path="/menu/soft-drinks" element={<SoftDrinksPage />} />
         <Route path="/best-seller" element={<BestSellerPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-conditions" element={<TermsConditionsPage />} />
         <Route path="/product/:productId" element={<ProductDetailsPage />} />

@@ -186,7 +186,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
     </li>
 
     <li>
-      <Link to="#">
+      <Link to="/about">
         <CircleHelp /> ABOUT
         <ChevronRight className={styles.chevron} size={30} />
       </Link>
