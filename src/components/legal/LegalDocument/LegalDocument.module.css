@@ -1,0 +1,42 @@
+/* Legal document card */
+.legalDocument {
+  width: min(100%, 960px);
+  margin-inline: auto;
+  padding: var(--space-300);
+  box-sizing: border-box;
+
+  background: var(--color-white);
+  border: var(--border-width-100) solid var(--border-light);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* Document title */
+.documentTitle {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  text-align: center;
+}
+
+/* Document heading */
+.documentHeading {
+  margin-top: var(--space-400);
+  margin-bottom: var(--space-150);
+  color: var(--text-primary);
+  font-size: var(--title-size);
+  font-weight: var(--subheading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+/* Document text */
+.documentText {
+  margin-top: var(--space-150);
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: 1.6;
+}
