@@ -58,6 +58,16 @@ const handleUserIconClick = (e: React.MouseEvent) => {
 };
 
 
+// Close mobile menu
+const handleMenuLinkClick = (e: React.MouseEvent<HTMLElement>) => {
+  const target = e.target as HTMLElement;
+
+  if (target.closest("a")) {
+    setIsMenuOpen(false);
+  }
+};
+
+
 
 // Listen for authentication state (on mount)
 useEffect(() => {
@@ -154,7 +164,8 @@ useEffect(() => {
                           {/* Navigation Menu (sliding from left) */}
 <nav 
 ref={menuRef}
-className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
+className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}
+onClick={handleMenuLinkClick}>
   <button className={styles.menuClose} 
    aria-label="Close menu"
    
