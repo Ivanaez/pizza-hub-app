@@ -83,6 +83,10 @@
  
   
 }
+
+.menu a svg:not(.chevron) {
+  color: var(--color-primary-end);
+}
                           /* Menu list container */
 .menu ul {
   list-style: none;
