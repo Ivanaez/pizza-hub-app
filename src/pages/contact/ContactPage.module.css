@@ -76,7 +76,7 @@
 .contactText {
   display: flex;
   flex-direction: column;
-  gap: var(--space-050);
+  gap: var(--space-150);
 }
 
 .contactLabel {
@@ -110,10 +110,7 @@ a.contactValue:hover {
     font-weight: var(--heading-weight);
   }
 
-  .contactIntro {
-    font-size: var(--subheading-size);
-    font-weight: var(--subheading-weight);
-  }
+ 
 
   .contactLabel {
     font-size: var(--title-size);
