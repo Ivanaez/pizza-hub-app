@@ -183,7 +183,7 @@ onClick={handleMenuLinkClick}>
     </li>
 
     <li>
-      <Link to="#">
+      <Link to="/delivery">
         <Truck /> DELIVERY
       <ChevronRight className={styles.chevron} size={30} />
       </Link>
