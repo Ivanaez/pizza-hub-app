@@ -200,7 +200,7 @@ className={`${styles.menu} ${isMenuOpen ? styles.open : ""}`}>
     </li>
 
     <li>
-      <Link to="#">
+      <Link to="/contact">
         <Phone /> CONTACT
        <ChevronRight className={styles.chevron} size={30} />
       </Link>
