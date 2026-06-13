@@ -4,7 +4,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { useState,useRef,useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { useCart } from "@/features/cart/CartContext";
-import { User,ShoppingCart,Home,Truck, MapPin, CircleHelp, Phone, Menu, ChevronRight,X} from "lucide-react";
+import { User,ShoppingCart,Home,Truck, MessageSquare, CircleHelp, Phone, Menu, ChevronRight,X} from "lucide-react";
 
 
 
@@ -190,8 +190,8 @@ onClick={handleMenuLinkClick}>
     </li>
 
     <li>
-      <Link to="#">
-        <MapPin />  LOCATIONS
+      <Link to="/feedback">
+        <MessageSquare /> FEEDBACK
        <ChevronRight className={styles.chevron} size={30} />
       </Link>
     </li>

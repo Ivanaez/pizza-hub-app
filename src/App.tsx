@@ -19,6 +19,7 @@ import { PrivacyPolicyPage } from "@/pages/legal/PrivacyPolicyPage/PrivacyPolicy
 import { TermsConditionsPage } from "@/pages/legal/TermsConditionsPage/TermsConditionsPage";
 import { AboutPage } from "@/pages/about/AboutPage";
 import { ContactPage } from "@/pages/contact/ContactPage";
+import { FeedbackPage } from "@/pages/feedback/FeedbackPage";
 
 
 export function App() {
@@ -38,6 +39,7 @@ export function App() {
         <Route path="/best-seller" element={<BestSellerPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-conditions" element={<TermsConditionsPage />} />
         <Route path="/product/:productId" element={<ProductDetailsPage />} />
