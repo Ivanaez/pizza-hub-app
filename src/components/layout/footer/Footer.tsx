@@ -2,9 +2,6 @@ import styles from './Footer.module.css';
 import { Link } from 'react-router-dom';
 import {Phone,Clock,MapPin} from "lucide-react"
 
-import facebookLogo from "../../../assets/images/social/facebook-logo.svg";
-import instagramLogo from "../../../assets/images/social/instagram-logo.svg";
-import twitterLogo from "../../../assets/images/social/twitter-x-logo.svg";
 // Main footer component
 export function Footer() {
   return (
@@ -20,18 +17,6 @@ export function Footer() {
            <Link to="/contact">CONTACT</Link>
             <Link to="/terms-conditions">TERMS & CONDITIONS</Link>
 </nav>
-                       {/* Social media links with icons */}
-<div className={styles.footerSocial}>
-  <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-    <img src={facebookLogo} alt="Facebook" />
-  </a>
-  <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-    <img src={instagramLogo} alt="Instagram" />
-  </a>
-  <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
-    <img src={twitterLogo} alt="X" />
-  </a>
-</div>
 
                      {/* Divider line for visual separation */}
 <div className={styles.footerDivider}></div>
