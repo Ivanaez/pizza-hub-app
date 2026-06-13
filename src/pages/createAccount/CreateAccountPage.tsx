@@ -54,10 +54,10 @@ const isConfirmPasswordValid =
   confirmPasswordValue === password && confirmPasswordValue.length > 0;
 
 
-// terms checkbox state
-const [isChecked, setIsChecked] = useState(false);
-// terms error message
-const [termsError, setTermsError] = useState("");
+// Privacy checkbox state
+const [isPrivacyAccepted, setIsPrivacyAccepted] = useState(false);
+// Privacy error message
+const [privacyError, setPrivacyError] = useState("");
 
 
 
@@ -166,12 +166,12 @@ if (confirmPasswordValue.trim() === "") {
   setConfirmPasswordError("");
 }
 
-// terms must be accepted
-if (!isChecked) {
-  setTermsError("You must accept the terms");
+// Privacy must be accepted
+if (!isPrivacyAccepted) {
+  setPrivacyError("You must accept the Privacy Policy");
   hasError = true;
 } else {
-  setTermsError("");
+  setPrivacyError("");
 }
 
 // stop submit on error
@@ -501,25 +501,25 @@ setIsSubmitting(false);
   </div>
     )}
 
-  {/* Checkbox */}
-  <label className={styles.checkbox}>
+  {/* Privacy agreement */}
+  <label className={styles.privacyAgreement}>
 
-    {/* terms acceptance checkbox */}
+    {/* Privacy checkbox */}
     <input type="checkbox" 
-    checked={isChecked}// checkbox state
-    onChange={(e) => setIsChecked(e.target.checked)}// update state on change
+    checked={isPrivacyAccepted}// checkbox state
+    onChange={(e) => setIsPrivacyAccepted(e.target.checked)}// update state on change
      disabled={!!signUpSuccess} // disable input on successful signup
     />
     <span>
-  I agree to the{" "}
-  <Link to="#">Terms & Conditions</Link>
+  I have read and agree to the{" "}
+  <Link to="/privacy-policy">Privacy Policy</Link>
 </span>
   </label>
 
- {/* terms validation error text*/}
-{termsError && (
+ {/* Privacy validation error */}
+{privacyError && (
   <div className={styles.errorText}>
-    {termsError}
+    {privacyError}
   </div>
 )}
 

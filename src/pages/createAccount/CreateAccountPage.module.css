@@ -178,38 +178,37 @@ list-style:none;
 
 
 
-/* Checkbox container layout */
-.checkbox {
+/* Privacy agreement */
+.privacyAgreement {
   margin-top: var(--space-200);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-100);
-  text-align: left;
+
+  color: var(--text-secondary);
   font-size: var(--body-size);
   font-weight: var(--body-weight);
-  color: var(--text-secondary);
+  letter-spacing: var(--body-letter-spacing);
 }
-/* Checkbox input control */
-.checkbox input {
 
+/* Privacy checkbox */
+.privacyAgreement input {
+  flex-shrink: 0;
   width: var(--space-200);
   height: var(--space-200);
   margin: 0;
-  accent-color: var(--color-secondary-start);
-  flex-shrink: 0;
+  accent-color: var(--color-primary-end);
 }
-/* Checkbox text spacing */
-.checkbox span {
-  line-height: 1.4;
-}
-/* Checkbox link style */
-.checkbox a {
+
+/* Privacy link */
+.privacyAgreement a {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
-/* Checkbox link hover */
-.checkbox a:hover {
-  opacity: 0.75;
+
+/* Privacy link hover */
+.privacyAgreement a:hover {
+  color: var(--color-primary-end);
 }
 /* Submit button layout */
 .submitButton {
