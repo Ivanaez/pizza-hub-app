@@ -23,7 +23,7 @@
   box-shadow: var(--shadow-button);
 
 transition:
-  transform 0.45s ease-in-out,
+  
   box-shadow 0.45s ease-in-out,
   filter 0.45s ease-in-out;
 
@@ -32,7 +32,6 @@ transition:
 .primary:hover
    {
      filter: brightness(1.08);
-    transform: translateY(-1px);
     box-shadow: var(--shadow-button-hover);
   }
 
@@ -50,7 +49,7 @@ transition:
   font-weight: var(--button-weight);
 
  transition:
-  transform 0.45s ease-in-out,
+ 
   box-shadow 0.45s ease-in-out,
   filter 0.45s ease-in-out;
 }
@@ -60,7 +59,7 @@ transition:
 
   
 
-  transform: translateY(-1px);
+  
   box-shadow: var(--shadow-button-hover);
  filter: brightness(1.08);
 }
