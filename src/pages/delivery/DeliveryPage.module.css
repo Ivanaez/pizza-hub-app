@@ -1,4 +1,8 @@
 .page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-700);
+
   width: 100%;
   max-width: var(--layout-container-max);
   margin-inline: auto;
@@ -27,9 +31,165 @@
   text-align: center;
 }
 
+.deliveryIntro {
+  margin: var(--space-150) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+  text-align: center;
+}
+
+.cardTitle {
+  margin: 0 0 var(--space-300);
+  color: var(--text-primary);
+  font-size: var(--title-size);
+  font-weight: var(--subheading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  text-align: center;
+}
+
+.highlightsList,
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
+.highlightItem,
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-200);
+}
+
+.highlightIcon {
+  flex-shrink: 0;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  color: var(--color-primary-end);
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: var(--space-400);
+  height: var(--space-400);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-end);
+
+  color: var(--button-text-primary);
+  font-size: var(--body-size);
+  font-weight: var(--button-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.itemText,
+.textContent,
+.notesList {
+  color: var(--text-muted);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-050);
+}
+
+.itemTitle {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--subheading-size);
+  font-weight: var(--subheading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+.itemDescription {
+  margin: 0;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-150);
+}
+
+.areaContent,
+.noteItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-200);
+}
+
+.areaIcon,
+.noteIcon {
+  flex-shrink: 0;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  color: var(--color-primary-end);
+}
+
+.textContent p {
+  margin: 0;
+}
+
+.notesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.deliveryActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-150);
+}
+
+.deliveryAction {
+  width: min(90vw, 250px);
+  height: clamp(44px, 10vw, 45px);
+  gap: var(--space-050);
+}
+
+.demoNote {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--caption-size);
+  font-weight: var(--caption-weight);
+  letter-spacing: var(--caption-letter-spacing);
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .deliveryTitle {
     font-size: var(--heading-size);
     font-weight: var(--heading-weight);
+  }
+}
+
+@media (min-width: 1024px) {
+  .highlightsList,
+  .stepsList,
+  .deliveryActions {
+    flex-direction: row;
+  }
+
+  .highlightItem,
+  .stepItem {
+    flex: 1;
+  }
+
+  .deliveryActions {
+    justify-content: center;
   }
 }
