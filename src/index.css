@@ -35,16 +35,16 @@
 
 
      /*primary*/
-  --color-primary-start: #E53935;
-  --color-primary-end:  #ca0404 ;
-  --color-secondary-hover-start: #388e3c;
-  --color-secondary-hover-end:   #1b5e20;
+  --color-primary-start: #D62828;
+  --color-primary-end:  #BA181B ;
+  --color-secondary-hover-start: #2B8A4B;
+  --color-secondary-hover-end:   #1F6F3B;
 
     /*secondary*/
-  --color-primary-hover-start: #f93823;
-  --color-primary-hover-end:   #e53935;
-  --color-secondary-start: #43a047; 
-  --color-secondary-end:   #2e7d32; 
+  --color-primary-hover-start: #C1121F;
+  --color-primary-hover-end:   #A4161A;
+  --color-secondary-start: #2F914F; 
+  --color-secondary-end:   #247A43; 
 
  
 /* Border color scale (primitive) **************************************/
