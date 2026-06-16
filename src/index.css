@@ -218,10 +218,25 @@ html {
 }
               /* Background Image */
 body {
-  background: var(--surface-page-bg);
+  position: relative;
+  min-height: 100vh;
 }
 
-  
+body::before {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: url("./assets/images/backgrounds/background.jpg");
+  background-size: max(150vw, 200svh) auto;
+  background-position: top center;
+  background-repeat: repeat-y;
+}
+
+
 /* Main Content Area */
 .appMain {
   flex: 1;
