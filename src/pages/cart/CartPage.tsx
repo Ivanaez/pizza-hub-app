@@ -34,7 +34,7 @@ const isCartEmpty = cartItems.length === 0;
       <div className={styles.cartContent}>
  
         {/* Cart items section */}
-        <section>
+        <section className={styles.cartItems}>
 
            {cartItems.map((item) => (
           <article key={item.id} className={styles.cartItemWrapper}>

@@ -45,6 +45,13 @@
 
 
 
+ /* Cart items list */
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
  /* Cart items section Wrapper */
 .cartItemWrapper {
   display: flex;
