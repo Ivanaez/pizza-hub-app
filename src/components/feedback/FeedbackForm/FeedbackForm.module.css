@@ -1,0 +1,170 @@
+.feedbackForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-300);
+  margin-top: var(--space-400);
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-300);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+.formField label {
+  color: var(--text-primary);
+  font-size: var(--body-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.requiredMark {
+  color: var(--color-primary-hover-end);
+}
+
+.feedbackInput {
+  padding-inline: var(--space-150);
+  color: var(--text-primary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.feedbackTextarea {
+  width: 100%;
+  min-height: 250px;
+  padding: var(--space-150);
+  box-sizing: border-box;
+  resize: vertical;
+
+  color: var(--text-primary);
+  background: var(--color-white);
+  border: var(--border-width-100) solid var(--border-medium);
+  border-radius: var(--radius-input);
+  font: inherit;
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.feedbackTextarea:focus {
+  outline: none;
+  border: var(--border-width-100) solid var(--border-strong);
+  box-shadow: var(--shadow-input-focus);
+}
+
+.feedbackInput:disabled,
+.feedbackTextarea:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.inputError,
+.inputError:focus {
+  border-color: var(--color-primary-hover-end) !important;
+}
+
+.errorMessage {
+  margin: var(--space-050) 0 0;
+  color: var(--color-primary-hover-end);
+  font-size: var(--caption-size);
+  font-weight: var(--caption-weight);
+  letter-spacing: var(--letter-spacing-caption);
+}
+
+.privacyAgreement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-100);
+
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.privacyAgreement input {
+  flex-shrink: 0;
+  width: var(--space-200);
+  height: var(--space-200);
+  margin: 0;
+  accent-color: var(--color-primary-end);
+}
+
+.privacyAgreement input:disabled {
+  cursor: not-allowed;
+}
+
+.privacyAgreement a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.privacyAgreement a:hover {
+  color: var(--color-primary-end);
+}
+
+.submitError {
+  margin: var(--space-100) 0;
+  color: var(--color-primary-end);
+}
+
+.submitSuccess {
+  align-self: center;
+  width: min(90vw, 250px);
+  margin: var(--space-100) 0;
+  color: var(--color-secondary-hover-end);
+  text-align: center;
+}
+
+.submitButton {
+  align-self: center;
+  width: min(90vw, 250px);
+  height: clamp(44px, 10vw, 45px);
+  gap: var(--space-050);
+}
+
+.submitButton:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.backAction {
+  align-self: center;
+}
+
+.spinner {
+  width: var(--space-300);
+  height: var(--space-300);
+  border: var(--border-width-200) solid rgba(255, 255, 255, 0.4);
+  border-top: var(--border-width-200) solid var(--color-white);
+  border-radius: var(--radius-full);
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .fieldRow {
+    flex-direction: row;
+  }
+
+  .formField {
+    flex: 1;
+  }
+}
