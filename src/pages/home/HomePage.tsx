@@ -1,16 +1,19 @@
-import styles from './HomePage.module.css';
-import { Hero } from "@/components/sections/Hero/Hero";
+import styles from "./HomePage.module.css";
+import { HomeHero } from "@/components/home/HomeHero/HomeHero";
 import { ProductCarousel } from "@/components/product/ProductCarousel/ProductCarousel";
 import { UserGreeting } from "@/components/user/UserGreeting";
 
+// Home page
 export function HomePage() {
   return (
-    
-  //  Controls homepage layout and styling
     <main className={styles.page}>
-     
-      <Hero />
+      {/* Home hero */}
+      <HomeHero />
+
+      {/* Popular products */}
       <ProductCarousel />
+
+      {/* User greeting */}
       <UserGreeting />
     </main>
   );

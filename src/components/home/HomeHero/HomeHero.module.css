@@ -1,0 +1,133 @@
+/* Home hero section */
+.homeHero {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.homeHeroImage {
+  display: block;
+  width: 100%;
+  height: clamp(200px, 30vw, 280px);
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  object-position: center;
+
+  border: var(--border-width-200) solid var(--border-soft);
+  border-radius: var(--radius-banner-image);
+  box-shadow: var(--shadow-hero);
+  overflow: hidden;
+}
+
+.homeHeroContent {
+  position: absolute;
+  inset: var(--space-300);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+
+  color: var(--color-white);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+.homeHeroTitle {
+  margin: 0;
+  font-size: var(--display-size);
+  font-weight: var(--subheading-weight);
+  line-height: normal;
+}
+
+.homeHeroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-200);
+  margin-top: auto;
+}
+
+.homeHeroAction {
+  gap: var(--space-050);
+  padding: var(--space-100) var(--space-200);
+  -webkit-user-drag: none;
+}
+
+.homeHeroAction svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .homeHero {
+    display: flex;
+    align-items: stretch;
+    height: clamp(250px, 22vw, 260px);
+
+    background: var(--surface-page-bg);
+    border: none;
+    border-radius: var(--radius-400);
+    box-shadow: var(--shadow-hero);
+    overflow: hidden;
+  }
+
+  .homeHeroContent {
+    position: relative;
+    inset: auto;
+    order: 1;
+    flex: 0 0 42%;
+    justify-content: center;
+    gap: var(--space-300);
+    padding: var(--space-400);
+
+    color: var(--text-primary);
+    background: var(--surface-page-bg);
+  }
+
+  .homeHeroImage {
+    order: 2;
+    flex: 0 0 58%;
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+    border-radius: var(--radius-0);
+  }
+
+  .homeHeroTitle,
+  .homeHeroActions {
+    position: relative;
+    z-index: 1;
+  }
+
+  .homeHeroActions {
+    flex-wrap: nowrap;
+  }
+
+  .homeHeroAction {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .homeHeroContent::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    z-index: 0;
+
+    width: 80px;
+    height: 100%;
+
+    background: var(--surface-page-bg);
+    pointer-events: none;
+    transform: skewX(-12deg);
+    transform-origin: left top;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeHeroActions {
+    gap: var(--space-500);
+  }
+
+  .homeHeroAction {
+    padding: var(--space-100) var(--space-400);
+  }
+}
