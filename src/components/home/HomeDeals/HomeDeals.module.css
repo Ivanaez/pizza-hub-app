@@ -16,6 +16,7 @@
 }
 
 .homeDealsCard {
+  position: relative;
   flex: 0 0 auto;
   min-width: 0;
   aspect-ratio: 1448 / 1086;
@@ -43,6 +44,43 @@
   object-fit: contain;
 }
 
+.homeDealsContent {
+  position: absolute;
+  left: var(--space-050);
+  bottom: var(--space-150);
+  gap: var(--space-100);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: min(41%, 330px);
+}
+
+.homeDealsDescription {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  
+}
+
+.homeDealsAction {
+  padding: var(--space-100) var(--space-200);
+
+}
+
+
+@media (min-width: 375px) {
+.homeDealsContent {
+ 
+  left: var(--space-100);
+  bottom: var(--space-300);
+  gap: var(--space-300);
+    width: min(38%, 330px);
+}
+}
+
+
 @media (min-width: 768px) {
   .homeDeals {
    max-width: clamp(800px, 78vw, 1024px);
@@ -58,6 +96,22 @@
 
   .homeDealsCard {
     flex: 1 1 0;
+    
+  }
+
+  .homeDealsContent {
+     width: min(38%, 320px);
+     line-height: 1.1;
+      left: var(--space-200);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .homeDealsContent {
+    width: min(36%, 320px);
+     line-height: 1.30;
+      gap: var(--space-400);
     
   }
 }
