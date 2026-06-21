@@ -1,0 +1,63 @@
+/* Home deals section */
+.homeDeals {
+  width: 100%;
+  margin: 0;
+  padding-inline: var(--space-200);
+  margin-bottom: var(--space-700);
+
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.homeDealsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-600);
+}
+
+.homeDealsCard {
+  flex: 0 0 auto;
+  min-width: 0;
+  aspect-ratio: 1448 / 1086;
+
+  display: flex;
+  overflow: hidden;
+
+  
+  border: 0;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: opacity 200ms ease;
+}
+
+.homeDealsCard:hover {
+  opacity: 0.90;
+}
+
+
+
+.homeDealsImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .homeDeals {
+   max-width: clamp(800px, 78vw, 1024px);
+    margin-inline: auto;
+  }
+
+  .homeDealsList {
+    flex-direction: row;
+    flex-wrap: nowrap;
+   
+    
+  }
+
+  .homeDealsCard {
+    flex: 1 1 0;
+    
+  }
+}
