@@ -65,8 +65,24 @@
 }
 
 .homeDealsAction {
+  gap: var(--space-050);
   padding: var(--space-100) var(--space-200);
 
+}
+
+.homeDealsActionLabelDesktop,
+.homeDealsActionIcon {
+  display: none;
+}
+
+.homeDealsActionLabelMobile,
+.homeDealsActionIconMobile {
+  display: inline-flex;
+}
+
+.homeDealsActionIcon,
+.homeDealsActionIconMobile {
+  flex-shrink: 0;
 }
 
 
@@ -103,6 +119,19 @@
      width: min(38%, 320px);
      line-height: 1.1;
       left: var(--space-200);
+  }
+
+  .homeDealsActionIcon {
+    display: inline-flex;
+  }
+
+  .homeDealsActionLabelDesktop {
+    display: inline-flex;
+  }
+
+  .homeDealsActionLabelMobile,
+  .homeDealsActionIconMobile {
+    display: none;
   }
 }
 
