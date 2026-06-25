@@ -34,7 +34,7 @@ export function HomeDeals() {
             </p>
 
             <LinkButton
-              to="#"
+              to="/combo-deals"
               variant="primary"
               className={styles.homeDealsAction}
             >
@@ -81,7 +81,7 @@ export function HomeDeals() {
             </p>
 
             <LinkButton
-              to="#"
+              to="/promotions"
               variant="primary"
               className={styles.homeDealsAction}
             >
