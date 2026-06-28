@@ -8,7 +8,7 @@
 }
 
 .pageTitle {
-  margin-block: var(--space-400);
+  margin-block: var(--space-150);
   color: var(--text-primary);
   font-size: var(--heading-size);
   font-weight: var(--heading-weight);

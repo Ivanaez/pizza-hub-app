@@ -5,7 +5,7 @@ import { useCart } from "@/features/cart/CartContext";
 import styles from "./ProductHero.module.css";
 
 type ProductHeroProps = {
-  id: number;
+  cartItemId: string;
   name: string;
   price: number;
   imageUrl: string;
@@ -13,7 +13,7 @@ type ProductHeroProps = {
 };
 
 /* Product hero section */
-export function ProductHero({ id, name, price, imageUrl, weight }: ProductHeroProps) {
+export function ProductHero({ cartItemId, name, price, imageUrl, weight }: ProductHeroProps) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
@@ -31,7 +31,7 @@ export function ProductHero({ id, name, price, imageUrl, weight }: ProductHeroPr
   const handleAddToCart = () => {
     Array.from({ length: quantity }).forEach(() => {
       addToCart({
-        id: String(id),
+        id: cartItemId,
         title: name,
         price,
         image: imageUrl,

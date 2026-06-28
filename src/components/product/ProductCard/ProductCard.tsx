@@ -14,6 +14,8 @@ type Props = {
   imageSrc: string;
   imageAlt: string;
   weight: string | null;
+  cartItemId?: string;
+  detailsPath?: string;
   hasDetails?: boolean;
   variant?: ProductCardVariant;
   
@@ -23,7 +25,7 @@ type Props = {
 
 
 /* Function component for the card */
-export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, hasDetails = true, variant = "default"}: Props) {
+export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, cartItemId = `product-${id}`, detailsPath = `/product/${id}`, hasDetails = true, variant = "default"}: Props) {
   
   const { addToCart } = useCart(); // Get addToCart function from cart context
   const productWeight = weight?.trim();
@@ -72,7 +74,7 @@ export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, 
   className={`${styles.btn} ${hasDetails ? "" : styles.fullAction} ${linkButton.linkButton} ${linkButton.primary}`}
   onClick={() =>
     addToCart({
-      id: title,
+      id: cartItemId,
       title: title,
       price: priceFrom,
       image: imageSrc,
@@ -86,7 +88,7 @@ export function ProductCard({id,title,priceFrom,imageSrc,imageAlt = "", weight, 
 </button>
                        {/* Link Button Details */}
         {hasDetails && (
-        <Link to={`/product/${id}`} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
+        <Link to={detailsPath} className={`${styles.btn} ${linkButton.linkButton} ${linkButton.secondary} `}>
         <Eye size={20} strokeWidth={3} />
           DETAILS
         </Link>

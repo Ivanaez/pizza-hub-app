@@ -11,6 +11,7 @@ type ProductDetailsProduct = {
   allergens: string[] | null;
   weight: string | null;
   image_url: string;
+  cartItemId: string;
 };
 
 type ProductDetailsProps = {
@@ -33,7 +34,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
     <div className={styles.grid}>
         <div className={styles.heroColumn}>
           <ProductHero
-            id={product.id}
+            cartItemId={product.cartItemId}
             name={product.name}
             price={product.price}
             imageUrl={product.image_url}

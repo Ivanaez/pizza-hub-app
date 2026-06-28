@@ -45,6 +45,7 @@ export function App() {
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/delivery" element={<DeliveryPage />} />
         <Route path="/combo-deals" element={<ComboDealsPage />} />
+        <Route path="/combo-deals/:productId" element={<ProductDetailsPage productSource="comboDeals" />} />
         <Route path="/promotions" element={<PromotionsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-conditions" element={<TermsConditionsPage />} />

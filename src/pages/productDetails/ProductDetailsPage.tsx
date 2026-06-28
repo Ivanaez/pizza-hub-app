@@ -13,12 +13,30 @@ type Product = {
   allergens: string[] | null;
   weight: string | null;
   image_url: string;
-  category: string;
-  is_popular: boolean;
+  cartItemId: string;
+};
+
+type ProductData = {
+  id: number;
+  name: string;
+  title: string;
+  price: number;
+  description: string | null;
+  allergens: string[] | null;
+  weight: string | null;
+  image_url: string;
+};
+
+type ProductSource = "products" | "comboDeals";
+
+type ProductDetailsPageProps = {
+  productSource?: ProductSource;
 };
 
 /* Product details page shell */
-export function ProductDetailsPage() {
+export function ProductDetailsPage({
+  productSource = "products",
+}: ProductDetailsPageProps) {
   const { productId } = useParams();
 
   // Product data state
@@ -29,6 +47,7 @@ export function ProductDetailsPage() {
   useEffect(() => {
     async function fetchProduct() {
       const productIdNumber = Number(productId);
+      const isComboDeals = productSource === "comboDeals";
 
       if (!productId || !Number.isFinite(productIdNumber)) {
         setProduct(null);
@@ -36,11 +55,28 @@ export function ProductDetailsPage() {
         return;
       }
 
-      const { data, error } = await supabase
-        .from("products")
-        .select("id, name, price, description, allergens, weight, image_url, category, is_popular")
-        .eq("id", productIdNumber)
-        .maybeSingle();
+      let data: ProductData | null;
+      let error: unknown;
+
+      if (isComboDeals) {
+        const response = await supabase
+          .from("combo_deals")
+          .select("id, title, price, description, allergens, weight, image_url")
+          .eq("id", productIdNumber)
+          .maybeSingle();
+
+        data = response.data as ProductData | null;
+        error = response.error;
+      } else {
+        const response = await supabase
+          .from("products")
+          .select("id, name, price, description, allergens, weight, image_url, category, is_popular")
+          .eq("id", productIdNumber)
+          .maybeSingle();
+
+        data = response.data as ProductData | null;
+        error = response.error;
+      }
 
       if (error) {
         console.error(error);
@@ -49,12 +85,21 @@ export function ProductDetailsPage() {
         return;
       }
 
-      setProduct(data);
+      setProduct(data ? {
+        id: data.id,
+        name: isComboDeals ? data.title : data.name,
+        price: data.price,
+        description: data.description,
+        allergens: data.allergens,
+        weight: data.weight,
+        image_url: data.image_url,
+        cartItemId: `${isComboDeals ? "combo" : "product"}-${data.id}`,
+      } : null);
       setIsLoading(false);
     }
 
     fetchProduct();
-  }, [productId]);
+  }, [productId, productSource]);
 
   return (
     <main className={styles.page}>

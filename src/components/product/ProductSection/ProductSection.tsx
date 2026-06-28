@@ -12,15 +12,32 @@ type Product = {
   image: string;
   price: number;
   weight: string | null;
+  cartItemId: string;
+  detailsPath?: string;
 };
+
+type ProductData = {
+  id: number;
+  name: string;
+  title: string;
+  image_url: string;
+  price: number;
+  weight: string | null;
+};
+
+type ProductSource = "products" | "comboDeals";
 
 // Section component props
 type ProductSectionProps = {
   category?: string;
+  productSource?: ProductSource;
 };
 
 // Product section component
-export function ProductSection({ category }: ProductSectionProps) {
+export function ProductSection({
+  category,
+  productSource = "products",
+}: ProductSectionProps) {
   // Products state array
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -28,17 +45,33 @@ export function ProductSection({ category }: ProductSectionProps) {
   useEffect(() => {
     // Fetch category products
     async function fetchProducts() {
-      let query = supabase
-  .from("products")
-  .select("id, name, image_url, price, weight, is_best_seller");
+      const isComboDeals = productSource === "comboDeals";
+      let data: ProductData[] | null;
+      let error: unknown;
 
-if (category === "best-seller") {
-  query = query.eq("is_best_seller", true);
-} else if (category) {
-  query = query.eq("category", category);
-}
+      if (isComboDeals) {
+        const response = await supabase
+          .from("combo_deals")
+          .select("id, title, image_url, price, weight");
 
-const { data, error } = await query;
+        data = response.data as ProductData[] | null;
+        error = response.error;
+      } else {
+        let query = supabase
+          .from("products")
+          .select("id, name, image_url, price, weight, is_best_seller");
+
+        if (category === "best-seller") {
+          query = query.eq("is_best_seller", true);
+        } else if (category) {
+          query = query.eq("category", category);
+        }
+
+        const response = await query;
+
+        data = response.data as ProductData[] | null;
+        error = response.error;
+      }
 
       // Handle fetch errors
       if (error) {
@@ -49,16 +82,18 @@ const { data, error } = await query;
       // Update products state
       setProducts((data ?? []).map((product) => ({
         id: product.id,
-        title: product.name,
+        title: isComboDeals ? product.title : product.name,
         image: product.image_url,
-         price: product.price,
+        price: product.price,
         weight: product.weight,
-        }))
+        cartItemId: `${isComboDeals ? "combo" : "product"}-${product.id}`,
+        detailsPath: isComboDeals ? `/combo-deals/${product.id}` : undefined,
+      }))
       );
     }
 
     fetchProducts();
-  }, [category]);
+  }, [category, productSource]);
 
   // Render products section
   return (
@@ -74,6 +109,8 @@ const { data, error } = await query;
            imageAlt={product.title}
           priceFrom={product.price}
           weight={product.weight}
+          cartItemId={product.cartItemId}
+          detailsPath={product.detailsPath}
           hasDetails={category !== "soft-drinks"}
           variant={category === "best-seller" ? "best-seller" : "default"}
           
