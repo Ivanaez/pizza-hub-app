@@ -164,7 +164,7 @@ export function DeliveryPage() {
 
       {/* Demo note */}
       <p className={styles.demoNote}>
-        PizzaHub is a portfolio demo application. Delivery details are part of the simulated ordering experience.
+        Delivery details entered in PizzaHub are used to complete the checkout flow within the application.
       </p>
     </main>
   );
