@@ -1,7 +1,7 @@
   /* Popular wrapper container */
  .popularWrapper {
   width:100%;
-  margin: var(--space-100) 0 var(--space-300) 0;
+  margin: var(--space-100) 0 0 0;
   padding: var(--space-100) 0 var(--space-200) var(--space-200);
   
   

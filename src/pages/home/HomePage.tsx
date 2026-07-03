@@ -1,5 +1,5 @@
 import styles from "./HomePage.module.css";
-import { HomeHero } from "@/components/home/HomeHero/HomeHero";
+import { HomeActions } from "@/components/home/HomeActions/HomeActions";
 import { HomeDeals } from "@/components/home/HomeDeals/HomeDeals";
 import { ProductCarousel } from "@/components/product/ProductCarousel/ProductCarousel";
 import { UserGreeting } from "@/components/user/UserGreeting";
@@ -8,13 +8,12 @@ import { UserGreeting } from "@/components/user/UserGreeting";
 export function HomePage() {
   return (
     <main className={styles.page}>
-      {/* Home hero */}
-      <HomeHero />
-
-    
+      
       {/* Popular products */}
       <ProductCarousel />
 
+      {/* Home actions */}
+      <HomeActions />
 
      {/* Home deals */}
       <HomeDeals />

@@ -1,0 +1,29 @@
+/* Home actions section */
+.homeActions {
+  width: 100%;
+  margin-block: var(--space-100) var(--space-300);
+  padding-inline: var(--space-100);
+}
+
+.homeActionsList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-100);
+}
+
+.homeAction {
+  inline-size: min(100%, calc(var(--space-700) * 3));
+  block-size: var(--space-500);
+  min-width: 0;
+  max-width: 100%;
+  gap: var(--space-050);
+  padding: var(--space-100) var(--space-200);
+  text-align: center;
+  -webkit-user-drag: none;
+}
+
+.homeAction svg {
+  flex-shrink: 0;
+}
